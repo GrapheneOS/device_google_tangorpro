@@ -32,6 +32,7 @@
         <intf id="BE_HW_RX_INTF_3" name="I2S_RX_0" min_bit="24" min_chan="2" min_rate="48000" block_id="18"/>
         <!--intf id="BE_HW_RX_INTF_2" name="USB_RX" min_bit="24" min_chan="2" min_rate="48000" ctrl_config="USB device" ctrl_rate="Sample Rate" ctrl_bit="Bit Width" ctrl_chan="Channel"/-->
         <!--intf id="BE_HW_RX_INTF_3" name="BT_RX"/-->
+        <intf id="BE_HW_RX_INTF_5" name="USB_DOCK_RX" min_bit="24" min_chan="1" min_rate="48000" block_id="20"/>
         <intf id="BE_VIRTUAL_VOICE_RX_TUNING" block_id="19"/>
         <intf id="BE_VIRTUAL_VOICE_TX_TUNING" block_id="19"/>
         <intf id="BE_HW_TX_INTF_0" block_id="134,128"/>
@@ -49,6 +50,10 @@
         </product>
         <product name="Condor_Sprint2">
             <id value="18d1:5036"/>
+        </product>
+        <product name="Korlan">
+            <id value="18d1:4e26"/>
+            <id value="18d1:9480"/>
         </product>
     </product_lists>
 
@@ -176,8 +181,8 @@
         <usecase id="UC_RAW_PLAYBACK" dev1="23" dyn_path="true" dsp_vol="false" mmap="true" period="64" period_num="32"/>
         <!-- for output with AUDIO_OUTPUT_FLAG_PRIMARY|AUDIO_OUTPUT_FLAG_FAST, 4 * 10ms buffer -->
         <usecase id="UC_LOW_LATENCY_PLAYBACK" dev1="1" dyn_path="true" dsp_vol="false" mmap="false" period="10" period_num="4"/>
-        <!-- for output with AUDIO_OUTPUT_FLAG_MMAP_NOIRQ, 80 periods * 48 frames/period(=1ms w/ 48k sample rate) * 4 bytes/frame = 15360 bytes -->
-        <usecase id="UC_MMAP_PLAYBACK" dev1="0" dyn_path="true" dsp_vol="false" mmap="true" period="1" period_num="80"/>
+        <!-- for output with AUDIO_OUTPUT_FLAG_MMAP_NOIRQ, 40 periods * 48 frames/period(=1ms w/ 48k sample rate) * 2ch * 4(float)= 15360 bytes -->
+        <usecase id="UC_MMAP_PLAYBACK" dev1="0" dyn_path="true" dsp_vol="false" mmap="true" period="1" period_num="40"/>
         <!-- for output with AUDIO_OUTPUT_FLAG_DEEP_BUFFER, 4 * 20ms buffer -->
         <usecase id="UC_DEEP_BUFFER_PLAYBACK" dev1="5" dyn_path="true" dsp_vol="false" mmap="false" period="20" period_num="4"/>
         <!-- dev1: voice-call downlink dev2: voice-clal uplink -->
@@ -192,7 +197,7 @@
         <usecase id="UC_AUDIO_RECORD" dev1="8" dyn_path="true" dsp_vol="false" mmap="false" period="20" period_num="4"/>
         <usecase id="UC_HOSTLESS_UL" dev1="15"/>
         <!-- for VOIP input, 4 * 10ms buffer -->
-        <usecase id="UC_VOIP_RECORD" dev1="17" dyn_path="true" dsp_vol="false" mmap="false" period="10" period_num="4"/>
+        <usecase id="UC_VOIP_RECORD" dev1="17" dyn_path="true" dsp_vol="false" mmap="false" period="20" period_num="2"/>
         <!-- for input wit AUDIO_INPUT_FLAG_FAST  480 periods * 1ms buffer, 16-bit, 2ch, buffer size 92160 bytes-->
         <usecase id="UC_LOW_LATENCY_AUDIO_RECORD" dev1="10" dyn_path="true" dsp_vol="false" mmap="true" period="1" period_num="480"/>
         <!-- for input wit AUDIO_INPUT_FLAG_MMAP_NOIRQ 240 periods * 1ms buffer, 32-bit,2 ch, buffer size 92160 bytes -->
@@ -281,9 +286,9 @@
     </device_handle>
 
     <external_module>
-        <module libname="audio_spk_35l41.so"/>
-        <!--module libname="audio_waves_aoc.so" argu="Sink=SPK:1"/-->
-        <!--module libname="audio_fortemedia_aoc.so"/-->
+        <module libname="audio_waves_aoc.so" argu="Sink=SPK:1,USB_DOCK:4,USB_HP:4"/>
+        <module libname="audio_spk_35l41.so" argu="SpeakerNum=4"/>
+        <module libname="audio_fortemedia_aoc.so"/>
         <module libname="liboffloadeffect.so"/>
         <module libname="audio_amcs_ext.so"/>
         <module libname="audio_bluenote_aoc.so"/>
