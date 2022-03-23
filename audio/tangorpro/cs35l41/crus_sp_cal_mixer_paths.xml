@@ -31,10 +31,11 @@
     <ctl name="DSP1 Preload Switch" value="0" />
     <ctl name="R Main AMP Enable Switch" value="0" />
     <ctl name="R DSP1 Preload Switch" value="0" />
+    <ctl name="L2 Main AMP Enable Switch" value="0" />
+    <ctl name="L2 DSP1 Preload Switch" value="0" />
+    <ctl name="R2 Main AMP Enable Switch" value="0" />
+    <ctl name="R2 DSP1 Preload Switch" value="0" />
     <!-- Clock-trigger Stage -->
-    <ctl name="SINK_IDS" id="0" value="-1"/>
-    <ctl name="SINK_IDS" id="1" value="-1"/>
-    <ctl name="PCM Playback Volume" value="10"/>
     <ctl name="TDM_0_RX Mixer EP6" value="0"/>
 
     <!-- Preparation Stage -->
@@ -43,16 +44,29 @@
         <ctl name="VBSTMON Output Switch" value="1" />
         <ctl name="DSP Booted" value="0" />
         <ctl name="DSP1 Preload Switch" value="0" />
+
         <ctl name="R DRE DRE Switch" value="1" />
         <ctl name="R VBSTMON Output Switch" value="1" />
         <ctl name="R DSP Booted" value="0" />
         <ctl name="R DSP1 Preload Switch" value="0" />
+
+        <ctl name="L2 DRE DRE Switch" value="1" />
+        <ctl name="L2 VBSTMON Output Switch" value="1" />
+        <ctl name="L2 DSP Booted" value="0" />
+        <ctl name="L2 DSP1 Preload Switch" value="0" />
+
+        <ctl name="R2 DRE DRE Switch" value="1" />
+        <ctl name="R2 VBSTMON Output Switch" value="1" />
+        <ctl name="R2 DSP Booted" value="0" />
+        <ctl name="R2 DSP1 Preload Switch" value="0" />
     </path>
 
     <!-- Preload Stage -->
     <path name="crus-fw-preload">
         <ctl name="DSP1 Preload Switch" value="1" />
         <ctl name="R DSP1 Preload Switch" value="1" />
+        <ctl name="L2 DSP1 Preload Switch" value="1" />
+        <ctl name="R2 DSP1 Preload Switch" value="1" />
     </path>
 
     <!-- Firmware-switching Stage -->
@@ -61,10 +75,21 @@
         <ctl name="Digital PCM Volume" value="817" />
         <ctl name="PCM Source" value="DSP" />
         <ctl name="DSP1 Firmware" value="Calibration" />
+
         <ctl name="R AMP PCM Gain" value="17" />
         <ctl name="R Digital PCM Volume" value="817" />
         <ctl name="R PCM Source" value="DSP" />
         <ctl name="R DSP1 Firmware" value="Calibration" />
+
+        <ctl name="L2 AMP PCM Gain" value="17" />
+        <ctl name="L2 Digital PCM Volume" value="817" />
+        <ctl name="L2 PCM Source" value="DSP" />
+        <ctl name="L2 DSP1 Firmware" value="Calibration" />
+
+        <ctl name="R2 AMP PCM Gain" value="17" />
+        <ctl name="R2 Digital PCM Volume" value="817" />
+        <ctl name="R2 PCM Source" value="DSP" />
+        <ctl name="R2 DSP1 Firmware" value="Calibration" />
     </path>
 
     <path name="crus-switch-fw-Diagnostic">
@@ -72,10 +97,21 @@
         <ctl name="Digital PCM Volume" value="817" />
         <ctl name="PCM Source" value="DSP" />
         <ctl name="DSP1 Firmware" value="Diagnostic" />
+
         <ctl name="R AMP PCM Gain" value="17" />
         <ctl name="R Digital PCM Volume" value="817" />
         <ctl name="R PCM Source" value="DSP" />
         <ctl name="R DSP1 Firmware" value="Diagnostic" />
+
+        <ctl name="L2 AMP PCM Gain" value="17" />
+        <ctl name="L2 Digital PCM Volume" value="817" />
+        <ctl name="L2 PCM Source" value="DSP" />
+        <ctl name="L2 DSP1 Firmware" value="Diagnostic" />
+
+        <ctl name="R2 AMP PCM Gain" value="17" />
+        <ctl name="R2 Digital PCM Volume" value="817" />
+        <ctl name="R2 PCM Source" value="DSP" />
+        <ctl name="R2 DSP1 Firmware" value="Diagnostic" />
     </path>
 
     <path name="crus-switch-fw-Protection">
@@ -83,6 +119,10 @@
         <ctl name="DSP1 Firmware" value="Protection" />
         <ctl name="R PCM Source" value="DSP" />
         <ctl name="R DSP1 Firmware" value="Protection" />
+        <ctl name="L2 PCM Source" value="DSP" />
+        <ctl name="L2 DSP1 Firmware" value="Protection" />
+        <ctl name="R2 PCM Source" value="DSP" />
+        <ctl name="R2 DSP1 Firmware" value="Protection" />
     </path>
 
     <!-- DSP-initialization Stage -->
@@ -94,9 +134,19 @@
         <ctl name="R Main AMP Enable Switch" value="1" />
     </path>
 
+    <path name="crus-dsp-pre-calibration-amp3">
+        <ctl name="L2 Main AMP Enable Switch" value="1" />
+    </path>
+
+    <path name="crus-dsp-pre-calibration-amp4">
+        <ctl name="R2 Main AMP Enable Switch" value="1" />
+    </path>
+
     <path name="crus-dsp-pre-calibration">
         <path name="crus-dsp-pre-calibration-amp1" />
         <path name="crus-dsp-pre-calibration-amp2" />
+        <path name="crus-dsp-pre-calibration-amp3" />
+        <path name="crus-dsp-pre-calibration-amp4" />
     </path>
 
     <path name="crus-dsp-pre-diagnostic-amp1">
@@ -107,21 +157,30 @@
         <ctl name="R Main AMP Enable Switch" value="1" />
     </path>
 
+    <path name="crus-dsp-pre-diagnostic-amp3">
+        <ctl name="L2 Main AMP Enable Switch" value="1" />
+    </path>
+
+    <path name="crus-dsp-pre-diagnostic-amp4">
+        <ctl name="R2 Main AMP Enable Switch" value="1" />
+    </path>
+
     <path name="crus-dsp-pre-diagnostic">
         <path name="crus-dsp-pre-diagnostic-amp1" />
         <path name="crus-dsp-pre-diagnostic-amp2" />
+        <path name="crus-dsp-pre-diagnostic-amp3" />
+        <path name="crus-dsp-pre-diagnostic-amp4" />
     </path>
 
     <path name="crus-dsp-pre-protection">
         <ctl name="Main AMP Enable Switch" value="1" />
         <ctl name="R Main AMP Enable Switch" value="1" />
+        <ctl name="L2 Main AMP Enable Switch" value="1" />
+        <ctl name="R2 Main AMP Enable Switch" value="1" />
     </path>
 
     <!-- Clock-trigger Stage -->
     <path name="platform-controls">
-        <ctl name="PCM Playback Volume" value="1000"/>
-        <ctl name="SINK_IDS" id="0" value="0"/>
-        <ctl name="SINK_IDS" id="1" value="-1"/>
         <ctl name="TDM_0_RX Mixer EP6" value="1"/>
     </path>
 
@@ -129,6 +188,8 @@
     <path name="crus-dsp-post-loading-fw">
         <ctl name="Main AMP Enable Switch" value="0" />
         <ctl name="R Main AMP Enable Switch" value="0" />
+        <ctl name="L2 Main AMP Enable Switch" value="0" />
+        <ctl name="R2 Main AMP Enable Switch" value="0" />
     </path>
 
     <!-- Value & Information Fetch Stage -->
@@ -143,22 +204,40 @@
     <path name="cs35l41-values">
         <ctl name="DRE DRE Switch" />
         <ctl name="R DRE DRE Switch" />
+        <ctl name="L2 DRE DRE Switch" />
+        <ctl name="R2 DRE DRE Switch" />
         <ctl name="VBSTMON Output Switch" />
         <ctl name="R VBSTMON Output Switch" />
+        <ctl name="L2 VBSTMON Output Switch" />
+        <ctl name="R2 VBSTMON Output Switch" />
         <ctl name="AMP PCM Gain" />
         <ctl name="R AMP PCM Gain" />
+        <ctl name="L2 AMP PCM Gain" />
+        <ctl name="R2 AMP PCM Gain" />
         <ctl name="Digital PCM Volume" />
         <ctl name="R Digital PCM Volume" />
+        <ctl name="L2 Digital PCM Volume" />
+        <ctl name="R2 Digital PCM Volume" />
         <ctl name="PCM Source" />
         <ctl name="R PCM Source" />
+        <ctl name="L2 PCM Source" />
+        <ctl name="R2 PCM Source" />
         <ctl name="DSP Booted" />
         <ctl name="R DSP Booted" />
+        <ctl name="L2 DSP Booted" />
+        <ctl name="R2 DSP Booted" />
         <ctl name="Main AMP Enable Switch" />
         <ctl name="R Main AMP Enable Switch" />
+        <ctl name="L2 Main AMP Enable Switch" />
+        <ctl name="R2 Main AMP Enable Switch" />
         <ctl name="DSP1 Preload Switch" />
         <ctl name="R DSP1 Preload Switch" />
+        <ctl name="L2 DSP1 Preload Switch" />
+        <ctl name="R2 DSP1 Preload Switch" />
         <ctl name="DSP1 Firmware" />
         <ctl name="R DSP1 Firmware" />
+        <ctl name="L2 DSP1 Firmware" />
+        <ctl name="R2 DSP1 Firmware" />
     </path>
 
 
@@ -197,6 +276,30 @@
 
         <!-- Only for debug print -->
         <ctl name="R DSP1 Calibration cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp3-calibration-values">
+        <ctl name="L2 DSP1 Calibration cd CAL_R" />
+        <ctl name="L2 DSP1 Calibration cd CAL_STATUS" />
+        <ctl name="L2 DSP1 Calibration cd CAL_CHECKSUM" />
+        <ctl name="L2 DSP1 Calibration cd CAL_AMBIENT" />
+        <ctl name="L2 AMP PCM Gain" />
+        <ctl name="L2 Digital PCM Volume" />
+
+        <!-- Only for debug print -->
+        <ctl name="L2 DSP1 Calibration cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp4-calibration-values">
+        <ctl name="R2 DSP1 Calibration cd CAL_R" />
+        <ctl name="R2 DSP1 Calibration cd CAL_STATUS" />
+        <ctl name="R2 DSP1 Calibration cd CAL_CHECKSUM" />
+        <ctl name="R2 DSP1 Calibration cd CAL_AMBIENT" />
+        <ctl name="R2 AMP PCM Gain" />
+        <ctl name="R2 Digital PCM Volume" />
+
+        <!-- Only for debug print -->
+        <ctl name="R2 DSP1 Calibration cd CAL_SET_STATUS" />
     </path>
 
     <!--
@@ -241,6 +344,40 @@
         <ctl name="R DSP1 Diagnostic cd CAL_SET_STATUS" />
     </path>
 
+    <path name="cs35l41-dsp-amp3-diagnostic-values">
+        <!-- struct calibration_data START -->
+        <ctl name="L2 DSP1 Diagnostic cd CAL_R" />
+        <ctl name="L2 DSP1 Diagnostic cd CAL_STATUS" />
+        <ctl name="L2 DSP1 Diagnostic cd CAL_CHECKSUM" />
+        <ctl name="L2 DSP1 Diagnostic cd CAL_AMBIENT" />
+        <ctl name="L2 AMP PCM Gain" />
+        <ctl name="L2 Digital PCM Volume" />
+        <!-- struct calibration_data END -->
+        <ctl name="L2 DSP1 Diagnostic cd DIAG_Z_LOW_DIFF" />
+        <ctl name="L2 DSP1 Diagnostic cd DIAG_F0" />
+        <ctl name="L2 DSP1 Diagnostic cd DIAG_F0_STATUS" />
+
+        <!-- Only for debug print -->
+        <ctl name="L2 DSP1 Diagnostic cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp4-diagnostic-values">
+        <!-- struct calibration_data START -->
+        <ctl name="R2 DSP1 Diagnostic cd CAL_R" />
+        <ctl name="R2 DSP1 Diagnostic cd CAL_STATUS" />
+        <ctl name="R2 DSP1 Diagnostic cd CAL_CHECKSUM" />
+        <ctl name="R2 DSP1 Diagnostic cd CAL_AMBIENT" />
+        <ctl name="R2 AMP PCM Gain" />
+        <ctl name="R2 Digital PCM Volume" />
+        <!-- struct calibration_data END -->
+        <ctl name="R2 DSP1 Diagnostic cd DIAG_Z_LOW_DIFF" />
+        <ctl name="R2 DSP1 Diagnostic cd DIAG_F0" />
+        <ctl name="R2 DSP1 Diagnostic cd DIAG_F0_STATUS" />
+
+        <!-- Only for debug print -->
+        <ctl name="R2 DSP1 Diagnostic cd CAL_SET_STATUS" />
+    </path>
+
     <path name="cs35l41-dsp-amp1-protection-values">
         <!-- struct calibration_data START -->
         <ctl name="DSP1 Protection cd CAL_R" />
@@ -271,6 +408,36 @@
         <!-- struct calibration_data END -->
     </path>
 
+    <path name="cs35l41-dsp-amp3-protection-values">
+        <!-- struct calibration_data START -->
+        <ctl name="L2 DSP1 Protection cd CAL_R" />
+        <ctl name="L2 DSP1 Protection cd CAL_STATUS" />
+        <ctl name="L2 DSP1 Protection cd CAL_CHECKSUM" />
+        <ctl name="L2 DSP1 Protection cd CAL_AMBIENT" />
+
+        <!-- These controls are unrelated so we can simply
+             skip them
+        <ctl name="L2 AMP PCM Gain" />
+        <ctl name="L2 Digital PCM Volume" />
+        -->
+        <!-- struct calibration_data END -->
+    </path>
+
+    <path name="cs35l41-dsp-amp4-protection-values">
+        <!-- struct calibration_data START -->
+        <ctl name="R2 DSP1 Protection cd CAL_R" />
+        <ctl name="R2 DSP1 Protection cd CAL_STATUS" />
+        <ctl name="R2 DSP1 Protection cd CAL_CHECKSUM" />
+        <ctl name="R2 DSP1 Protection cd CAL_AMBIENT" />
+
+        <!-- These controls are unrelated so we can simply
+             skip them
+        <ctl name="R2 AMP PCM Gain" />
+        <ctl name="R2 Digital PCM Volume" />
+        -->
+        <!-- struct calibration_data END -->
+    </path>
+
     <path name="cs35l41-dsp-amp1-calibration-completion">
         <ctl name="DSP1 Calibration cd CAL_STATUS" />
     </path>
@@ -279,12 +446,28 @@
         <ctl name="R DSP1 Calibration cd CAL_STATUS" />
     </path>
 
+    <path name="cs35l41-dsp-amp3-calibration-completion">
+        <ctl name="L2 DSP1 Calibration cd CAL_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp4-calibration-completion">
+        <ctl name="R2 DSP1 Calibration cd CAL_STATUS" />
+    </path>
+
     <path name="cs35l41-dsp-amp1-protection-completion">
         <ctl name="DSP1 Protection cd CAL_SET_STATUS" />
     </path>
 
     <path name="cs35l41-dsp-amp2-protection-completion">
         <ctl name="R DSP1 Protection cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp3-protection-completion">
+        <ctl name="L2 DSP1 Protection cd CAL_SET_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp4-protection-completion">
+        <ctl name="R2 DSP1 Protection cd CAL_SET_STATUS" />
     </path>
 
     <path name="cs35l41-dsp-amp1-diagnostic-completion">
@@ -297,11 +480,29 @@
         <ctl name="R DSP1 Diagnostic cd DIAG_F0_STATUS" />
     </path>
 
+    <path name="cs35l41-dsp-amp3-diagnostic-completion">
+        <ctl name="L2 DSP1 Diagnostic cd CAL_STATUS" />
+        <ctl name="L2 DSP1 Diagnostic cd DIAG_F0_STATUS" />
+    </path>
+
+    <path name="cs35l41-dsp-amp4-diagnostic-completion">
+        <ctl name="R2 DSP1 Diagnostic cd CAL_STATUS" />
+        <ctl name="R2 DSP1 Diagnostic cd DIAG_F0_STATUS" />
+    </path>
+
     <path name="cs35l41-dsp-amp1-enable-status">
         <ctl name="Main AMP Enable Switch" />
     </path>
 
     <path name="cs35l41-dsp-amp2-enable-status">
         <ctl name="R Main AMP Enable Switch" />
+    </path>
+
+    <path name="cs35l41-dsp-amp3-enable-status">
+        <ctl name="L2 Main AMP Enable Switch" />
+    </path>
+
+    <path name="cs35l41-dsp-amp4-enable-status">
+        <ctl name="R2 Main AMP Enable Switch" />
     </path>
 </mixer>
