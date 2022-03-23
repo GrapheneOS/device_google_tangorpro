@@ -33,22 +33,10 @@
     <!-- TDM 0 setting -->
     <ctl name="TDM_0_RX Chan" value="Four"/>
     <ctl name="TDM_0_RX Format" value="S32_LE"/>
-    <ctl name="TDM_0_RX Sample Rate" value="SR_48K" />
+    <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
     <ctl name="TDM_0_TX Chan" value="Four"/>
     <ctl name="TDM_0_TX Format" value="S32_LE"/>
-    <ctl name="TDM_0_TX Sample Rate" value="SR_48K" />
-
-    <!-- Haptic setting -->
-    <ctl name="HAPTIC_RX Format" value="S32_LE"/>
-    <ctl name="HAPTIC_RX SlotFmt" value="S32_LE"/>
-    <ctl name="HAPTIC_RX Chan" value="Four"/>
-    <ctl name="HAPTIC_RX nSlot" value="Four"/>
-    <ctl name="RX Slots" id="0" value="2"/>
-    <ctl name="RX Slots" id="1" value="3"/>
-
-    <!-- Cirrus default 96K -->
-    <ctl name="Default 96K" value="0"/>
-    <ctl name="R Default 96K" value="0"/>
+    <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
 
     <!-- Cirrus Booster Amp TDM slot assignment-->
     <!-- RX slot -->
@@ -56,57 +44,100 @@
     <ctl name="ASPRX2 Slot Position" value="1"/>
     <ctl name="R ASPRX1 Slot Position" value="1"/>
     <ctl name="R ASPRX2 Slot Position" value="0"/>
+    <ctl name="L2 ASPRX1 Slot Position" value="0"/>
+    <ctl name="L2 ASPRX2 Slot Position" value="1"/>
+    <ctl name="R2 ASPRX1 Slot Position" value="1"/>
+    <ctl name="R2 ASPRX2 Slot Position" value="0"/>
     <!-- TX slot -->
     <ctl name="ASPTX1 Slot Position" value="0"/>
     <ctl name="R ASPTX1 Slot Position" value="1"/>
-    <ctl name="ASPTX2 Slot Position" value="2"/>
-    <ctl name="R ASPTX2 Slot Position" value="3"/>
+    <ctl name="L2 ASPTX1 Slot Position" value="2"/>
+    <ctl name="R2 ASPTX1 Slot Position" value="3"/>
+    <ctl name="ASPTX2 Slot Position" value="4"/>
+    <ctl name="R ASPTX2 Slot Position" value="5"/>
+    <ctl name="L2 ASPTX2 Slot Position" value="6"/>
+    <ctl name="R2 ASPTX2 Slot Position" value="7"/>
     <ctl name="ASPTX3 Slot Position" value="4"/>
     <ctl name="R ASPTX3 Slot Position" value="5"/>
-    <ctl name="ASPTX4 Slot Position" value="6"/>
-    <ctl name="R ASPTX4 Slot Position" value="7"/>
+    <ctl name="L2 ASPTX3 Slot Position" value="6"/>
+    <ctl name="R2 ASPTX3 Slot Position" value="7"/>
+    <ctl name="ASPTX4 Slot Position" value="4"/>
+    <ctl name="R ASPTX4 Slot Position" value="5"/>
+    <ctl name="L2 ASPTX4 Slot Position" value="6"/>
+    <ctl name="R2 ASPTX4 Slot Position" value="7"/>
 
     <!-- Cirrus Booster Amp DRE and VBST config-->
     <ctl name="VBSTMON Output Switch" value="1"/>
     <ctl name="R VBSTMON Output Switch" value="1"/>
+    <ctl name="L2 VBSTMON Output Switch" value="1"/>
+    <ctl name="R2 VBSTMON Output Switch" value="1"/>
     <ctl name="DRE DRE Switch" value="1"/>
     <ctl name="R DRE DRE Switch" value="1"/>
+    <ctl name="L2 DRE DRE Switch" value="1"/>
+    <ctl name="R2 DRE DRE Switch" value="1"/>
 
     <!-- Cirrus Booster Amp Output Gain -->
     <ctl name="AMP PCM Gain" value="17"/>
     <ctl name="R AMP PCM Gain" value="17"/>
-    <ctl name="Digital PCM Volume" value="817"/>
-    <ctl name="R Digital PCM Volume" value="817"/>
+    <ctl name="L2 AMP PCM Gain" value="17"/>
+    <ctl name="R2 AMP PCM Gain" value="17"/>
+    <ctl name="Digital PCM Volume" value="769"/>
+    <ctl name="R Digital PCM Volume" value="769"/>
+    <ctl name="L2 Digital PCM Volume" value="769"/>
+    <ctl name="R2 Digital PCM Volume" value="769"/>
+
+    <!-- Cirrus default 96K -->
+    <ctl name="Default 96K" value="1"/>
+    <ctl name="R Default 96K" value="1"/>
+    <ctl name="L2 Default 96K" value="1"/>
+    <ctl name="R2 Default 96K" value="1"/>
 
     <!-- Cirrus Booster Amp Power -->
     <ctl name="Main AMP Enable Switch" value="0"/>
     <ctl name="R Main AMP Enable Switch" value="0"/>
+    <ctl name="L2 Main AMP Enable Switch" value="0"/>
+    <ctl name="R2 Main AMP Enable Switch" value="0"/>
 
     <!-- Cirrus Booster mode -->
     <ctl name="PCM Source" value="DSP"/>
     <ctl name="R PCM Source" value="DSP"/>
+    <ctl name="L2 PCM Source" value="DSP"/>
+    <ctl name="R2 PCM Source" value="DSP"/>
+
     <ctl name="DSP1 Firmware" value="Protection"/>
     <ctl name="R DSP1 Firmware" value="Protection"/>
+    <ctl name="L2 DSP1 Firmware" value="Protection"/>
+    <ctl name="R2 DSP1 Firmware" value="Protection"/>
     <ctl name="DSP RX1 Source" value="ASPRX1"/>
     <ctl name="DSP RX2 Source" value="ASPRX1"/>
     <ctl name="R DSP RX1 Source" value="ASPRX1"/>
     <ctl name="R DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="L2 DSP RX1 Source" value="ASPRX1"/>
+    <ctl name="L2 DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="R2 DSP RX1 Source" value="ASPRX1"/>
+    <ctl name="R2 DSP RX2 Source" value="ASPRX1"/>
     <ctl name="Boost Peak Current Limit" value="3.50A"/>
     <ctl name="R Boost Peak Current Limit" value="3.50A"/>
+    <ctl name="L2 Boost Peak Current Limit" value="3.50A"/>
+    <ctl name="R2 Boost Peak Current Limit" value="3.50A"/>
 
     <!-- Cirrus ASP TX source -->
     <ctl name="ASP TX1 Source" value="VMON" />
     <ctl name="R ASP TX1 Source" value="VMON" />
-    <ctl name="ASP TX2 Source" value="IMON" />
-    <ctl name="R ASP TX2 Source" value="IMON" />
+    <ctl name="L2 ASP TX1 Source" value="VMON" />
+    <ctl name="R2 ASP TX1 Source" value="VMON" />
+    <ctl name="ASP TX2 Source" value="Zero" />
+    <ctl name="R ASP TX2 Source" value="Zero" />
+    <ctl name="L2 ASP TX2 Source" value="Zero" />
+    <ctl name="R2 ASP TX2 Source" value="Zero" />
     <ctl name="ASP TX3 Source" value="Zero" />
     <ctl name="R ASP TX3 Source" value="Zero" />
+    <ctl name="L2 ASP TX3 Source" value="Zero" />
+    <ctl name="R2 ASP TX3 Source" value="Zero" />
     <ctl name="ASP TX4 Source" value="Zero" />
     <ctl name="R ASP TX4 Source" value="Zero" />
-
-    <!-- default EP volume -->
-    <ctl name="PCM Playback Switch" value="1"/>
-    <ctl name="PCM Playback Volume" value="10"/>
+    <ctl name="L2 ASP TX4 Source" value="Zero" />
+    <ctl name="R2 ASP TX4 Source" value="Zero" />
 
     <!-- audio RX route initial/default value -->
     <ctl name="TDM_0_RX Mixer EP1" value="0"/>
@@ -353,6 +384,10 @@
         <ctl name="USB_RX Mixer EP6" value="1"/>
     </path>
 
+    <path name="deep-buffer-playbackP usb-dock">
+        <ctl name="USB_RX Mixer EP6" value="1"/>
+    </path>
+
     <path name="deep-buffer-playbackP hearing-aid">
     </path>
 
@@ -371,6 +406,10 @@
         <ctl name="USB_RX Mixer EP2" value="1"/>
     </path>
 
+    <path name="low-latency-playbackP usb-dock">
+        <ctl name="USB_RX Mixer EP2" value="1"/>
+    </path>
+
     <path name="low-latency-playbackP hearing-aid">
     </path>
 
@@ -382,6 +421,10 @@
     </path>
 
     <path name="raw-playbackP usb-headphone">
+        <ctl name="USB_RX Mixer RAW" value="1"/>
+    </path>
+
+    <path name="raw-playbackP usb-dock">
         <ctl name="USB_RX Mixer RAW" value="1"/>
     </path>
 
@@ -397,6 +440,19 @@
 
     <path name="mmap-playbackP usb-headphone">
         <ctl name="USB_RX Mixer EP1" value="1"/>
+    </path>
+
+    <path name="mmap-playbackP usb-dock">
+        <ctl name="USB_RX Mixer EP1" value="1"/>
+    </path>
+
+    <path name="mmap-playbackP usb-tty-full">
+    </path>
+
+    <path name="mmap-playbackP usb-tty-hco">
+    </path>
+
+    <path name="mmap-playbackP usb-tty-vco">
     </path>
 
     <path name="mmap-playbackP hearing-aid">
@@ -425,6 +481,11 @@
         <ctl name="USB_RX Mixer EP7" value="1"/>
     </path>
 
+    <path name="compress-offload-playbackP usb-dock">
+        <path name="compress-offload-playback" />
+        <ctl name="USB_RX Mixer EP7" value="1"/>
+    </path>
+
     <path name="compress-offload-playbackP hearing-aid">
         <path name="compress-offload-playback" />
     </path>
@@ -441,6 +502,10 @@
     </path>
 
     <path name="voip-playbackP usb-headphone">
+        <ctl name="USB_RX Mixer VOIP" value="1"/>
+    </path>
+
+    <path name="voip-playbackP usb-dock">
         <ctl name="USB_RX Mixer VOIP" value="1"/>
     </path>
 
@@ -465,10 +530,19 @@
         <ctl name="TDM_0_RX Mixer EP8" value="1"/>
     </path>
 
+    <path name="haptic-audioP usb-dock">
+        <ctl name="USB_RX Mixer EP3" value="1"/>
+        <ctl name="TDM_0_RX Mixer EP8" value="1"/>
+    </path>
+
     <path name="hifi-playbackP">
     </path>
 
     <path name="hifi-playbackP usb-headphone">
+        <ctl name="USB_RX Mixer HIFI" value="1"/>
+    </path>
+
+    <path name="hifi-playbackP usb-dock">
         <ctl name="USB_RX Mixer HIFI" value="1"/>
     </path>
 
@@ -516,6 +590,10 @@
         <ctl name="USB_RX Mixer EP5" value="1"/>
     </path>
 
+    <path name="voice-callP usb-dock">
+        <ctl name="USB_RX Mixer EP5" value="1"/>
+    </path>
+
     <path name="voice-callP hearing-aid">
         <ctl name="INCALL_RX Mixer EP5" value="1"/>
     </path>
@@ -529,7 +607,6 @@
     </path>
 
     <path name="voice-callC usb-headset-mic">
-        <ctl name="AoC Modem Downlink ASRC Mode" value="ASP_OFF"/>
         <ctl name="EP4 TX Mixer USB_TX" value="1"/>
     </path>
 
@@ -616,18 +693,37 @@
     </path>
 
     <path name="speaker">
-        <ctl name="Boost Peak Current Limit" value="1.70A"/>
-        <ctl name="R Boost Peak Current Limit" value="1.90A"/>
+        <ctl name="Boost Peak Current Limit" value="4.50A"/>
+        <ctl name="R Boost Peak Current Limit" value="4.50A"/>
+        <ctl name="L2 Boost Peak Current Limit" value="4.50A"/>
+        <ctl name="R2 Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="Digital PCM Volume" value="817"/>
+        <ctl name="R Digital PCM Volume" value="817"/>
+        <ctl name="L2 Digital PCM Volume" value="817"/>
+        <ctl name="R2 Digital PCM Volume" value="817"/>
         <ctl name="Main AMP Enable Switch" value="1"/>
         <ctl name="R Main AMP Enable Switch" value="1"/>
+        <ctl name="L2 Main AMP Enable Switch" value="1"/>
+        <ctl name="R2 Main AMP Enable Switch" value="1"/>
     </path>
 
     <path name="voice-speaker">
-        <ctl name="R Boost Peak Current Limit" value="3.50A"/>
-        <ctl name="ASPTX1 Slot Position" value="1"/>
-        <ctl name="R ASPTX1 Slot Position" value="0"/>
+        <!-- Set DSP input to (A+B)/2 -->
+        <ctl name="DSP RX2 Source" value="ASPRX2"/>
         <ctl name="R DSP RX2 Source" value="ASPRX2"/>
+        <ctl name="L2 DSP RX2 Source" value="ASPRX2"/>
+        <ctl name="R2 DSP RX2 Source" value="ASPRX2"/>
+        <!-- Set digital gain -->
+        <ctl name="Digital PCM Volume" value="817"/>
+        <ctl name="R Digital PCM Volume" value="817"/>
+        <ctl name="L2 Digital PCM Volume" value="817"/>
+        <ctl name="R2 Digital PCM Volume" value="817"/>
+        <!-- Enable all amps -->
+        <ctl name="Main AMP Enable Switch" value="1"/>
         <ctl name="R Main AMP Enable Switch" value="1"/>
+        <ctl name="L2 Main AMP Enable Switch" value="1"/>
+        <ctl name="R2 Main AMP Enable Switch" value="1"/>
     </path>
 
     <path name="speaker-safe">
@@ -635,20 +731,12 @@
         <ctl name="R Main AMP Enable Switch" value="1"/>
     </path>
 
-    <path name="usb-tty-full">
-    </path>
-
-    <path name="usb-tty-hco">
-    </path>
-
-    <path name="usb-tty-vco">
-    </path>
-
     <!-- Tx device -->
     <path name="handset-mic">
+        <ctl name="Mic Spatial Module Enable" value="1"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
     </path>
@@ -659,8 +747,8 @@
 
     <path name="voice-handset-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
         <ctl name="MIC HW Gain At High Power Mode (cB)" value="130"/>
@@ -671,9 +759,10 @@
     </path>
 
     <path name="speaker-mic">
+        <ctl name="Mic Spatial Module Enable" value="1"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
     </path>
@@ -684,8 +773,8 @@
 
     <path name="voice-speaker-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
         <ctl name="MIC HW Gain At High Power Mode (cB)" value="130"/>
@@ -696,22 +785,22 @@
     </path>
 
     <path name="camcorder-mic">
-        <!--ctl name="Mic Spatial Module Enable" value="1"/-->
+        <ctl name="Mic Spatial Module Enable" value="1"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
     </path>
 
     <path name="camcorder-mic-post">
-        <ctl name="MIC Record Soft Gain (dB)" value="22"/>
+        <ctl name="MIC Record Soft Gain (dB)" value="0"/>
     </path>
 
     <path name="voice-recog-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
     </path>
@@ -722,8 +811,8 @@
 
     <path name="unprocessed-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
     </path>
@@ -734,8 +823,8 @@
 
     <path name="unprocessed-dual-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
     </path>
@@ -746,8 +835,8 @@
 
     <path name="unprocessed-triple-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="MIC DC Blocker" value="1"/>
     </path>
@@ -758,8 +847,8 @@
 
     <path name="bt-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="Audio Capture Mic Source" value="BT_MIC"/>
         <ctl name="Voice Call Mic Source" value="BT_MIC"/>
@@ -771,8 +860,8 @@
 
     <path name="usb-headset-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2"/>
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
         <ctl name="Audio Capture Mic Source" value="USB_MIC"/>
         <ctl name="Voice Call Mic Source" value="USB_MIC"/>
@@ -784,17 +873,23 @@
 
     <!-- cs35l41 specific path to load firmware in cs35l41.c -->
     <path name="cs35l41-load-protection-firmware-start">
-        <!-- Enable it after get the protection firmware -->
+        <!-- Enable it after get the protection firmware-->
         <ctl name="DSP Booted" value="0" />
         <ctl name="R DSP Booted" value="0" />
+        <ctl name="L2 DSP Booted" value="0" />
+        <ctl name="R2 DSP Booted" value="0" />
         <ctl name="DSP1 Preload Switch" value="0" />
         <ctl name="R DSP1 Preload Switch" value="0" />
+        <ctl name="L2 DSP1 Preload Switch" value="0" />
+        <ctl name="R2 DSP1 Preload Switch" value="0" />
     </path>
 
     <path name="cs35l41-load-protection-firmware-end">
-        <!-- Enable it after get the protection firmware -->
+        <!-- Enable it after get the protection firmware-->
         <ctl name="DSP1 Preload Switch" value="1" />
         <ctl name="R DSP1 Preload Switch" value="1" />
+        <ctl name="L2 DSP1 Preload Switch" value="1" />
+        <ctl name="R2 DSP1 Preload Switch" value="1" />
     </path>
     <!-- cs35l41 specific path to load firmware in cs35l41.c end-->
 </mixer>

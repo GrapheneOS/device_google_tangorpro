@@ -5,6 +5,8 @@
     <ctl name="I2S_0_RX Mixer EP3" value="0" />
     <ctl name="Main AMP Enable Switch" value="0" />
     <ctl name="R Main AMP Enable Switch" value="0" />
+    <ctl name="L2 Main AMP Enable Switch" value="0" />
+    <ctl name="R2 Main AMP Enable Switch" value="0" />
     <ctl name="MIC HW Gain At Lower Power Mode (cB)" value="-160" />
     <ctl name="MIC HW Gain At High Power Mode (cB)" value="0" />
     <ctl name="MIC Record Soft Gain (dB)" value="0"/>
@@ -56,7 +58,7 @@
     </path>
 
     <path name="mic4-status">
-        <ctl name="MIC3" value="0" />
+        <ctl name="MIC3" value="1" />
     </path>
 
     <path name="mic1-gain">
@@ -109,7 +111,7 @@
     </path>
 
     <path name="mic2-only">
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="2" />
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="-1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="-1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
@@ -131,79 +133,198 @@
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="-1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="-1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
-        <ctl name="MIC3" value="0" />
+        <ctl name="MIC3" value="1" />
         <ctl name="MIC Record Soft Gain (dB)" value="0" />
     </path>
 
     <path name="mic-all">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0" />
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2" />
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="3" />
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1" />
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="2" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
         <ctl name="MIC0" value="1" />
         <ctl name="MIC1" value="1" />
         <ctl name="MIC2" value="1" />
-        <ctl name="MIC3" value="0" />
         <ctl name="MIC Record Soft Gain (dB)" value="0" />
     </path>
 
     <path name="amp_iv-only">
-        <ctl name="R ASPTX1 Slot Position" value="2" />
-        <ctl name="R ASPTX2 Slot Position" value="3" />
-        <ctl name="R ASPTX3 Slot Position" value="6" />
-        <ctl name="R ASPTX4 Slot Position" value="7" />
-        <ctl name="ASPTX1 Slot Position" value="0" />
-        <ctl name="ASPTX2 Slot Position" value="1" />
-        <ctl name="ASPTX3 Slot Position" value="4" />
-        <ctl name="ASPTX4 Slot Position" value="5" />
-        <ctl name="R ASP TX1 Source" value="VMON" />
-        <ctl name="R ASP TX2 Source" value="ASPRX1" />
-        <ctl name="R ASP TX3 Source" value="Zero" />
-        <ctl name="R ASP TX4 Source" value="Zero" />
+        <ctl name="ASPTX1 Slot Position" value="0"/>
+        <ctl name="R ASPTX1 Slot Position" value="1"/>
+        <ctl name="L2 ASPTX1 Slot Position" value="2"/>
+        <ctl name="R2 ASPTX1 Slot Position" value="3"/>
+        <ctl name="ASPTX2 Slot Position" value="4"/>
+        <ctl name="R ASPTX2 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX2 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX2 Slot Position" value="7"/>
+        <ctl name="ASPTX3 Slot Position" value="4"/>
+        <ctl name="R ASPTX3 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX3 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX3 Slot Position" value="7"/>
+        <ctl name="ASPTX4 Slot Position" value="4"/>
+        <ctl name="R ASPTX4 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX4 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX4 Slot Position" value="7"/>
         <ctl name="ASP TX1 Source" value="VMON" />
-        <ctl name="ASP TX2 Source" value="ASPRX1" />
+        <ctl name="R ASP TX1 Source" value="VMON" />
+        <ctl name="L2 ASP TX1 Source" value="VMON" />
+        <ctl name="R2 ASP TX1 Source" value="VMON" />
+        <ctl name="ASP TX2 Source" value="Zero" />
+        <ctl name="R ASP TX2 Source" value="Zero" />
+        <ctl name="L2 ASP TX2 Source" value="Zero" />
+        <ctl name="R2 ASP TX2 Source" value="Zero" />
         <ctl name="ASP TX3 Source" value="Zero" />
+        <ctl name="R ASP TX3 Source" value="Zero" />
+        <ctl name="L2 ASP TX3 Source" value="Zero" />
+        <ctl name="R2 ASP TX3 Source" value="Zero" />
         <ctl name="ASP TX4 Source" value="Zero" />
+        <ctl name="R ASP TX4 Source" value="Zero" />
+        <ctl name="L2 ASP TX4 Source" value="Zero" />
+        <ctl name="R2 ASP TX4 Source" value="Zero" />
         <ctl name="NoHost1 TX Mixer TDM_0_TX" value="1" />
     </path>
 
     <path name="amp_iv1-only">
-        <ctl name="R ASPTX1 Slot Position" value="4" />
-        <ctl name="R ASPTX2 Slot Position" value="5" />
-        <ctl name="R ASPTX3 Slot Position" value="6" />
-        <ctl name="R ASPTX4 Slot Position" value="7" />
-        <ctl name="ASPTX1 Slot Position" value="0" />
-        <ctl name="ASPTX2 Slot Position" value="1" />
-        <ctl name="ASPTX3 Slot Position" value="2" />
-        <ctl name="ASPTX4 Slot Position" value="3" />
-        <ctl name="R ASP TX1 Source" value="Zero" />
-        <ctl name="R ASP TX2 Source" value="Zero" />
-        <ctl name="R ASP TX3 Source" value="Zero" />
-        <ctl name="R ASP TX4 Source" value="Zero" />
+        <ctl name="ASPTX1 Slot Position" value="0"/>
+        <ctl name="R ASPTX1 Slot Position" value="4"/>
+        <ctl name="L2 ASPTX1 Slot Position" value="5"/>
+        <ctl name="R2 ASPTX1 Slot Position" value="6"/>
+        <ctl name="ASPTX2 Slot Position" value="1"/>
+        <ctl name="R ASPTX2 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX2 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX2 Slot Position" value="7"/>
+        <ctl name="ASPTX3 Slot Position" value="2"/>
+        <ctl name="R ASPTX3 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX3 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX3 Slot Position" value="7"/>
+        <ctl name="ASPTX4 Slot Position" value="3"/>
+        <ctl name="R ASPTX4 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX4 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX4 Slot Position" value="7"/>
         <ctl name="ASP TX1 Source" value="VMON" />
+        <ctl name="R ASP TX1 Source" value="Zero" />
+        <ctl name="L2 ASP TX1 Source" value="Zero" />
+        <ctl name="R2 ASP TX1 Source" value="Zero" />
         <ctl name="ASP TX2 Source" value="IMON" />
+        <ctl name="R ASP TX2 Source" value="Zero" />
+        <ctl name="L2 ASP TX2 Source" value="Zero" />
+        <ctl name="R2 ASP TX2 Source" value="Zero" />
         <ctl name="ASP TX3 Source" value="VPMON" />
+        <ctl name="R ASP TX3 Source" value="Zero" />
+        <ctl name="L2 ASP TX3 Source" value="Zero" />
+        <ctl name="R2 ASP TX3 Source" value="Zero" />
         <ctl name="ASP TX4 Source" value="ASPRX1" />
+        <ctl name="R ASP TX4 Source" value="Zero" />
+        <ctl name="L2 ASP TX4 Source" value="Zero" />
+        <ctl name="R2 ASP TX4 Source" value="Zero" />
         <ctl name="NoHost1 TX Mixer TDM_0_TX" value="1" />
     </path>
-
+    <!-- L2 prefix -->
     <path name="amp_iv2-only">
-        <ctl name="R ASPTX1 Slot Position" value="0" />
-        <ctl name="R ASPTX2 Slot Position" value="1" />
-        <ctl name="R ASPTX3 Slot Position" value="2" />
-        <ctl name="R ASPTX4 Slot Position" value="3" />
-        <ctl name="ASPTX1 Slot Position" value="4" />
-        <ctl name="ASPTX2 Slot Position" value="5" />
-        <ctl name="ASPTX3 Slot Position" value="6" />
-        <ctl name="ASPTX4 Slot Position" value="7" />
-        <ctl name="R ASP TX1 Source" value="VMON" />
-        <ctl name="R ASP TX2 Source" value="IMON" />
-        <ctl name="R ASP TX3 Source" value="VPMON" />
-        <ctl name="R ASP TX4 Source" value="ASPRX1" />
+        <ctl name="ASPTX1 Slot Position" value="4"/>
+        <ctl name="R ASPTX1 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX1 Slot Position" value="0"/>
+        <ctl name="R2 ASPTX1 Slot Position" value="6"/>
+        <ctl name="ASPTX2 Slot Position" value="4"/>
+        <ctl name="R ASPTX2 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX2 Slot Position" value="1"/>
+        <ctl name="R2 ASPTX2 Slot Position" value="7"/>
+        <ctl name="ASPTX3 Slot Position" value="4"/>
+        <ctl name="R ASPTX3 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX3 Slot Position" value="2"/>
+        <ctl name="R2 ASPTX3 Slot Position" value="7"/>
+        <ctl name="ASPTX4 Slot Position" value="4"/>
+        <ctl name="R ASPTX4 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX4 Slot Position" value="3"/>
+        <ctl name="R2 ASPTX4 Slot Position" value="7"/>
         <ctl name="ASP TX1 Source" value="Zero" />
+        <ctl name="R ASP TX1 Source" value="Zero" />
+        <ctl name="L2 ASP TX1 Source" value="VMON" />
+        <ctl name="R2 ASP TX1 Source" value="Zero" />
         <ctl name="ASP TX2 Source" value="Zero" />
+        <ctl name="R ASP TX2 Source" value="Zero" />
+        <ctl name="L2 ASP TX2 Source" value="IMON" />
+        <ctl name="R2 ASP TX2 Source" value="Zero" />
         <ctl name="ASP TX3 Source" value="Zero" />
+        <ctl name="R ASP TX3 Source" value="Zero" />
+        <ctl name="L2 ASP TX3 Source" value="VPMON" />
+        <ctl name="R2 ASP TX3 Source" value="Zero" />
         <ctl name="ASP TX4 Source" value="Zero" />
+        <ctl name="R ASP TX4 Source" value="Zero" />
+        <ctl name="L2 ASP TX4 Source" value="ASPRX1" />
+        <ctl name="R2 ASP TX4 Source" value="Zero" />
+        <ctl name="NoHost1 TX Mixer TDM_0_TX" value="1" />
+    </path>
+    <!-- R2 prefix -->
+    <path name="amp_iv3-only">
+        <ctl name="ASPTX1 Slot Position" value="4"/>
+        <ctl name="R ASPTX1 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX1 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX1 Slot Position" value="0"/>
+        <ctl name="ASPTX2 Slot Position" value="4"/>
+        <ctl name="R ASPTX2 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX2 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX2 Slot Position" value="1"/>
+        <ctl name="ASPTX3 Slot Position" value="4"/>
+        <ctl name="R ASPTX3 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX3 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX3 Slot Position" value="2"/>
+        <ctl name="ASPTX4 Slot Position" value="4"/>
+        <ctl name="R ASPTX4 Slot Position" value="5"/>
+        <ctl name="L2 ASPTX4 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX4 Slot Position" value="3"/>
+        <ctl name="ASP TX1 Source" value="Zero" />
+        <ctl name="R ASP TX1 Source" value="Zero" />
+        <ctl name="L2 ASP TX1 Source" value="Zero" />
+        <ctl name="R2 ASP TX1 Source" value="VMON" />
+        <ctl name="ASP TX2 Source" value="Zero" />
+        <ctl name="R ASP TX2 Source" value="Zero" />
+        <ctl name="L2 ASP TX2 Source" value="Zero" />
+        <ctl name="R2 ASP TX2 Source" value="IMON" />
+        <ctl name="ASP TX3 Source" value="Zero" />
+        <ctl name="R ASP TX3 Source" value="Zero" />
+        <ctl name="L2 ASP TX3 Source" value="Zero" />
+        <ctl name="R2 ASP TX3 Source" value="VPMON" />
+        <ctl name="ASP TX4 Source" value="Zero" />
+        <ctl name="R ASP TX4 Source" value="Zero" />
+        <ctl name="L2 ASP TX4 Source" value="Zero" />
+        <ctl name="R2 ASP TX4 Source" value="ASPRX1" />
+        <ctl name="NoHost1 TX Mixer TDM_0_TX" value="1" />
+    </path>
+    <!-- R prefix-->
+    <path name="amp_iv4-only">
+        <ctl name="ASPTX1 Slot Position" value="4"/>
+        <ctl name="R ASPTX1 Slot Position" value="0"/>
+        <ctl name="L2 ASPTX1 Slot Position" value="5"/>
+        <ctl name="R2 ASPTX1 Slot Position" value="6"/>
+        <ctl name="ASPTX2 Slot Position" value="4"/>
+        <ctl name="R ASPTX2 Slot Position" value="1"/>
+        <ctl name="L2 ASPTX2 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX2 Slot Position" value="7"/>
+        <ctl name="ASPTX3 Slot Position" value="4"/>
+        <ctl name="R ASPTX3 Slot Position" value="2"/>
+        <ctl name="L2 ASPTX3 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX3 Slot Position" value="7"/>
+        <ctl name="ASPTX4 Slot Position" value="4"/>
+        <ctl name="R ASPTX4 Slot Position" value="3"/>
+        <ctl name="L2 ASPTX4 Slot Position" value="6"/>
+        <ctl name="R2 ASPTX4 Slot Position" value="7"/>
+        <ctl name="ASP TX1 Source" value="Zero" />
+        <ctl name="R ASP TX1 Source" value="VMON" />
+        <ctl name="L2 ASP TX1 Source" value="Zero" />
+        <ctl name="R2 ASP TX1 Source" value="Zero" />
+        <ctl name="ASP TX2 Source" value="Zero" />
+        <ctl name="R ASP TX2 Source" value="IMON" />
+        <ctl name="L2 ASP TX2 Source" value="Zero" />
+        <ctl name="R2 ASP TX2 Source" value="Zero" />
+        <ctl name="ASP TX3 Source" value="Zero" />
+        <ctl name="R ASP TX3 Source" value="VPMON" />
+        <ctl name="L2 ASP TX3 Source" value="Zero" />
+        <ctl name="R2 ASP TX3 Source" value="Zero" />
+        <ctl name="ASP TX4 Source" value="Zero" />
+        <ctl name="R ASP TX4 Source" value="ASPRX1" />
+        <ctl name="L2 ASP TX4 Source" value="Zero" />
+        <ctl name="R2 ASP TX4 Source" value="Zero" />
         <ctl name="NoHost1 TX Mixer TDM_0_TX" value="1" />
     </path>
 
@@ -225,11 +346,31 @@
         <path name="amp_iv2-only" />
     </path>
 
+    <path name="us-amp_iv3-only">
+        <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
+        <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
+        <path name="amp_iv3-only" />
+    </path>
+
+    <path name="us-amp_iv4-only">
+        <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
+        <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
+        <path name="amp_iv4-only" />
+    </path>
+
     <path name="speaker1-status">
         <ctl name="Main AMP Enable Switch" value="1" />
     </path>
 
     <path name="speaker2-status">
+        <ctl name="L2 Main AMP Enable Switch" value="1" />
+    </path>
+
+    <path name="speaker3-status">
+        <ctl name="R2 Main AMP Enable Switch" value="1" />
+    </path>
+
+    <path name="speaker4-status">
         <ctl name="R Main AMP Enable Switch" value="1" />
     </path>
 
@@ -238,6 +379,14 @@
     </path>
 
     <path name="speaker2-gain">
+        <ctl name="L2 AMP PCM Gain" />
+    </path>
+
+    <path name="speaker3-gain">
+        <ctl name="R2 AMP PCM Gain" />
+    </path>
+
+    <path name="speaker4-gain">
         <ctl name="R AMP PCM Gain" />
     </path>
 
@@ -273,13 +422,6 @@
         <ctl name="USB_RX Mixer EP3" value="1" />
     </path>
 
-    <path name="mfg-record usb-headset-mic">
-        <ctl name="Audio Capture Mic Source" value="USB_MIC"/>
-        <ctl name="USB Capture FORMAT v2" value="1" />
-        <ctl name="USB Config To AoC v2" value="1"/>
-        <ctl name="EP1 TX Mixer USB_TX" value="1"/>
-    </path>
-
     <path name="us-mfg-playback speaker">
         <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
         <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
@@ -289,27 +431,65 @@
     <path name="speaker1-only">
         <ctl name="Main AMP Enable Switch" value="1" />
         <path name="mfg-playback speaker" />
+        <ctl name="Digital PCM Volume" value="817" />
         <ctl name="AMP PCM Gain" value="17" />
         <ctl name="PCM Source" value="ASP" />
     </path>
 
     <path name="speaker2-only">
+        <ctl name="L2 Main AMP Enable Switch" value="1" />
+        <path name="mfg-playback speaker" />
+        <ctl name="L2 Digital PCM Volume" value="817" />
+        <ctl name="L2 AMP PCM Gain" value="17" />
+        <ctl name="L2 PCM Source" value="ASP" />
+    </path>
+
+    <path name="speaker3-only">
+        <ctl name="R2 Main AMP Enable Switch" value="1" />
+        <path name="mfg-playback speaker" />
+        <ctl name="R2 Digital PCM Volume" value="817" />
+        <ctl name="R2 AMP PCM Gain" value="17" />
+        <ctl name="R2 PCM Source" value="ASP" />
+    </path>
+
+    <path name="speaker4-only">
         <ctl name="R Main AMP Enable Switch" value="1" />
         <path name="mfg-playback speaker" />
+        <ctl name="R Digital PCM Volume" value="817" />
         <ctl name="R AMP PCM Gain" value="17" />
         <ctl name="R PCM Source" value="ASP" />
     </path>
 
     <path name="us-speaker1-only">
-        <path name="us-mfg-playback speaker" />
-        <ctl name="PCM Source" value="ASP" />
         <ctl name="Main AMP Enable Switch" value="1" />
+        <path name="us-mfg-playback speaker" />
+        <ctl name="Digital PCM Volume" value="817" />
+        <ctl name="AMP PCM Gain" value="17" />
+        <ctl name="PCM Source" value="ASP" />
     </path>
 
     <path name="us-speaker2-only">
+        <ctl name="L2 Main AMP Enable Switch" value="1" />
         <path name="us-mfg-playback speaker" />
-        <ctl name="R PCM Source" value="ASP" />
+        <ctl name="L2 Digital PCM Volume" value="817" />
+        <ctl name="L2 AMP PCM Gain" value="17" />
+        <ctl name="L2 PCM Source" value="ASP" />
+    </path>
+
+    <path name="us-speaker3-only">
+        <ctl name="R2 Main AMP Enable Switch" value="1" />
+        <path name="us-mfg-playback speaker" />
+        <ctl name="R2 Digital PCM Volume" value="817" />
+        <ctl name="R2 AMP PCM Gain" value="17" />
+        <ctl name="R2 PCM Source" value="ASP" />
+    </path>
+
+    <path name="us-speaker4-only">
         <ctl name="R Main AMP Enable Switch" value="1" />
+        <path name="us-mfg-playback speaker" />
+        <ctl name="R Digital PCM Volume" value="817" />
+        <ctl name="R AMP PCM Gain" value="17" />
+        <ctl name="R PCM Source" value="ASP" />
     </path>
 
     <path name="headphones">
@@ -327,17 +507,41 @@
     <path name="speaker-all">
         <ctl name="Main AMP Enable Switch" value="1" />
         <ctl name="PCM Source" value="ASP" />
+        <ctl name="Digital PCM Volume" value="817" />
+        <ctl name="AMP PCM Gain" value="17" />
         <ctl name="R Main AMP Enable Switch" value="1" />
         <ctl name="R PCM Source" value="ASP" />
+        <ctl name="R Digital PCM Volume" value="817" />
+        <ctl name="R AMP PCM Gain" value="17" />
+        <ctl name="L2 Main AMP Enable Switch" value="1" />
+        <ctl name="L2 PCM Source" value="ASP" />
+        <ctl name="L2 Digital PCM Volume" value="817" />
+        <ctl name="L2 AMP PCM Gain" value="17" />
+        <ctl name="R2 Main AMP Enable Switch" value="1" />
+        <ctl name="R2 PCM Source" value="ASP" />
+        <ctl name="R2 Digital PCM Volume" value="817" />
+        <ctl name="R2 AMP PCM Gain" value="17" />
         <path name="mfg-playback speaker" />
     </path>
 
     <path name="us-speaker-all">
-        <path name="us-mfg-playback speaker" />
-        <ctl name="PCM Source" value="ASP" />
         <ctl name="Main AMP Enable Switch" value="1" />
-        <ctl name="R PCM Source" value="ASP" />
+        <ctl name="PCM Source" value="ASP" />
+        <ctl name="Digital PCM Volume" value="817" />
+        <ctl name="AMP PCM Gain" value="17" />
         <ctl name="R Main AMP Enable Switch" value="1" />
+        <ctl name="R PCM Source" value="ASP" />
+        <ctl name="R Digital PCM Volume" value="817" />
+        <ctl name="R AMP PCM Gain" value="17" />
+        <ctl name="L2 Main AMP Enable Switch" value="1" />
+        <ctl name="L2 PCM Source" value="ASP" />
+        <ctl name="L2 Digital PCM Volume" value="817" />
+        <ctl name="L2 AMP PCM Gain" value="17" />
+        <ctl name="R2 Main AMP Enable Switch" value="1" />
+        <ctl name="R2 PCM Source" value="ASP" />
+        <ctl name="R2 Digital PCM Volume" value="817" />
+        <ctl name="R2 AMP PCM Gain" value="17" />
+        <path name="us-mfg-playback speaker" />
     </path>
 
     <path name="loopback-mic-speaker">
@@ -379,6 +583,7 @@
     <pcm_id name="loopback-speaker1" value="EP3 playback (*)"/>
     <pcm_id name="loopback-speaker2" value="EP3 playback (*)"/>
     <pcm_id name="loopback-speaker3" value="EP3 playback (*)"/>
+    <pcm_id name="loopback-speaker4" value="EP3 playback (*)"/>
     <pcm_id name="loopback-headphones" value="EP3 playback (*)"/>
     <pcm_id name="loopback-usb-headphones" value="EP3 playback (*)"/>
     <pcm_id name="loopback-usb-mic" value="EP1 capture (*)"/>
