@@ -201,7 +201,7 @@
         <!-- for input wit AUDIO_INPUT_FLAG_FAST  480 periods * 1ms buffer, 16-bit, 2ch, buffer size 92160 bytes-->
         <usecase id="UC_LOW_LATENCY_AUDIO_RECORD" dev1="10" dyn_path="true" dsp_vol="false" mmap="true" period="1" period_num="480"/>
         <!-- for input wit AUDIO_INPUT_FLAG_MMAP_NOIRQ 240 periods * 1ms buffer, 32-bit,2 ch, buffer size 92160 bytes -->
-        <usecase id="UC_MMAP_RECORD" dev1="9" dyn_path="true" dsp_vol="false" mmap="true" period="1" period_num="240"/>
+        <usecase id="UC_MMAP_RECORD" dev1="9" dyn_path="true" mmap="true" period="1" period_num="240"/>
         <!-- for hifi -->
         <usecase id="UC_HIFI_PLAYBACK" dev1="25"/>
         <usecase id="UC_HIFI_RECORD" dev1="26"/>
@@ -237,6 +237,7 @@
     </dsp_latency>
 
     <soundcard_name name="google,aoc-snd-card" />
+    <features lists="SoundTriggerDockTuning" />
 
     <cfg_attr>
         <cfg id="OUT_SPEAKER_BE_CFG" intf_name="TDM_RX_0" mux="HW_MUX_GP_0" tuning_id="2"/>
