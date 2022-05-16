@@ -29,6 +29,10 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 $(call soong_config_set,lyric,tuning_product,cloudripper)
 $(call soong_config_set,google3a_config,target_device,cloudripper)
 
+DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
+PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
+PRODUCT_PACKAGES += WifiOverlayT6pro
+
 # Init files
 PRODUCT_COPY_FILES += \
 	device/google/tangorpro/conf/init.tangorpro.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tangorpro.rc
@@ -145,7 +149,3 @@ endif
 # DCK properties based on target
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.gms.dck.eligible_wcc=2
-
-# WIFI COEX
-PRODUCT_COPY_FILES += \
-	device/google/tangorpro/wifi/coex_table.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/coex_table.xml
