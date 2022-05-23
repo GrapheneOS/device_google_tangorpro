@@ -33,6 +33,11 @@ DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
 PRODUCT_PACKAGES += WifiOverlayT6pro
 
+# Touch files
+PRODUCT_COPY_FILES += \
+        device/google/tangorpro/NVTCapacitiveTouchScreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/NVTCapacitiveTouchScreen.idc \
+        device/google/tangorpro/NVTCapacitivePen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/NVTCapacitivePen.idc
+
 # Init files
 PRODUCT_COPY_FILES += \
 	device/google/tangorpro/conf/init.tangorpro.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tangorpro.rc
