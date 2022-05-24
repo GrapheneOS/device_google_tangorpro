@@ -37,6 +37,25 @@ on property:vendor.mfgapi.touchpanel.permission=1
     chmod 0600 /sys/devices/virtual/sec/tsp/cmd
     chown system system /sys/devices/virtual/sec/tsp/cmd
 
+# Touch
+on property:vendor.device.modules.ready=1
+    chown system system /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/force_touch_active
+    chown system system /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_dttw_mode
+    chown system system /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_fw_history
+    chown system system /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_high_sensi_mode
+
+on property:vendor.all.modules.ready=1 && property:persist.sys.tap_gesture=
+    write /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_dttw_mode 1
+    write /sys/devices/platform/exynos-drm/primary-panel/force_power_on 1
+
+on property:vendor.all.modules.ready=1 && property:persist.sys.tap_gesture=1
+    write /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_dttw_mode 1
+    write /sys/devices/platform/exynos-drm/primary-panel/force_power_on 1
+
+on property:vendor.all.modules.ready=1 && property:persist.sys.tap_gesture=0
+    write /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_dttw_mode 0
+    write /sys/devices/platform/exynos-drm/primary-panel/force_power_on 0
+
 # Fingerprint
 on post-fs-data
     chown system system /dev/goodix_fp
