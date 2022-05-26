@@ -1,1 +1,2 @@
 require board=tangorpro
+require partition-exists=vendor_kernel_boot
