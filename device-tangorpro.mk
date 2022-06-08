@@ -174,3 +174,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES_DEBUG += \
         test_cast_auth
+
+# Lights HAL
+PRODUCT_PACKAGES += \
+    android.hardware.lights-service.tangorpro
