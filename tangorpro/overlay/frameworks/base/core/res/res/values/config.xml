@@ -20,4 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- This device does not allow mobile data. -->
     <bool name="config_mobile_data_capable">false</bool>
+
+    <!-- This device does not allow sms service. -->
+    <bool name="config_sms_capable">false</bool>
 </resources>
