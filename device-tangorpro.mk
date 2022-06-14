@@ -154,3 +154,6 @@ endif
 # DCK properties based on target
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.gms.dck.eligible_wcc=2
+
+# Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
+PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
