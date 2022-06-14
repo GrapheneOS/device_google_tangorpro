@@ -23,16 +23,16 @@ $(call inherit-product-if-exists, vendor/google_devices/gs201/prebuilts/device-v
 $(call inherit-product-if-exists, vendor/google_devices/gs201/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/tangorpro/device-vendor-tangorpro.mk)
 
+DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
+PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
+PRODUCT_PACKAGES += WifiOverlayT6pro
+
 include device/google/gs201/device-shipping-common.mk
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
 
 $(call soong_config_set,lyric,tuning_product,cloudripper)
 $(call soong_config_set,google3a_config,target_device,cloudripper)
-
-DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
-PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
-PRODUCT_PACKAGES += WifiOverlayT6pro
 
 # Touch files
 PRODUCT_COPY_FILES += \
