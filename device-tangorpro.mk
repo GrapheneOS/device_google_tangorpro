@@ -16,6 +16,7 @@
 
 TARGET_KERNEL_DIR ?= device/google/tangorpro-kernel
 TARGET_BOARD_KERNEL_HEADERS := device/google/tangorpro-kernel/kernel-headers
+TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_LEFT
 
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/prebuilts/device-vendor-tangorpro.mk)
 $(call inherit-product-if-exists, vendor/google_devices/gs201/prebuilts/device-vendor.mk)
