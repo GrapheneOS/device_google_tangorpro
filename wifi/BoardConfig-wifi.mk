@@ -28,3 +28,6 @@ WIFI_FEATURE_IMU_DETECTION := true
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 WIFI_FEATURE_HOSTAPD_11AX := true
 
+PRODUCT_COPY_FILES += \
+    device/google/tangorpro/wifi/p2p_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant.conf \
+    device/google/tangorpro/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
