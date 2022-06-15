@@ -16,6 +16,7 @@
 
 TARGET_KERNEL_DIR ?= device/google/tangorpro-kernel
 TARGET_BOARD_KERNEL_HEADERS := device/google/tangorpro-kernel/kernel-headers
+TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_LEFT
 
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/prebuilts/device-vendor-tangorpro.mk)
 $(call inherit-product-if-exists, vendor/google_devices/gs201/prebuilts/device-vendor.mk)
@@ -154,3 +155,10 @@ endif
 # DCK properties based on target
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.gms.dck.eligible_wcc=2
+
+# Wifi SAP Interface Name
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.wifi.sap.interface=wlan1
+
+# Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
+PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
