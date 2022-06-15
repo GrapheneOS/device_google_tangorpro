@@ -159,3 +159,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
 PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
+
+# Enable Telecom feature
+# b/227692870
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.software.telecom.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.telecom.xml
