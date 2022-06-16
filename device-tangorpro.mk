@@ -18,21 +18,22 @@ TARGET_KERNEL_DIR ?= device/google/tangorpro-kernel
 TARGET_BOARD_KERNEL_HEADERS := device/google/tangorpro-kernel/kernel-headers
 TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_LEFT
 
+BOARD_WITHOUT_RADIO := true
+
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/prebuilts/device-vendor-tangorpro.mk)
 $(call inherit-product-if-exists, vendor/google_devices/gs201/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/gs201/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/tangorpro/device-vendor-tangorpro.mk)
 
-include device/google/gs201/device-shipping-common.mk
-include device/google/tangorpro/audio/tangorpro/audio-tables.mk
-include hardware/google/pixel/vibrator/cs40l26/device.mk
-
-$(call soong_config_set,lyric,tuning_product,cloudripper)
-$(call soong_config_set,google3a_config,target_device,cloudripper)
-
 DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
 PRODUCT_PACKAGES += WifiOverlayT6pro
+
+include device/google/gs201/device-shipping-common.mk
+include device/google/tangorpro/audio/tangorpro/audio-tables.mk
+
+$(call soong_config_set,lyric,tuning_product,cloudripper)
+$(call soong_config_set,google3a_config,target_device,cloudripper)
 
 # Touch files
 PRODUCT_COPY_FILES += \
@@ -135,10 +136,6 @@ include device/google/tangorpro/bluetooth/qti_default.mk
 #else
 #include device/google/gs101/fingerprint/udfps_factory.mk
 #endif
-
-# Vibrator HAL
-PRODUCT_VENDOR_PROPERTIES += \
-	ro.vendor.vibrator.hal.supported_primitives=243
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
