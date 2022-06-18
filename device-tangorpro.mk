@@ -96,7 +96,7 @@ PRODUCT_COPY_FILES += \
 	device/google/tangorpro/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Bluetooth HAL and Pixel extension
-include device/google/tangorpro/bluetooth/qti_default.mk
+include device/google/tangorpro/bluetooth/syna_default.mk
 
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
