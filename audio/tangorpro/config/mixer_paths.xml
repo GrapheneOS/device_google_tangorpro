@@ -740,8 +740,7 @@
     </path>
 
     <path name="speaker-safe">
-        <ctl name="R Boost Peak Current Limit" value="3.50A"/>
-        <ctl name="R Main AMP Enable Switch" value="1"/>
+        <path name="speaker"/>
     </path>
 
     <!-- Tx device -->
