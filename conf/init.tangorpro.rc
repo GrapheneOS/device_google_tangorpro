@@ -5,6 +5,8 @@ on init
     # NFC streset tool name
     setprop persist.vendor.nfc.streset libstreset21
     setprop persist.vendor.se.streset libstreset21
+    # Load FPC's internal lib
+    setprop ro.hardware.fingerprint "fpc"
 
 # When ro.build.flavor=factory_tangorpro-userdebug, add vendor/bin/factory to default path
 on init && property:ro.build.flavor=factory_tangorpro-userdebug
@@ -58,8 +60,12 @@ on property:vendor.all.modules.ready=1 && property:persist.sys.tap_gesture=0
 
 # Fingerprint
 on post-fs-data
-    chown system system /dev/goodix_fp
-    exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/g7.app
+    # Fingerprint
+    chown system system /sys/devices/platform/odm/odm:fp_fpc1020/clk_enable
+    chown system system /sys/devices/platform/odm/odm:fp_fpc1020/hw_reset
+    chown system system /sys/devices/platform/odm/odm:fp_fpc1020/irq
+    chown system system /sys/devices/platform/odm/odm:fp_fpc1020/wakeup_enable
+    exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/1540.app
 
 # Wifi
 on post-fs-data
