@@ -21,6 +21,10 @@
 
     <ctl name="TDM_0_RX Mixer US" value="0" />
     <ctl name="US Record Enable" value="0" />
+    <ctl name="ASPRX1 Slot Position" value="0"/>
+    <ctl name="R ASPRX1 Slot Position" value="1"/>
+    <ctl name="L2 ASPRX1 Slot Position" value="0"/>
+    <ctl name="R2 ASPRX1 Slot Position" value="1"/>
 
     <path name="mfg-playback">
     </path>
@@ -146,6 +150,13 @@
         <ctl name="MIC1" value="1" />
         <ctl name="MIC2" value="1" />
         <ctl name="MIC Record Soft Gain (dB)" value="0" />
+    </path>
+
+    <path name="cs35l41-us-config">
+        <ctl name="ASPRX1 Slot Position" value="2"/>
+        <ctl name="R ASPRX1 Slot Position" value="3"/>
+        <ctl name="L2 ASPRX1 Slot Position" value="2"/>
+        <ctl name="R2 ASPRX1 Slot Position" value="3"/>
     </path>
 
     <path name="amp_iv-only">
@@ -423,6 +434,7 @@
     </path>
 
     <path name="us-mfg-playback speaker">
+        <path name="cs35l41-us-config" />
         <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
         <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
         <ctl name="TDM_0_RX Mixer US" value="1" />
