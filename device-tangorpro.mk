@@ -163,3 +163,14 @@ PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=fa
 # b/227692870
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.software.telecom.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.telecom.xml
+
+# Trusty libbinder_trusty_paidl.so and libcast_auth.so
+PRODUCT_SOONG_NAMESPACES += \
+        vendor/google/trusty/common
+
+# Cast auth
+PRODUCT_COPY_FILES += \
+        device/google/tangorpro/cast_auth/tangor_ica.crt:$(TARGET_COPY_OUT_VENDOR)/etc/cert-chain.crt
+
+PRODUCT_PACKAGES_DEBUG += \
+        test_cast_auth

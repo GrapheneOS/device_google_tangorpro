@@ -63,6 +63,10 @@ on post-fs-data
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/wakeup_enable
     exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/1540.app
 
+# Castauth
+on post-fs-data
+    exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/cast_auth.app
+
 # Wifi
 on post-fs-data
     setprop wifi.direct.interface p2p-dev-wlan0
