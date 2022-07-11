@@ -178,3 +178,6 @@ PRODUCT_PACKAGES_DEBUG += \
 # Lights HAL
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.tangorpro
+
+# Use GmsCorePrebuilt y2022w24
+USE_GMSCORE_PREBUILT_Y2022W24 := true
