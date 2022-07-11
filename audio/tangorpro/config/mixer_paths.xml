@@ -759,6 +759,34 @@
         <path name="speaker"/>
     </path>
 
+    <path name="speaker-amp1">
+        <ctl name="Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="Digital PCM Volume" value="817"/>
+        <ctl name="Main AMP Enable Switch" value="1"/>
+    </path>
+
+    <path name="speaker-amp2">
+        <ctl name="L2 Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="L2 Digital PCM Volume" value="817"/>
+        <ctl name="L2 Main AMP Enable Switch" value="1"/>
+    </path>
+
+    <path name="speaker-amp3">
+        <ctl name="R2 Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="R2 Digital PCM Volume" value="817"/>
+        <ctl name="R2 Main AMP Enable Switch" value="1"/>
+    </path>
+
+    <path name="speaker-amp4">
+        <ctl name="R Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="R Digital PCM Volume" value="817"/>
+        <ctl name="R Main AMP Enable Switch" value="1"/>
+    </path>
+
     <!-- Tx device -->
     <path name="handset-mic">
         <ctl name="Mic Spatial Module Enable" value="1"/>
