@@ -29,4 +29,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.uart.port="/dev/ttySAC18"
+    persist.bluetooth.uart.port="/dev/ttySAC18" \
+    persist.bluetooth.firmware.selection="BTFW.hcd"
