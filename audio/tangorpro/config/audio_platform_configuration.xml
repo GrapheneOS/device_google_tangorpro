@@ -239,6 +239,7 @@
     <soundcard_name name="google,aoc-snd-card" />
     <features>
         <feature name="SoundTriggerDockTuning"/>
+        <feature name="BatteryThrottle=Type:BCL_VOLTAGE,Name:BCL_AUDIO_BAACL,Strategy:WholeSpeaker"/>
     </features>
 
     <cfg_attr>
