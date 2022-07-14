@@ -31,6 +31,9 @@ on boot && property:ro.build.flavor=factory_tangorpro-userdebug
     # Audio test folder
     mkdir /data/AudioTest 0775 system system
 
+    # Led calibration folder
+    mkdir /mnt/vendor/persist/led 0770 system system
+
 on property:vendor.mfgapi.touchpanel.permission=1
     chmod 0600 /sys/devices/virtual/sec/tsp/cmd
     chown system system /sys/devices/virtual/sec/tsp/cmd
