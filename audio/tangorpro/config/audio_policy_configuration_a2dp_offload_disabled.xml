@@ -18,7 +18,6 @@
             <attachedDevices>
                 <item>Speaker</item>
                 <item>Speaker Safe</item>
-                <item>Earpiece</item>
                 <item>Built-In Mic</item>
                 <item>Built-In Back Mic</item>
                 <item>Telephony Tx</item>
@@ -79,6 +78,10 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                            samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
+                <mixPort name="ultrasound output" role="source" flags="AUDIO_OUTPUT_FLAG_ULTRASOUND">
+                    <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                             samplingRates="96000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </mixPort>
                 <mixPort name="primary input" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="48000"
@@ -121,11 +124,14 @@
                              samplingRates="48000"
                              channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
                 </mixPort>
+                <mixPort name="ultrasound input" role="sink"
+                         flags="AUDIO_INPUT_FLAG_ULTRASOUND">
+                    <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                             samplingRates="96000" channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
+                </mixPort>
             </mixPorts>
             <devicePorts>
                 <!-- Output devices declaration, i.e. Sink DEVICE PORT -->
-                <devicePort tagName="Earpiece" type="AUDIO_DEVICE_OUT_EARPIECE" role="sink">
-                </devicePort>
                 <devicePort tagName="Speaker" type="AUDIO_DEVICE_OUT_SPEAKER" role="sink">
                 </devicePort>
                 <devicePort tagName="Speaker Safe" type="AUDIO_DEVICE_OUT_SPEAKER_SAFE" role="sink">
@@ -143,6 +149,8 @@
                 <devicePort tagName="USB Device Out" type="AUDIO_DEVICE_OUT_USB_DEVICE" role="sink">
                 </devicePort>
                 <devicePort tagName="USB Headset Out" type="AUDIO_DEVICE_OUT_USB_HEADSET" role="sink">
+                </devicePort>
+                <devicePort tagName="USB Dock" type="AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET" role="sink">
                 </devicePort>
                 <devicePort tagName="Aux Digital" type="AUDIO_DEVICE_OUT_AUX_DIGITAL" role="sink">
                 </devicePort>
@@ -170,14 +178,14 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,deep buffer,haptic,raw,compressed_offload,mmap_no_irq_out,voip_rx"/>
+                       sources="primary output,deep buffer,haptic,raw,compressed_offload,mmap_no_irq_out,voip_rx,ultrasound output"/>
                 <route type="mix" sink="Speaker Safe"
-                       sources="primary output,deep buffer,haptic,raw,compressed_offload,mmap_no_irq_out,voip_rx"/>
-                <route type="mix" sink="Earpiece"
-                       sources="primary output,deep buffer,haptic,raw,compressed_offload,mmap_no_irq_out,voip_rx"/>
+                       sources="primary output,deep buffer,haptic,raw,compressed_offload,mmap_no_irq_out,voip_rx,ultrasound output"/>
                 <route type="mix" sink="USB Device Out"
                        sources="primary output,deep buffer,haptic,raw,compressed_offload,mmap_no_irq_out,voip_rx,hifi_playback"/>
                 <route type="mix" sink="USB Headset Out"
+                       sources="primary output,deep buffer,haptic,raw,compressed_offload,mmap_no_irq_out,voip_rx,hifi_playback"/>
+                <route type="mix" sink="USB Dock"
                        sources="primary output,deep buffer,haptic,raw,compressed_offload,mmap_no_irq_out,voip_rx,hifi_playback"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary output,deep buffer,haptic,compressed_offload,voip_rx"/>
@@ -200,6 +208,7 @@
                        sources="Built-In Mic,Built-In Back Mic,USB Device In,USB Headset In"/>
                 <route type="mix" sink="hifi_input" sources="USB Device In,USB Headset In" />
                 <route type="mix" sink="echo_ref_input" sources="Echo Ref In"/>
+                <route type="mix" sink="ultrasound input" sources="Built-In Mic,Built-In Back Mic"/>
             </routes>
         </module>
         <!-- Bluetooth Audio HAL -->
