@@ -35,7 +35,7 @@
         <intf id="BE_HW_RX_INTF_5" name="USB_DOCK_RX" min_bit="24" min_chan="1" min_rate="48000" block_id="20"/>
         <intf id="BE_VIRTUAL_VOICE_RX_TUNING" block_id="19"/>
         <intf id="BE_VIRTUAL_VOICE_TX_TUNING" block_id="19"/>
-        <intf id="BE_HW_TX_INTF_0" block_id="134,128"/>
+        <intf id="BE_HW_TX_INTF_0" block_id="134,128,137"/>
     </hw_intf>
 
     <product_lists>
@@ -205,6 +205,7 @@
         <!-- for hifi -->
         <usecase id="UC_HIFI_PLAYBACK" dev1="25"/>
         <usecase id="UC_HIFI_RECORD" dev1="26"/>
+        <usecase id="UC_ULTRASOUND_RECORD" dev1="12" period="10" period_num="3"/>
     </usecase_attr>
 
     <dsp_latency>
@@ -237,7 +238,10 @@
     </dsp_latency>
 
     <soundcard_name name="google,aoc-snd-card" />
-    <features lists="SoundTriggerDockTuning" />
+    <features>
+        <feature name="SoundTriggerDockTuning"/>
+        <feature name="BatteryThrottle=Type:BCL_VOLTAGE,Name:BCL_AUDIO_BAACL,Strategy:WholeSpeaker"/>
+    </features>
 
     <cfg_attr>
         <cfg id="OUT_SPEAKER_BE_CFG" intf_name="TDM_RX_0" mux="HW_MUX_GP_0" tuning_id="2"/>
@@ -289,7 +293,7 @@
     <external_module>
         <module libname="audio_waves_aoc.so" argu="Sink=SPK:1,USB_DOCK:4,USB_HP:4"/>
         <module libname="audio_spk_35l41.so" argu="SpeakerNum=4"/>
-        <module libname="audio_fortemedia_aoc.so" argu="Legacy_VoIP=y"/>
+        <module libname="audio_fortemedia_aoc.so" argu="RTN_SUP=y Legacy_VoIP=y DOCK_CHARGER_MONITOR=y"/>
         <module libname="liboffloadeffect.so"/>
         <module libname="audio_amcs_ext.so"/>
         <module libname="audio_bluenote_aoc.so"/>

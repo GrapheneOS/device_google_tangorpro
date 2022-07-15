@@ -151,6 +151,7 @@
     <ctl name="TDM_0_RX Mixer NoHost1" value="0"/>
     <ctl name="TDM_0_RX Mixer VOIP" value="0"/>
     <ctl name="TDM_0_RX Mixer RAW" value="0"/>
+    <ctl name="TDM_0_RX Mixer US" value="0"/>
 
     <ctl name="TDM_1_RX Mixer EP1" value="0"/>
     <ctl name="TDM_1_RX Mixer EP2" value="0"/>
@@ -248,6 +249,7 @@
     <ctl name="EP6 TX Mixer INCALL_TX" value="0"/>
     <ctl name="NoHost1 TX Mixer INCALL_TX" value="0"/>
 
+    <ctl name="EP5 TX Mixer INTERNAL_MIC_US_TX" value="0"/>
     <ctl name="EP4 TX Mixer I2S_2_TX" value="0"/>
 
     <!-- AoC Mic setting -->
@@ -280,6 +282,12 @@
     <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="-1"/>
     <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1"/>
     <ctl name="Audio Capture Mic Source" value="Builtin_MIC"/>
+
+    <!-- audio Ultrasound mic default state -->
+    <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="-1"/>
+    <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="-1"/>
+    <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="-1"/>
+    <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1"/>
 
     <!-- sidetone controls -->
     <ctl name="Sidetone Enable" value="0"/>
@@ -412,6 +420,10 @@
     </path>
 
     <path name="low-latency-playbackP hearing-aid">
+    </path>
+
+    <path name="ultrasound-playbackP">
+        <ctl name="TDM_0_RX Mixer US" value="1"/>
     </path>
 
     <path name="raw-playbackP">
@@ -566,6 +578,10 @@
     </path>
 
     <!-- audio capture dynamic route -->
+    <path name="ultrasound-recordC">
+        <ctl name="EP5 TX Mixer INTERNAL_MIC_US_TX" value="1"/>
+    </path>
+
     <path name="audio-recordC">
         <ctl name="EP1 TX Mixer INTERNAL_MIC_TX" value="1"/>
     </path>
@@ -871,6 +887,16 @@
         <ctl name="MIC Record Soft Gain (dB)" value="5"/>
     </path>
 
+    <path name="ultrasound-mic">
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="0"/>
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="-1"/>
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1"/>
+    </path>
+
+    <path name="ultrasound-mic-post">
+    </path>
+
     <path name="bt-mic">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0"/>
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="3"/>
@@ -918,4 +944,12 @@
         <ctl name="R2 DSP1 Preload Switch" value="1" />
     </path>
     <!-- cs35l41 specific path to load firmware in cs35l41.c end-->
+
+    <!-- cs35l41 specific path to config ultrasound -->
+    <path name="cs35l41-us-config">
+        <ctl name="ASPRX2 Slot Position" value="2"/>
+        <ctl name="R ASPRX2 Slot Position" value="3"/>
+        <ctl name="DSP RX2 Source" value="ASPRX2"/>
+        <ctl name="R DSP RX2 Source" value="ASPRX2"/>
+    </path>
 </mixer>
