@@ -84,3 +84,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     class main
     disabled
     oneshot
+
+# Audio
+on post-fs-data
+    chmod 644 /mnt/vendor/persist/audio/speaker.cal
