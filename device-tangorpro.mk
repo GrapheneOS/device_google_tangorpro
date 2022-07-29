@@ -103,6 +103,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/google/tangorpro/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
+# PowerStats HAL
+PRODUCT_SOONG_NAMESPACES += device/google/tangorpro/powerstats
+
 # Bluetooth HAL and Pixel extension
 include device/google/tangorpro/bluetooth/syna_default.mk
 
