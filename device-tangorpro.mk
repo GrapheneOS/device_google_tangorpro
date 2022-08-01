@@ -33,8 +33,8 @@ PRODUCT_PACKAGES += WifiOverlayT6pro
 # This flag need to be set before device/google/gs201/device.mk
 DISABLE_CAMERA_FS_AF := true
 
-include device/google/gs201/device-shipping-common.mk
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
+include device/google/gs201/device-shipping-common.mk
 
 $(call soong_config_set,lyric,tuning_product,cloudripper)
 $(call soong_config_set,google3a_config,target_device,cloudripper)
