@@ -390,4 +390,7 @@
 
     <!-- This device does not allow sms service. -->
     <bool name="config_sms_capable">false</bool>
+
+    <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
+    <integer name="config_shutdownBatteryTemperature">580</integer>
 </resources>
