@@ -186,7 +186,7 @@
         {
             "Name":"soc",
             "Type":"BCL_PERCENTAGE",
-            "HotThreshold":["NAN", "NAN", 80, "NAN", "NAN", "NAN", "NAN"],
+            "HotThreshold":["NAN", "NAN", 70, "NAN", "NAN", "NAN", "NAN"],
             "Multiplier":1
         },
         {
@@ -331,7 +331,7 @@
             "Formula":"COUNT_THRESHOLD",
             "TriggerSensor": "soc",
             "Combination":["battery", "soc"],
-            "Coefficient":[-25000, 80],
+            "Coefficient":[-45000, 70],
             "HotThreshold":["NAN", "NAN",  "NAN", "NAN", 2.0, "NAN", "NAN"],
             "Multiplier":1,
             "Monitor":true
