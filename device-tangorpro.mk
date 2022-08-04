@@ -189,3 +189,7 @@ PRODUCT_PACKAGES += \
 
 # Use GmsCorePrebuilt y2022w28
 USE_GMSCORE_PREBUILT_Y2022W28 := true
+
+# Device features
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
