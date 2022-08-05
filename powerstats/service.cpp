@@ -35,11 +35,8 @@ void addDisplay(std::shared_ptr<PowerStats> p) {
     // Add display residency stats
     std::vector<std::string> states = {
         "Off",
-        "LP: 1080x2340@30",
-        "On: 1080x2340@60",
-        "On: 1080x2340@90",
-        "HBM: 1080x2340@60",
-        "HBM: 1080x2340@90"};
+        "On: 1600x2560@60",
+        "HBM: 1600x2560@60"};
 
     p->addStateResidencyDataProvider(std::make_unique<DisplayStateResidencyDataProvider>("Display",
             "/sys/class/backlight/panel0-backlight/state",
@@ -52,9 +49,7 @@ void addDisplay(std::shared_ptr<PowerStats> p) {
      */
     p->addEnergyConsumer(PowerStatsEnergyConsumer::createMeterAndEntityConsumer(p,
             EnergyConsumerType::DISPLAY, "display", {"PPVAR_VSYS_PWR_DISP"}, "Display",
-            {{"LP: 1080x2340@30", 1},
-             {"On: 1080x2340@60", 2},
-             {"On: 1080x2340@90", 3}}));
+            {{"On: 1600x2560@60", 1}}));
 }
 
 int main() {
