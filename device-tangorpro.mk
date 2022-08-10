@@ -33,6 +33,9 @@ PRODUCT_PACKAGES += WifiOverlayT6pro
 # This flag need to be set before device/google/gs201/device.mk
 DISABLE_CAMERA_FS_AF := true
 
+# Disable baro, prox, hifi sensor related xml with a disable flag.
+DISABLE_SENSOR_BARO_PROX_HIFI := true
+
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 
