@@ -116,6 +116,8 @@ include device/google/tangorpro/bluetooth/syna_default.mk
 # Fingerprint
 include device/google/gs101/fingerprint/fpc1540/sw42/fpc1540.mk
 FPC_MODULE_TYPE=1542_S
+# Fingerprint config
+include device/google/tangorpro/fingerprint_config.mk
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
