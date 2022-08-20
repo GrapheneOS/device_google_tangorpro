@@ -60,7 +60,7 @@ int main() {
 
     std::shared_ptr<PowerStats> p = ndk::SharedRefBase::make<PowerStats>();
 
-    addGs201CommonDataProviders(p);
+    addGs201CommonDataProvidersBig(p);
     addDisplay(p);
 
     const std::string instance = std::string() + PowerStats::descriptor + "/default";
