@@ -1,0 +1,9 @@
+{
+    "Sensors":[
+        {
+            "Name":"battery",
+            "Type":"BATTERY",
+            "Multiplier":0.001
+        }
+    ]
+}
