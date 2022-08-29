@@ -30,5 +30,5 @@ PRODUCT_MODEL := AOSP on Tangorpro
 PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Google
 
-DEVICE_MANIFEST_FILE := \
+DEVICE_MANIFEST_FILE += \
 	device/google/tangorpro/manifest.xml
