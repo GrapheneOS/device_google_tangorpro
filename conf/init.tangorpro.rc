@@ -87,3 +87,11 @@ on post-fs-data
 # Audio
 on post-fs-data
     chmod 644 /mnt/vendor/persist/audio/speaker.cal
+
+# Override SF and RE uclamps to 0 on boot after being set elsewhere, for adpf cpu hints
+on property:sys.boot_completed=1
+    trigger override-sf-uclamp
+
+on override-sf-uclamp
+    write /proc/vendor_sched/rt_uclamp_min 0
+    write /proc/vendor_sched/sf_uclamp_min 0
