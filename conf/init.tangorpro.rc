@@ -73,6 +73,8 @@ on post-fs-data
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/hw_reset
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/irq
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/wakeup_enable
+
+on fs
     exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/1540.app
 
 # Castauth
