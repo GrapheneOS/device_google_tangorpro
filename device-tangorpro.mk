@@ -147,6 +147,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES_DEBUG += \
         test_cast_auth
 
+# USI stylus test tool
+PRODUCT_PACKAGES_DEBUG += \
+        usi_test
+
 # Lights HAL
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.tangorpro
