@@ -116,6 +116,7 @@ include device/google/tangorpro/bluetooth/syna_default.mk
 # Fingerprint
 include device/google/gs101/fingerprint/fpc1540/sw42/fpc1540.mk
 FPC_MODULE_TYPE=1542_S
+$(call soong_config_set,fp_hal_feature,pixel_product, product_b)
 # Fingerprint config
 include device/google/tangorpro/fingerprint_config.mk
 
