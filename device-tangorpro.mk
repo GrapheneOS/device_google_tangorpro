@@ -36,6 +36,11 @@ DISABLE_CAMERA_FS_AF := true
 # Disable baro, prox, hifi sensor related xml with a disable flag.
 DISABLE_SENSOR_BARO_PROX_HIFI := true
 
+# Identify the device type.
+# This flag need to be set before device/google/gs201/device.mk
+# to have tablet COD setting
+USE_TABLET_BT_COD := true
+
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 
