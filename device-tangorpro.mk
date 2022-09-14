@@ -44,7 +44,9 @@ USE_TABLET_BT_COD := true
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 
-$(call soong_config_set,lyric,tuning_product,cloudripper)
+# go/lyric-soong-variables
+$(call soong_config_set,lyric,camera_hardware,tangorpro)
+$(call soong_config_set,lyric,tuning_product,tangor)
 $(call soong_config_set,google3a_config,target_device,cloudripper)
 
 ifeq ($(filter factory_tangorpro, $(TARGET_PRODUCT)),)
