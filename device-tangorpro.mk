@@ -50,7 +50,6 @@ DISABLE_TELEPHONY_EUICC := true
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/tangorpro/device_framework_matrix_product.xml
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tangorpro)
 $(call soong_config_set,lyric,tuning_product,tangorpro)
