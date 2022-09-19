@@ -528,11 +528,6 @@
     {
       "PowerHint": "LAUNCH",
       "Type": "DoHint",
-      "Value": "LAUNCH_120FPS"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Type": "DoHint",
       "Value": "LAUNCH_GPU"
     },
     {
@@ -1290,11 +1285,6 @@
       "Node": "TAUClampBoost",
       "Duration": 0,
       "Value": "63"
-    },
-    {
-      "PowerHint": "REFRESH_60FPS",
-      "Type": "MaskHint",
-      "Value": "LAUNCH_120FPS"
     },
     {
       "PowerHint": "ADPF_DISABLE_TA_BOOST",
