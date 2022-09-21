@@ -46,7 +46,7 @@ include device/google/gs201/device-shipping-common.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tangorpro)
-$(call soong_config_set,lyric,tuning_product,tangor)
+$(call soong_config_set,lyric,tuning_product,tangorpro)
 $(call soong_config_set,google3a_config,target_device,cloudripper)
 
 ifeq ($(filter factory_tangorpro, $(TARGET_PRODUCT)),)
