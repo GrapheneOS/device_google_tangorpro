@@ -43,13 +43,11 @@ void addDisplay(std::shared_ptr<PowerStats> p) {
             states));
 
     // Add display energy consumer
-    /*
-     * TODO(b/167216667): Add correct display power model here. Must read from display rail
-     * and include proper coefficients for display states.
-     */
-    p->addEnergyConsumer(PowerStatsEnergyConsumer::createMeterAndEntityConsumer(p,
-            EnergyConsumerType::DISPLAY, "display", {"PPVAR_VSYS_PWR_DISP"}, "Display",
-            {{"On: 1600x2560@60", 1}}));
+    p->addEnergyConsumer(PowerStatsEnergyConsumer::createMeterConsumer(
+            p,
+            EnergyConsumerType::DISPLAY,
+            "Display",
+            {"VSYS_PWR_DISPLAY"}));
 }
 
 int main() {
