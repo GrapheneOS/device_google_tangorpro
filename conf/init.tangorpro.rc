@@ -66,6 +66,10 @@ on property:vendor.all.modules.ready=1 && property:ro.build.flavor=factory_tango
     write /sys/devices/virtual/goog_touch_interface/gti.0/v4l2_enabled 0
     write /sys/devices/virtual/goog_touch_interface/gti.0/offload_enabled 0
 
+# Start the twoshay touch service
+on property:vendor.device.modules.ready=1
+    start twoshay
+
 # Fingerprint
 on post-fs-data
     # Fingerprint
