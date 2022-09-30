@@ -101,3 +101,14 @@ on property:sys.boot_completed=1
 on override-sf-uclamp
     write /proc/vendor_sched/rt_uclamp_min 0
     write /proc/vendor_sched/sf_uclamp_min 0
+
+# Pogo
+on post-fs
+    chown root system /sys/devices/platform/google,pogo/move_data_to_usb
+    chown system system /sys/devices/platform/google,pogo/hall1_s
+    chown system system /sys/devices/platform/google,pogo/hall1_n
+    chown system system /sys/devices/platform/google,pogo/hall2_s
+    chmod 664 /sys/devices/platform/google,pogo/move_data_to_usb
+    chmod 600 /sys/devices/platform/google,pogo/hall1_s
+    chmod 600 /sys/devices/platform/google,pogo/hall1_n
+    chmod 600 /sys/devices/platform/google,pogo/hall2_s
