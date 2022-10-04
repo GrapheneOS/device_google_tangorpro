@@ -195,3 +195,6 @@ PRODUCT_SOONG_NAMESPACES += \
 # CastKey Drm plugin modules
 PRODUCT_PACKAGES += \
 	android.hardware.drm-service.castkey
+
+# Cast ssid suffix go/gna-oem-device-support
+PRODUCT_SYSTEM_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
