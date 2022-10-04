@@ -1,0 +1,39 @@
+
+// ----------------------------------------------------------------------------
+// Builds android.hardware.drm-service.castkey
+//
+cc_binary {
+    name: "android.hardware.drm-service.castkey",
+    defaults: ["castkey_service_defaults"],
+    srcs: ["Service.cpp"],
+    init_rc: ["android.hardware.drm-service.castkey.rc"],
+    vintf_fragments: ["manifest_android.hardware.drm-service.castkey.xml"],
+}
+
+cc_defaults {
+    name: "castkey_service_defaults",
+    vendor: true,
+    proprietary: true,
+    srcs: [
+        "CreatePluginFactories.cpp",
+        "DrmFactory.cpp",
+        "DrmPlugin.cpp",
+        "SessionLibrary.cpp",
+    ],
+
+    relative_install_path: "hw",
+
+    cflags: ["-Wall", "-Werror"],
+
+    include_dirs: [
+        "device/google/tangorpro/cast_auth/mediadrm/include",
+    ],
+
+    shared_libs: [
+        "android.hardware.drm-V1-ndk",
+        "libbase",
+        "libbinder_ndk",
+        "liblog",
+        "libutils",
+    ],
+}

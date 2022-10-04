@@ -183,3 +183,11 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
     vendor.zram.size=3g
+
+# Trusty libbinder_trusty_paidl.so and libcast_auth.so
+PRODUCT_SOONG_NAMESPACES += \
+	vendor/lib64
+
+# CastKey Drm plugin modules
+PRODUCT_PACKAGES += \
+	android.hardware.drm-service.castkey
