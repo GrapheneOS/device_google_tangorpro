@@ -42,6 +42,10 @@ DISABLE_SENSOR_BARO_PROX_HIFI := true
 # to have tablet COD setting
 USE_TABLET_BT_COD := true
 
+# Disable telephony euicc related xml with a disable flag.
+# This flag need to be set before device/google/gs201/device.mk
+DISABLE_TELEPHONY_EUICC := true
+
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 
