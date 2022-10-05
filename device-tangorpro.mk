@@ -180,6 +180,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_VENDOR_PROPERTIES += \
     vendor.zram.size=3g
 
+# Increase thread priority for nodes stop
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.increase_thread_priority_nodes_stop=true
+
 # Trusty libbinder_trusty_paidl.so and libcast_auth.so
 PRODUCT_SOONG_NAMESPACES += \
 	vendor/lib64
