@@ -130,10 +130,6 @@ include device/google/tangorpro/fingerprint_config.mk
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
 
-# DCK properties based on target
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.gms.dck.eligible_wcc=2
-
 # Wifi SAP Interface Name
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.wifi.sap.interface=wlan1
