@@ -23,9 +23,9 @@ DrmPlugin::~DrmPlugin() {};
 
 constexpr char CAST_CRT_FILE[] = "/mnt/vendor/persist/nest/cast_auth.crt";
 constexpr char CAST_ICA_FILE[] = "/vendor/etc/cert-chain.crt";
-constexpr char kSha1Prefix[] = {0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2b, 0x0e,
+constexpr unsigned char kSha1Prefix[] = {0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2b, 0x0e,
                             0x03, 0x02, 0x1a, 0x05, 0x00, 0x04, 0x14};
-constexpr char kSha256Prefix[] = {0x30, 0x31, 0x30, 0x0d, 0x06, 0x09, 0x60,
+constexpr unsigned char kSha256Prefix[] = {0x30, 0x31, 0x30, 0x0d, 0x06, 0x09, 0x60,
                               0x86, 0x48, 0x01, 0x65, 0x03, 0x04, 0x02,
                               0x01, 0x05, 0x00, 0x04, 0x20};
 constexpr int kSHA1Length = 20;
@@ -33,7 +33,7 @@ constexpr int kSHA256Length = 32;
 constexpr int DigestInfoPrefixesSize = 2;
 
 struct DigestInfoPrefix {
-    const char* bytes;
+    const unsigned char* bytes;
     size_t size;
     size_t hash_size;
 };
@@ -46,15 +46,16 @@ const DigestInfoPrefix kDigestInfoPrefixes[] = {
 
 // If we find a raw hash, prepend the appropriate DER prefix.
 std::vector<uint8_t> adjustHash(const std::vector<uint8_t>& hash) {
-    std::string adjusted_hash(hash.begin(), hash.end());
+    std::vector<uint8_t> adjusted_hash(hash);
     for (size_t i = 0; i < DigestInfoPrefixesSize; i++) {
         const DigestInfoPrefix& prefix = kDigestInfoPrefixes[i];
         if (hash.size() == prefix.hash_size) {
-            adjusted_hash.insert(0, prefix.bytes, prefix.size);
+            adjusted_hash.insert(adjusted_hash.begin(), prefix.bytes,
+                       &prefix.bytes[prefix.size]);
             break;
     }
   }
-  return std::vector<uint8_t>(adjusted_hash.begin(), adjusted_hash.end());
+  return adjusted_hash;
 }
 
 std::vector<uint8_t> readBinaryFile(const std::string& file_path) {
