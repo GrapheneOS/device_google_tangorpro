@@ -42,6 +42,10 @@ DISABLE_SENSOR_BARO_PROX_HIFI := true
 # to have tablet COD setting
 USE_TABLET_BT_COD := true
 
+# Disable telephony euicc related xml with a disable flag.
+# This flag need to be set before device/google/gs201/device.mk
+DISABLE_TELEPHONY_EUICC := true
+
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 
@@ -130,10 +134,6 @@ include device/google/tangorpro/fingerprint_config.mk
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
 
-# DCK properties based on target
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.gms.dck.eligible_wcc=2
-
 # Wifi SAP Interface Name
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.wifi.sap.interface=wlan1
@@ -179,6 +179,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
     vendor.zram.size=3g
+
+# Increase thread priority for nodes stop
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.increase_thread_priority_nodes_stop=true
 
 # Trusty libbinder_trusty_paidl.so and libcast_auth.so
 PRODUCT_SOONG_NAMESPACES += \
