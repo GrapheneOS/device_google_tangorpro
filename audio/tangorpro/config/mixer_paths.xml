@@ -889,7 +889,7 @@
 
     <path name="ultrasound-mic">
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="1"/>
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="3"/>
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="-1"/>
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1"/>
     </path>
