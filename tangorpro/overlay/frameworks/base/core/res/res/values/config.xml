@@ -41,7 +41,16 @@
     <bool name="config_displayWhiteBalanceAvailable">true</bool>
 
     <!-- Boolean indicating whether display white balance should be enabled by default. -->
-    <bool name="config_displayWhiteBalanceEnabledDefault">false</bool>
+    <bool name="config_displayWhiteBalanceEnabledDefault">true</bool>
+
+    <!-- Minimum color temperature, in Kelvin, supported by display white balance. -->
+    <integer name="config_displayWhiteBalanceColorTemperatureMin">2500</integer>
+
+    <!-- Maximum color temperature, in Kelvin, supported by display white balance. -->
+    <integer name="config_displayWhiteBalanceColorTemperatureMax">8000</integer>
+
+    <!-- Default color temperature, in Kelvin, used by display white balance. -->
+    <integer name="config_displayWhiteBalanceColorTemperatureDefault">6400</integer>
 
     <!-- See DisplayWhiteBalanceController.
          A float array containing a list of ambient color temperatures, in Kelvin. This array,
@@ -52,7 +61,7 @@
          1) Contain at least two entries
          2) Be the same length as config_displayWhiteBalanceDisplayColorTemperatures. -->
     <array name="config_displayWhiteBalanceAmbientColorTemperatures">
-        <item>2700</item>
+        <item>2500</item>
         <item>3100</item>
         <item>3700</item>
         <item>4200</item>
@@ -80,7 +89,7 @@
         <item>6850</item>
         <item>6950</item>
         <item>7050</item>
-        <item>7100</item>
+        <item>7200</item>
     </array>
 
     <!-- See DisplayWhiteBalanceController.
@@ -105,19 +114,166 @@
          The same as config_displayWhiteBalanceDisplayColorTemperatures, but with a stronger
          visual adjustment. -->
     <array name="config_displayWhiteBalanceStrongDisplayColorTemperatures">
-        <item>3000</item>
-        <item>3700</item>
+        <item>3500</item>
+        <item>4000</item>
         <item>4600</item>
-        <item>5200</item>
-        <item>6100</item>
-        <item>6800</item>
-        <item>6800</item>
-        <item>6800</item>
-        <item>6800</item>
-        <item>6800</item>
-        <item>6800</item>
-        <item>6800</item>
+        <item>5400</item>
+        <item>6300</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
     </array>
+
+    <!-- The display primaries, in CIE1931 XYZ color space, for display
+         white balance to use in its calculations. The array must include a total of 12 float
+         values: 3 values per color (X, Y, Z) and 4 colors (R, G, B, W) -->
+    <string-array name="config_displayWhiteBalanceDisplayPrimaries">
+        <!-- Red X -->   <item>0.5128</item>
+        <!-- Red Y -->   <item>0.2413</item>
+        <!-- Red Z -->   <item>0.0000</item>
+        <!-- Green X --> <item>0.2598</item>
+        <!-- Green Y --> <item>0.6764</item>
+        <!-- Green Z --> <item>0.0441</item>
+        <!-- Blue X -->  <item>0.2057</item>
+        <!-- Blue Y -->  <item>0.0823</item>
+        <!-- Blue Z -->  <item>1.0832</item>
+        <!-- White X --> <item>0.9783</item>
+        <!-- White Y --> <item>1.0000</item>
+        <!-- White Z --> <item>1.1273</item>
+    </string-array>
+
+    <!-- The nominal white coordinates, in CIE1931 XYZ color space, for Display White Balance to
+         use in its calculations. AWB will adapt this white point to the target ambient white
+         point. The array must include a total of 3 float values (X, Y, Z) -->
+    <string-array name="config_displayWhiteBalanceDisplayNominalWhite">
+        <!-- Nominal White X --> <item>0.9783</item>
+        <!-- Nominal White Y --> <item>1.0000</item>
+        <!-- Nominal White Z --> <item>1.1273</item>
+    </string-array>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The debounce time (in milliseconds) for increasing the screen color temperature, throttled
+         if time > lastTime + debounce. Must be non-negative. -->
+    <integer name="config_displayWhiteBalanceIncreaseDebounce">2000</integer>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The debounce time (in milliseconds) for decreasing the screen color tempearture, throttled
+         if time < lastTime - debounce. Must be non-negative. -->
+    <integer name="config_displayWhiteBalanceDecreaseDebounce">3000</integer>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The ambient color temperature values used to determine the threshold as the corresponding
+         value in config_displayWhiteBalance{Increase,Decrease}Threholds. Must be non-empty, the
+         same length as config_displayWhiteBalance{Increase,Decrease}Thresholds, and contain
+         non-negative, strictly increasing numbers.
+
+         For example, if:
+
+         - baseThresolds = [0, 100, 1000];
+         - increaseThresholds = [0.1, 0.15, 0.2];
+         - decreaseThresholds = [0.1, 0.05, 0.0];
+
+         Then, given the ambient color temperature INCREASED from X to Y (so X < Y):
+         - If 0 <= Y < 100, we require Y > (1 + 0.1) * X = 1.1X;
+         - If 100 <= Y < 1000, we require Y > (1 + 0.15) * X = 1.15X;
+         - If 1000 <= Y, we require Y > (1 + 0.2) * X = 1.2X.
+
+         Or, if the ambient color temperature DECREASED from X to Y (so X > Y):
+         - If 0 <= Y < 100, we require Y < (1 - 0.1) * X = 0.9X;
+         - If 100 <= Y < 1000, we require Y < (1 - 0.05) * X = 0.95X;
+         - If 1000 <= Y, we require Y < (1 - 0) * X = X. -->
+    <array name="config_displayWhiteBalanceBaseThresholds">
+        <item>6300</item>
+        <item>6400</item>
+        <item>6850</item>
+        <item>7450</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The increase threshold values, throttled if value < value * (1 + threshold). Must be
+         non-empty, the same length as config_displayWhiteBalanceBaseThresholds, and contain
+         non-negative numbers. -->
+    <array name="config_displayWhiteBalanceIncreaseThresholds">
+        <item>0.0078740</item>
+        <item>0.0075472</item>
+        <item>0.0069930</item>
+        <item>0.0067114</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The decrease threshold values, throttled if value > value * (1 - threshold). Must be
+         non-empty, the same length as config_displayWhiteBalanceBaseThresholds, and contain
+         non-negative numbers. -->
+    <array name="config_displayWhiteBalanceDecreaseThresholds">
+        <item>0.0078740</item>
+        <item>0.0075472</item>
+        <item>0.0069930</item>
+        <item>0.0067114</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient brightnesses, in Lux. This array,
+         together with config_displayWhiteBalanceLowLightAmbientBiases, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient brightness readings to a bias, where the bias is used to linearly interpolate
+         between ambient color temperature and
+         config_displayWhiteBalanceLowLightAmbientColorTemperature.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceLowLightAmbientBiases. -->
+    <array name ="config_displayWhiteBalanceLowLightAmbientBrightnesses">
+        <item>3.0</item>
+        <item>10.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         An array containing a list of biases. See
+         config_displayWhiteBalanceLowLightAmbientBrightnesses for additional details.
+         This array must be in the range of [0.0, 1.0]. -->
+    <array name ="config_displayWhiteBalanceLowLightAmbientBiases">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         The ambient color temperature (in cct) to which we interpolates towards to when the
+         ambient brightness is within the low light range, see
+         config_displayWhiteBalanceLowLightAmbientBrightnesses. -->
+    <item name="config_displayWhiteBalanceLowLightAmbientColorTemperature" format="float" type="dimen">3500.0</item>
+
+    <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient brightnesses, in Lux. This array,
+         together with config_displayWhiteBalanceHighLightAmbientBiases, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient brightness readings to a bias, where the bias is used to linearly interpolate
+         between ambient color temperature and
+         config_displayWhiteBalanceHighLightAmbientColorTemperature.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceHighLightAmbientBiases. -->
+    <array name ="config_displayWhiteBalanceHighLightAmbientBrightnesses">
+        <item>3000.0</item>
+        <item>5000.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         An array containing a list of biases. See
+         config_displayWhiteBalanceHighLightAmbientBrightnesses for additional details.
+         This array must be in the range of [0.0, 1.0]. -->
+    <array name ="config_displayWhiteBalanceHighLightAmbientBiases">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         The ambient color temperature (in cct) to which we interpolates towards to when the
+         ambient brightness is within the high light range, see
+         config_displayWhiteBalanceHighLightAmbientBrightnesses. -->
+    <item name="config_displayWhiteBalanceHighLightAmbientColorTemperature" format="float" type="dimen">6700.0</item>
 
     <!-- Enable doze mode
          ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
