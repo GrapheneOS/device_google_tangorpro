@@ -116,6 +116,7 @@ std::vector<uint8_t> readBinaryFile(const std::string& file_path) {
     *_aidl_return = std::vector<uint8_t>();
     void* cast_auth_handle = ::dlopen("libcast_auth.so", RTLD_LAZY);
     if (!cast_auth_handle) {
+        ALOGE("Fail to get TA for signing");
         return toNdkScopedAStatus(status);
     }
     typedef bool (*func_type)(const std::vector<uint8_t>&,
@@ -123,6 +124,7 @@ std::vector<uint8_t> readBinaryFile(const std::string& file_path) {
     func_type sign_hash_func =
         reinterpret_cast<func_type>(::dlsym(cast_auth_handle, "SignHash"));
     if (!sign_hash_func) {
+        ALOGE("Fail to apply signing method");
         dlclose(cast_auth_handle);
         return toNdkScopedAStatus(status);
     }
@@ -133,6 +135,7 @@ std::vector<uint8_t> readBinaryFile(const std::string& file_path) {
         *_aidl_return = signature;
         status = Status::OK;
     }
+    ALOGE("Get empty result from TA");
     return toNdkScopedAStatus(status);
 }
 
