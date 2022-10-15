@@ -157,3 +157,7 @@ PRODUCT_PACKAGES += \
 PLAYVIDEOS_VERSION_DIR := 4.38.72.77
 $(call soong_config_set_bool,playvideos,use_device_specific_version,true)
 PRODUCT_SOONG_NAMESPACES += vendor/unbundled_google/packages/PlayVideos/$(PLAYVIDEOS_VERSION_DIR)
+
+# sysconfig XML from stock
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
