@@ -109,13 +109,13 @@
     <ctl name="L2 DSP1 Firmware" value="Protection"/>
     <ctl name="R2 DSP1 Firmware" value="Protection"/>
     <ctl name="DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="DSP RX2 Source" value="ASPRX2"/>
     <ctl name="R DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="R DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="R DSP RX2 Source" value="ASPRX2"/>
     <ctl name="L2 DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="L2 DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="L2 DSP RX2 Source" value="ASPRX2"/>
     <ctl name="R2 DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="R2 DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="R2 DSP RX2 Source" value="ASPRX2"/>
     <ctl name="Boost Peak Current Limit" value="3.50A"/>
     <ctl name="R Boost Peak Current Limit" value="3.50A"/>
     <ctl name="L2 Boost Peak Current Limit" value="3.50A"/>
@@ -922,6 +922,20 @@
     <path name="usb-headset-mic-post">
         <ctl name="MIC Record Soft Gain (dB)" value="0"/>
     </path>
+
+    <!-- cs35l41 specific path for rotation start -->
+    <path name="cs35l41-rotation-0">
+    </path>
+
+    <path name="cs35l41-rotation-90">
+    </path>
+
+    <path name="cs35l41-rotation-180">
+    </path>
+
+    <path name="cs35l41-rotation-270">
+    </path>
+    <!-- cs35l41 specific path for rotation end -->
 
     <!-- cs35l41 specific path to load firmware in cs35l41.c -->
     <path name="cs35l41-load-protection-firmware-start">
