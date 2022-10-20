@@ -59,6 +59,9 @@ ifeq ($(filter factory_tangorpro, $(TARGET_PRODUCT)),)
 include device/google/tangorpro/uwb/uwb_calibration.mk
 endif
 
+# Preopt SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += SystemUITitan  # For tablet
+
 # Touch files
 PRODUCT_COPY_FILES += \
         device/google/tangorpro/NVTCapacitiveTouchScreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/NVTCapacitiveTouchScreen.idc \
