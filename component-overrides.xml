@@ -15,4 +15,7 @@
         <component class=".dreams.DreamOverlayService" enabled="true" />
         <component class="com.google.android.systemui.lowlightclock.LowLightClockDreamService" enabled="true" />
     </component-override>
+    <component-override package="com.android.settings" >
+        <component class="com.google.android.settings.dream.DreamSetupActivity" enabled="true" />
+    </component-override>
 </config>
