@@ -45,6 +45,7 @@ on property:vendor.device.modules.ready=1
     chown system system /sys/devices/virtual/goog_touch_interface/gti.0/fw_ver
     chown system system /sys/devices/virtual/goog_touch_interface/gti.0/v4l2_enabled
     chown system system /sys/devices/virtual/goog_touch_interface/gti.0/offload_enabled
+    chown system system /sys/devices/virtual/goog_touch_interface/gti.0/ms_diff
     chown system system /proc/nvt_baseline
     chown system system /proc/nvt_diff
     chown system system /proc/nvt_heatmap
