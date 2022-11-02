@@ -34,8 +34,36 @@ static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
 char const *const GREEN_LED_FILE = "/sys/class/leds/green/brightness";
 
-enum { ARGB_ON_IN_DAY = 0x0000ff00, ARGB_ON_IN_NIGHT = 0x00008000, ARGB_OFF = 0x00000000 };
-enum { DAY = 4095, NIGHT = 0 };
+enum {
+    ARGB_DAY   = 0x0000ff00,
+    ARGB_DUSK  = 0x0000c000,
+    ARGB_NIGHT = 0x00008000,
+    ARGB_OFF   = 0x00000000
+};
+
+enum {
+    PWM_DAY_DEF   = 0x300,
+    PWM_DUSK_DEF  = 0x080,
+    PWM_NIGHT_DEF = 0x040,
+    PWM_OFF_DEF   = 0x000
+};
+
+enum {
+    MODE_DAY   = 0xfff,
+    MODE_NIGHT = 0x000
+};
+
+struct ARGBToPWM {
+    int argb;
+    int pwm;
+};
+
+static struct ARGBToPWM pwmIds[] = {
+    {ARGB_DAY,   PWM_DAY_DEF},
+    {ARGB_DUSK,  PWM_DUSK_DEF},
+    {ARGB_NIGHT, PWM_NIGHT_DEF},
+    {ARGB_OFF,   PWM_OFF_DEF}
+};
 
 static int sys_write_int(int fd, int value) {
     char buffer[16];
@@ -88,6 +116,17 @@ class Lights : public BnLights {
         addLight(LightType::WIFI, 0);
         addLight(LightType::MICROPHONE, 0);
         addLight(LightType::CAMERA, 0);
+
+        int cal_color = 0;
+        cal_color = calibrator.GetByColorIntensity("green", MODE_DAY);
+        if (cal_color >= 0) {
+            pwmIds[0].pwm  = cal_color;
+        }
+        cal_color = calibrator.GetByColorIntensity("green", MODE_NIGHT);
+        if (cal_color >= 0) {
+            pwmIds[1].pwm  = cal_color << 1;
+            pwmIds[2].pwm  = cal_color;
+        }
     }
 
     ScopedAStatus setLightState(int id, const HwLightState &state) override {
@@ -97,30 +136,21 @@ class Lights : public BnLights {
         }
 
         HwLight const &light = availableLights[id];
-        int cal_color = 0;
         switch (light.type) {
             case LightType::CAMERA:
-                if (state.color == ARGB_ON_IN_DAY) {
-                    cal_color = calibrator.GetByColorIntensity("green", DAY);
-                } else if (state.color == ARGB_ON_IN_NIGHT) {
-                    cal_color = calibrator.GetByColorIntensity("green", NIGHT);
-                } else if (state.color == ARGB_OFF) {
-                    cal_color = 0;
-                } else {
-                    goto setLightState_end;
+                for (size_t i = 0; i < sizeof(pwmIds) / sizeof(pwmIds[0]); i++) {
+                    if (state.color == pwmIds[i].argb) {
+                        pthread_mutex_lock(&g_lock);
+                        writeLed(GREEN_LED_FILE, pwmIds[i].pwm);
+                        pthread_mutex_unlock(&g_lock);
+                        break;
+                    }
                 }
-                if (cal_color < 0) {
-                    goto setLightState_end;
-                }
-                pthread_mutex_lock(&g_lock);
-                writeLed(GREEN_LED_FILE, cal_color);
-                pthread_mutex_unlock(&g_lock);
                 break;
             default:
                 break;
         }
 
-    setLightState_end:
         return ScopedAStatus::ok();
     }
 
