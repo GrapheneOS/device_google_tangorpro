@@ -133,7 +133,7 @@ std::vector<uint8_t> readBinaryFile(const std::string& file_path) {
     dlclose(cast_auth_handle);
     if (res == 0) {
         *_aidl_return = signature;
-        return toNdkScopedAStatus(Status::OK);
+        status = Status::OK;
     }
     ALOGE("Get empty result from TA");
     return toNdkScopedAStatus(status);
