@@ -1,6 +1,9 @@
 # Tangorpro specific init.rc
 import /vendor/etc/init/hw/init.gs201.rc
 
+on init && property:ro.vendor.factory=1
+    import /vendor/etc/init/hw/init.factory.rc
+
 on init
     # Load FPC's internal lib
     setprop ro.hardware.fingerprint "fpc"
