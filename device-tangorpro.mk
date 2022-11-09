@@ -145,6 +145,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
 PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
 
+# Display white balance
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+        ro.surface_flinger.display_primary_red=0.5128,0.2413,0.0000 \
+        ro.surface_flinger.display_primary_green=0.2598,0.6764,0.0441 \
+        ro.surface_flinger.display_primary_blue=0.2057,0.0823,1.0832 \
+        ro.surface_flinger.display_primary_white=0.9783,1.0000,1.1273
+
 # Enable Telecom feature
 # b/227692870
 PRODUCT_COPY_FILES += \
