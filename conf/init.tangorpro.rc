@@ -84,6 +84,8 @@ on post-fs-data
 
 on fs
     exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/1540.app
+# Permissions for hwcomposer
+    chown system system /sys/class/backlight/panel0-backlight/cabc_mode
 
 # Castauth
 on post-fs-data
