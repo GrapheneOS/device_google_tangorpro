@@ -241,7 +241,6 @@
     <features>
         <feature name="SoundTriggerDockTuning"/>
         <feature name="BatteryThrottle=Type:BCL_VOLTAGE,Name:BCL_AUDIO_BAACL,Strategy:WholeSpeaker"/>
-        <feature name="MediaSyncUsbSpk"/>
     </features>
 
     <cfg_attr>
