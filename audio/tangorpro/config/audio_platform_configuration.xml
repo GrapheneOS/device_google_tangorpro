@@ -295,7 +295,7 @@
         <module libname="audio_spk_35l41.so" argu="SpeakerNum=4,Rotation"/>
         <module libname="audio_fortemedia_aoc.so" argu="RTN_SUP=y DOCK_CHARGER_MONITOR=y DL_CH=y VoIP_DLCHs=SPK:2,USB:2 VoIP_Rate=32000"/>
         <module libname="liboffloadeffect.so"/>
-        <module libname="audio_amcs_ext.so"/>
+        <module libname="audio_amcs_ext.so" argu="SpeakerNum=4" />
         <module libname="audio_bluenote_aoc.so"/>
     </external_module>
 </audio_platform_configuration>
