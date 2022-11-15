@@ -391,7 +391,7 @@
         <item>264</item>
         <item>364</item>
         <item>451</item>
-        <item>1000</item>
+        <item>885</item>
     </integer-array>
 
     <!-- Array of desired screen brightness in nits corresponding to the lux values
@@ -434,18 +434,18 @@
          This array also corresponds to the lux values given in config_autoBrightnessLevelsIdle.
          In order to activate this mode, config_enableIdleScreenBrightnessMode must be true. -->
     <array name="config_autoBrightnessDisplayValuesNitsIdle">
-      <item>0.24</item>     <!--  0 - 3 -->
-      <item>1.1874</item>   <!--  3 - 6 -->
-      <item>2.1349</item>   <!--  6 - 11 -->
-      <item>3.9186</item>   <!--  11 - 31 -->
-      <item>14.0218</item>  <!--  31 - 64 -->
-      <item>30.2013</item>  <!--  64 - 113 -->
-      <item>52.3367</item>  <!--  113 - 180 -->
-      <item>84.5334</item>  <!--  180 - 264 -->
-      <item>132.3271</item> <!--  264 - 364 -->
-      <item>188.6010</item> <!--  364 - 451 -->
-      <item>234.6615</item> <!--  451 - 1000 -->
-      <item>500</item>      <!--  1000 + -->
+      <item>0.400000001</item>    <!--  0 - 3 -->
+      <item>2.424401926</item>    <!--  3 - 6 -->
+      <item>4.016322573</item>    <!--  6 - 11 -->
+      <item>6.924331831</item>    <!--  11 - 31 -->
+      <item>18.21836204</item>    <!--  31 - 64 -->
+      <item>36.9199795</item>     <!--  64 - 113 -->
+      <item>65.40219962</item>    <!--  113 - 180 -->
+      <item>104.0902078</item>    <!--  180 - 264 -->
+      <item>152.5833029</item>    <!--  264 - 364 -->
+      <item>210.1432982</item>    <!--  364 - 451 -->
+      <item>260.2204941</item>    <!--  451 - 885 -->
+      <item>500.2693058</item>    <!--  885 + -->
     </array>
 
     <!-- Enables idle screen brightness mode on this device.
@@ -457,14 +457,13 @@
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
 
     <!-- the number of the max cached processes in the system. -->
     <integer name="config_customizedMaxCachedProcesses">64</integer>
 
     <integer-array name="config_ambientThresholdLevels">
-        <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
@@ -483,34 +482,48 @@
         <item>80</item>
         <item>90</item>
         <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
     </integer-array>
 
     <integer-array name="config_ambientBrighteningThresholds">
-        <item>11373</item>
-        <item>5000</item>
+        <item>5186</item>
         <item>4333</item>
         <item>3666</item>
-        <item>3000</item>
-        <item>2760</item>
-        <item>2520</item>
-        <item>2280</item>
-        <item>2040</item>
-        <item>1800</item>
-        <item>800</item>
+        <item>2999</item>
+        <item>2759</item>
+        <item>2519</item>
+        <item>2279</item>
+        <item>2039</item>
+        <item>1799</item>
+        <item>799</item>
         <item>527</item>
-        <item>500</item>
+        <item>499</item>
         <item>470</item>
-        <item>396</item>
-        <item>322</item>
-        <item>248</item>
-        <item>174</item>
-        <item>99</item>
-        <item>99</item>
+        <item>517</item>
+        <item>565</item>
+        <item>612</item>
+        <item>660</item>
+        <item>708</item>
+        <item>742</item>
+        <item>636</item>
+        <item>582</item>
+        <item>549</item>
+        <item>369</item>
+        <item>294</item>
+        <item>269</item>
+        <item>220</item>
+        <item>220</item>
     </integer-array>
 
     <integer-array name="config_ambientDarkeningThresholds">
-        <item>853</item>
-        <item>700</item>
+        <item>525</item>
         <item>683</item>
         <item>666</item>
         <item>650</item>
@@ -523,12 +536,20 @@
         <item>500</item>
         <item>440</item>
         <item>385</item>
-        <item>348</item>
-        <item>311</item>
-        <item>274</item>
-        <item>237</item>
-        <item>200</item>
-        <item>200</item>
+        <item>382</item>
+        <item>379</item>
+        <item>376</item>
+        <item>373</item>
+        <item>371</item>
+        <item>367</item>
+        <item>387</item>
+        <item>397</item>
+        <item>403</item>
+        <item>380</item>
+        <item>345</item>
+        <item>333</item>
+        <item>283</item>
+        <item>283</item>
     </integer-array>
 
     <!-- List supported color modes. -->
