@@ -39,3 +39,6 @@ PRODUCT_PACKAGES += myftm
 # Tool for installing Cast keybox
 PRODUCT_PACKAGES_DEBUG += \
     CastInstallKeybox
+
+# Display CABC for factory setting
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.cabc.supported=0
