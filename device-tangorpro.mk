@@ -25,6 +25,7 @@ $(call inherit-product-if-exists, vendor/google_devices/gs201/prebuilts/device-v
 $(call inherit-product-if-exists, vendor/google_devices/gs201/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/tangorpro/device-vendor-tangorpro.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/WallpapersTangorpro.mk)
+$(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/device-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
