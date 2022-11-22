@@ -49,8 +49,8 @@
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
-            "Coefficient":["-0.74", "1.42", "0.06", "0.12"],
-            "Offset":60,
+            "Coefficient":["-0.484", "1.081", "0.093", "-0.003"],
+            "Offset":6435,
             "Multiplier":0.001
         },
         {
@@ -60,8 +60,8 @@
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
-            "Coefficient":["-0.01", "0.01", "-0.02", "1.00"],
-            "Offset":1140,
+            "Coefficient":["0.132", "-0.195", "0.006", "0.975"],
+            "Offset":2769,
             "Multiplier":0.001
         },
         {
@@ -71,8 +71,8 @@
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
-            "Coefficient":["-0.54", "1.18", "0.20", "0.13"],
-            "Offset":-2210,
+            "Coefficient":["-0.120", "0.785", "0.153", "-0.079"],
+            "Offset":5971,
             "Multiplier":0.001
         },
         {
@@ -82,8 +82,8 @@
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
-            "Coefficient":["-0.68", "1.45", "0.07", "0.16"],
-            "Offset":-3440,
+            "Coefficient":["-0.148", "0.666", "0.256", "-0.079"],
+            "Offset":7137,
             "Multiplier":0.001
         },
         {
