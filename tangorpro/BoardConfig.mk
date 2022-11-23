@@ -22,5 +22,6 @@ BOARD_KERNEL_CMDLINE += swiotlb=noforce
 
 include device/google/gs201/BoardConfig-common.mk
 -include vendor/google_devices/gs201/prebuilts/BoardConfigVendor.mk
+-include vendor/google_devices/tangorpro/proprietary/BoardConfigVendor.mk
 include device/google/tangorpro-sepolicy/tangorpro-sepolicy.mk
 include device/google/tangorpro/wifi/BoardConfig-wifi.mk
