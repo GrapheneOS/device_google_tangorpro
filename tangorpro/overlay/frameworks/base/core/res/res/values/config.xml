@@ -571,6 +571,10 @@
     <!-- This device does not allow sms service. -->
     <bool name="config_sms_capable">false</bool>
 
+    <!-- This device is a wifi only tablet which does not support WEA.
+         It should not receive CB messages. -->
+    <bool name="config_disable_all_cb_messages">true</bool>
+
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">580</integer>
 </resources>
