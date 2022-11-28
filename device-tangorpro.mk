@@ -104,6 +104,22 @@ PRODUCT_SOONG_NAMESPACES += device/google/tangorpro/powerstats
 # Bluetooth HAL and Pixel extension
 include device/google/tangorpro/bluetooth/syna_default.mk
 
+# Spatial Audio
+PRODUCT_PACKAGES += \
+	libspatialaudio
+
+# optimize spatializer effect
+PRODUCT_PROPERTY_OVERRIDES += \
+	audio.spatializer.effect.util_clamp_min=300
+
+# declare use of spatial audio
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.audio.spatializer_enabled=true
+
+# Bluetooth OPUS codec
+PRODUCT_PRODUCT_PROPERTIES += \
+	persist.bluetooth.opus.enabled=true
+
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
 
