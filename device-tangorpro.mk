@@ -216,6 +216,11 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
 	android.hardware.drm-service.castkey
 
+# MIPI Coex Configs
+PRODUCT_COPY_FILES += \
+    device/google/tangorpro/radio/tangor_camera_front_mipi_coex_table.csv:$(TARGET_COPY_OUT_VENDOR)/etc/modem/camera_front_mipi_coex_table.csv \
+    device/google/tangorpro/radio/tangor_camera_rear_main_mipi_coex_table.csv:$(TARGET_COPY_OUT_VENDOR)/etc/modem/camera_rear_main_mipi_coex_table.csv
+
 # Cast ssid suffix go/gna-oem-device-support
 PRODUCT_SYSTEM_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
 
