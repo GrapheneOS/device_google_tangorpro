@@ -189,6 +189,9 @@ PRODUCT_COPY_FILES += \
 # Display LBE
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
 
+# Display CABC
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.cabc.supported?=1
+
 # Enable adpf cpu hint session for SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     debug.sf.enable_adpf_cpu_hint=true
@@ -209,6 +212,11 @@ PRODUCT_SOONG_NAMESPACES += \
 # CastKey Drm plugin modules
 PRODUCT_PACKAGES += \
 	android.hardware.drm-service.castkey
+
+# MIPI Coex Configs
+PRODUCT_COPY_FILES += \
+    device/google/tangorpro/radio/tangor_camera_front_mipi_coex_table.csv:$(TARGET_COPY_OUT_VENDOR)/etc/modem/camera_front_mipi_coex_table.csv \
+    device/google/tangorpro/radio/tangor_camera_rear_main_mipi_coex_table.csv:$(TARGET_COPY_OUT_VENDOR)/etc/modem/camera_rear_main_mipi_coex_table.csv
 
 # Cast ssid suffix go/gna-oem-device-support
 PRODUCT_SYSTEM_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
