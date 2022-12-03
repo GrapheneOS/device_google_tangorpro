@@ -146,6 +146,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
 PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
 
+# Temporary override to synchronise changes in pa/ and ag/. See b/246793311 for context.
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.primary_display_orientation=ORIENTATION_0
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.ignore_hwc_physical_display_orientation=true
+
 # Display white balance
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
         ro.surface_flinger.display_primary_red=0.5128,0.2413,0.0000 \
