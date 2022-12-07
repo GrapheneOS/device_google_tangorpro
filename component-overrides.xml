@@ -18,4 +18,13 @@
     <component-override package="com.android.settings" >
         <component class="com.google.android.settings.dream.DreamSetupActivity" enabled="true" />
     </component-override>
+    <component-override package="com.android.dreams.basic" >
+        <component class="com.android.dreams.basic.Colors" enabled="false" />
+    </component-override>
+    <component-override package="com.google.android.deskclock">
+        <component class="com.android.deskclock.Screensaver" enabled="false" />
+    </component-override>
+    <component-override package="com.google.android.apps.photos">
+        <component class="com.google.android.apps.photos.daydream.PhotosDreamService" enabled="false" />
+    </component-override>
 </config>
