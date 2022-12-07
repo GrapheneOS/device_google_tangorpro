@@ -329,6 +329,9 @@
     <dimen name="status_bar_height_default">104px</dimen>
     <dimen name="status_bar_height_portrait">104px</dimen>
 
+    <!-- Control whether the pickup gesture is enabled by default. This value will be used
+     during initialization when the setting is still null. -->
+    <bool name="config_dozePickupGestureEnabled">false</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
       The N entries of this array define N  1 zones as follows:
