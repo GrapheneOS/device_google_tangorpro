@@ -69,6 +69,7 @@ on property:vendor.all.modules.ready=1 && property:persist.sys.tap_gesture=0
 on property:vendor.all.modules.ready=1 && property:ro.build.flavor=factory_tangorpro-userdebug
     write /sys/devices/virtual/goog_touch_interface/gti.0/v4l2_enabled 0
     write /sys/devices/virtual/goog_touch_interface/gti.0/offload_enabled 0
+    setprop persist.sys.tap_gesture 0
 
 # Start the twoshay touch service
 on property:vendor.device.modules.ready=1
