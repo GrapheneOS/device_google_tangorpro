@@ -29,7 +29,9 @@ $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/de
 
 DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
-PRODUCT_PACKAGES += WifiOverlayT6pro
+PRODUCT_PACKAGES += \
+        UwbOverlayT6pro \
+        WifiOverlayT6pro
 
 # Disable camera flash and autofocus related xml with a disable flag.
 # This flag need to be set before device/google/gs201/device.mk
