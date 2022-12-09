@@ -228,12 +228,3 @@ PRODUCT_SYSTEM_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.extended_launch_boost=1 \
     persist.vendor.camera.raise_buf_allocation_priority=1
-# AudioProxy
-PRODUCT_PACKAGES += \
-    libaudio_proxy.google \
-    device.google.atv.audio_proxy@7.1-service
-
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/tangorpro/device_framework_matrix_product_tangorpro.xml
-
-PRODUCT_COPY_FILES += \
-    device/google/tangorpro/public.libraries-google-tangorpro.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-google.txt
