@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-TARGET_KERNEL_DIR ?= device/google/tangorpro-kernel
-TARGET_BOARD_KERNEL_HEADERS := device/google/tangorpro-kernel/kernel-headers
+TARGET_KERNEL_DIR ?= device/google/tangorpro-kernel-staging
+TARGET_BOARD_KERNEL_HEADERS := device/google/tangorpro-kernel-staging/kernel-headers
 TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_LEFT
 
 BOARD_WITHOUT_RADIO := true
