@@ -123,7 +123,7 @@
                 <mixPort name="ultrasound input" role="sink"
                          flags="AUDIO_INPUT_FLAG_ULTRASOUND">
                     <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
-                             samplingRates="96000" channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
+                             samplingRates="96000" channelMasks="AUDIO_CHANNEL_INDEX_MASK_3"/>
                 </mixPort>
             </mixPorts>
             <devicePorts>
