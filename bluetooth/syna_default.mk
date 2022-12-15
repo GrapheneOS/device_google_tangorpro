@@ -31,6 +31,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.firmware.selection="BTFW.hcd"
 
+# Disable MAP, PBAP and SAP profiles
+PRODUCT_PRODUCT_PROPERTIES += \
+       bluetooth.profile.map.server.enabled=false \
+       bluetooth.profile.pbap.server.enabled=false \
+       bluetooth.profile.sap.server.enabled=false \
+
 BLUETOOTH_UART_PORT = /dev/ttySAC18
 
 # Inject soong bluetooth configurations
