@@ -11,14 +11,18 @@
             "Type":"UNKNOWN",
             "HotThreshold":["NAN", "35.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
             "TempPath":"/dev/thermal/tz-by-name/quiet_therm/tz_temp",
-            "Multiplier":0.001
+            "Multiplier":0.001,
+            "PollingDelay":60000,
+            "PassiveDelay":7000
         },
         {
             "Name":"charger_skin_therm",
             "Type":"UNKNOWN",
             "HotThreshold":["NAN", "39.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
             "TempPath":"/dev/thermal/tz-by-name/charger_skin_therm/tz_temp",
-            "Multiplier":0.001
+            "Multiplier":0.001,
+            "PollingDelay":60000,
+            "PassiveDelay":7000
         },
         {
             "Name":"disp_therm",
