@@ -101,6 +101,11 @@ on post-fs-data
 on post-fs-data
     chmod 644 /mnt/vendor/persist/audio/speaker.cal
 
+# Thermal
+on property:vendor.thermal.link_ready=1
+    chown system system /dev/thermal/tz-by-name/charger_skin_therm/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/charger_skin_therm/trip_point_0_hyst
+
 # Override SF and RE uclamps to 0 on boot after being set elsewhere, for adpf cpu hints
 on property:sys.boot_completed=1
     trigger override-sf-uclamp
@@ -119,3 +124,7 @@ on post-fs
     chmod 600 /sys/devices/platform/google,pogo/hall1_s
     chmod 600 /sys/devices/platform/google,pogo/hall1_n
     chmod 600 /sys/devices/platform/google,pogo/hall2_s
+
+# Sensor
+on init && property:ro.bootmode=charger
+    write /sys/devices/platform/19000000.aoc/sensor_power_enable 0
