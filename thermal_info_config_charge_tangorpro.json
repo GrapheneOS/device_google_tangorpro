@@ -21,8 +21,11 @@
         {
             "Name":"charger_skin_therm",
             "Type":"UNKNOWN",
+            "HotThreshold":["NAN", "39.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
             "TempPath":"/dev/thermal/tz-by-name/charger_skin_therm/tz_temp",
-            "Multiplier":0.001
+            "Multiplier":0.001,
+            "PollingDelay":60000,
+            "PassiveDelay":7000
         },
         {
             "Name":"disp_therm",
@@ -47,6 +50,7 @@
             "Type":"UNKNOWN",
             "Hidden":true,
             "VirtualSensor":true,
+            "TriggerSensor":"charger_skin_therm",
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
             "Coefficient":["-0.148", "0.666", "0.256", "-0.079"],
@@ -54,6 +58,8 @@
             "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.9, 1.9, 1.9],
             "Offset":7137,
             "Multiplier":0.001,
+            "PollingDelay":300000,
+            "PassiveDelay":7000,
             "BindedCdevInfo": [
                 {
                     "CdevRequest": "fcc",
