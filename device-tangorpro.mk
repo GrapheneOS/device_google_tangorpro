@@ -231,7 +231,7 @@ PRODUCT_COPY_FILES += \
     device/google/tangorpro/radio/tangor_camera_rear_main_mipi_coex_table.csv:$(TARGET_COPY_OUT_VENDOR)/etc/modem/camera_rear_main_mipi_coex_table.csv
 
 # Cast ssid suffix go/gna-oem-device-support
-PRODUCT_SYSTEM_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
+PRODUCT_PRODUCT_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
