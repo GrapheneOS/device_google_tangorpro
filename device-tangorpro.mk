@@ -52,6 +52,7 @@ DISABLE_TELEPHONY_EUICC := true
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 include device/google/gs-common/touch/gti/gti.mk
+include device/google/gs-common/wireless_charger/wireless_charger.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tangorpro)
@@ -148,6 +149,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
 PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
 
+# Temporary override to synchronise changes in pa/ and ag/. See b/246793311 for context.
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.primary_display_orientation=ORIENTATION_0
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.ignore_hwc_physical_display_orientation=true
+
+# Set boot animation orientation and default display rotation to be landscape since Tangor
+# natural orientation is portrait. Id at the end corresponds to the display id on the device.
+# See b/246793311 for context.
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.bootanim.set_orientation_4619827677550801152=ORIENTATION_270
+
 # Display white balance
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
         ro.surface_flinger.display_primary_red=0.5128,0.2413,0.0000 \
@@ -193,10 +203,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
 
 # Display CABC
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.cabc.supported?=1
-
-# Enable adpf cpu hint session for SurfaceFlinger
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    debug.sf.enable_adpf_cpu_hint=true
 
 # Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
