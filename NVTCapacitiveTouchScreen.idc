@@ -1,1 +1,1 @@
-touch.orientation = ORIENTATION_0
+touch.orientation = ORIENTATION_270
