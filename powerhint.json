@@ -1786,30 +1786,6 @@
       "Value": "0,1,2,3"
     },
     {
-      "PowerHint": "FACE_UNLOCK_BOOST",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "FACE_UNLOCK_BOOST",
-      "Node": "CPU_LITTLE_TSKIN_BYPASS",
-      "Duration": 1000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "FACE_UNLOCK_BOOST",
-      "Node": "CPU_MID_TSKIN_BYPASS",
-      "Duration": 1000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "FACE_UNLOCK_BOOST",
-      "Node": "CPU_BIG_TSKIN_BYPASS",
-      "Duration": 1000,
-      "Value": "1"
-    },
-    {
       "PowerHint": "FP_BOOST",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 1000,
