@@ -1,0 +1,42 @@
+// Builds libvtscastauth.so
+
+cc_library_shared {
+    name: "libvtscastauth",
+
+    include_dirs: [
+        "hardware/interfaces/drm/1.0/vts/functional",
+        "vendor/widevine/libwvdrmengine/cdm/include",
+        "vendor/widevine/libwvdrmengine/cdm/core/include",
+        "vendor/widevine/libwvdrmengine/cdm/core/test",
+        "vendor/widevine/libwvdrmengine/cdm/util/include",
+        "system/libbase/include",
+        "system/libvintf/include",
+
+    ],
+
+    srcs: [
+        "factory.cpp",
+        "vts_module.cpp",
+        ":vts_cdm_core_test_srcs",
+    ],
+
+    static_libs: [
+        "libgtest",
+        "libcdm",
+        "libcdm_utils",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcrypto",
+        "liblog",
+        "libssl",
+        "libutils",
+    ],
+
+    relative_install_path: "drm-vts-test-libs",
+
+    proprietary: true,
+
+}
