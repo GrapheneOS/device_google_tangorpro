@@ -101,6 +101,9 @@ on post-fs-data
 on post-fs-data
     chmod 644 /mnt/vendor/persist/audio/speaker.cal
 
+on init && property:ro.bootmode=charger
+    write /sys/devices/platform/19000000.aoc/dmic_power_enable 0
+
 # Thermal
 on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/charger_skin_therm/trip_point_0_temp
