@@ -19,5 +19,11 @@ cc_binary {
         "android.hardware.light-V2-ndk",
     ],
 
+    static_libs: [
+        "//hardware/google/interfaces:com.google.hardware.pixel.display-V7-ndk",
+        "android.hardware.common-V2-ndk",
+        "android.hardware.graphics.common-V3-ndk",
+    ],
+
     srcs: ["Lights.cpp", "led_lut_calibrator.cpp"],
 }

@@ -15,6 +15,7 @@
  */
 
 #include <aidl/android/hardware/light/BnLights.h>
+#include <aidl/com/google/hardware/pixel/display/IDisplay.h>
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
@@ -29,6 +30,10 @@ using ::aidl::android::hardware::light::ILights;
 using ::aidl::android::hardware::light::LightType;
 using ::ndk::ScopedAStatus;
 using ::ndk::SharedRefBase;
+using ::ndk::SpAIBinder;
+
+using aidl::com::google::hardware::pixel::display::IDisplay;
+using PanelCalibrationStatus = aidl::com::google::hardware::pixel::display::PanelCalibrationStatus;
 
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
@@ -79,10 +84,34 @@ static int sys_write_int(int fd, int value) {
     return amount == -1 ? -errno : 0;
 }
 
+static SpAIBinder WaitForDisplayService() {
+    LOG(INFO) << "waiting for display service to appear";
+    static std::mutex svc_mutex;
+    static SpAIBinder svc;
+    std::unique_lock<std::mutex> l(svc_mutex);
+    uint8_t retrycount = 0;
+
+    if (svc != nullptr && AIBinder_isAlive(svc.get())) return svc;
+
+    while (true && retrycount < 20) {
+        svc = SpAIBinder(AServiceManager_waitForService(
+            "com.google.hardware.pixel.display.IDisplay/default"));
+        if (svc != nullptr) {
+            LOG(INFO) << "A wild display service has appeared!";
+            return svc;
+        }
+        retrycount++;
+        sleep(2);
+    }
+
+    LOG(ERROR) << "Failed to get the display service";
+    return NULL;
+}
+
 class Lights : public BnLights {
   private:
     std::vector<HwLight> availableLights;
-    LedLutCalibrator calibrator;
+    LedLutCalibrator *calibrator;
 
     void addLight(LightType const type, int const ordinal) {
         HwLight light{};
@@ -117,12 +146,18 @@ class Lights : public BnLights {
         addLight(LightType::MICROPHONE, 0);
         addLight(LightType::CAMERA, 0);
 
+        SpAIBinder display_service = WaitForDisplayService();
+        auto ser = IDisplay::fromBinder(display_service);
+        PanelCalibrationStatus cal;
+        ser->getPanelCalibrationStatus(&cal);
+        calibrator =  new LedLutCalibrator(cal);
+
         int cal_color = 0;
-        cal_color = calibrator.GetByColorIntensity("green", MODE_DAY);
+        cal_color = calibrator->GetByColorIntensity("green", MODE_DAY);
         if (cal_color >= 0) {
             pwmIds[0].pwm  = cal_color;
         }
-        cal_color = calibrator.GetByColorIntensity("green", MODE_NIGHT);
+        cal_color = calibrator->GetByColorIntensity("green", MODE_NIGHT);
         if (cal_color >= 0) {
             pwmIds[1].pwm  = cal_color << 1;
             pwmIds[2].pwm  = cal_color;
@@ -165,6 +200,11 @@ class Lights : public BnLights {
 
 int main() {
     ABinderProcess_setThreadPoolMaxThreadCount(0);
+
+    SpAIBinder display_service = WaitForDisplayService();
+    if (display_service == nullptr) {
+        return -1;
+    }
 
     std::shared_ptr<Lights> light = SharedRefBase::make<Lights>();
 
