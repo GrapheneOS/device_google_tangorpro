@@ -17,14 +17,20 @@
 #include "led_lut_calibrator.h"
 
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <fcntl.h>
 
 #include <iostream>
 #include <sstream>
 
-const char kCalibrationPath[] = "/mnt/vendor/persist/led/led_calibration_LUT.txt";
+using ::android::base::GetProperty;
 
-LedLutCalibrator::LedLutCalibrator() {
+const char D_kCalibrationPath[] = "/mnt/vendor/persist/led/led_calibration_LUT.txt";
+const char G_WHT_kCalibrationPath[] = "/vendor/etc/led_golden_calibration_LUT_white_CG.txt";
+const char G_BLK_kCalibrationPath[] = "/vendor/etc/led_golden_calibration_LUT_black_CG.txt";
+
+LedLutCalibrator::LedLutCalibrator(PanelCalibrationStatus status) {
+    cal_status_ = status;
     if (!ReadCalibrationTable()) {
         LOG(ERROR) << "Failed to read calibration table";
         cal_table_.clear();
@@ -47,19 +53,35 @@ bool LedLutCalibrator::ReadCalibrationTable() {
     int fd;
     int bytes;
     bool ret = true;
+    const char *k_path = D_kCalibrationPath;
     std::vector<uint8_t> buffer;
     buffer.resize(512);
 
-    fd = open(kCalibrationPath, O_RDONLY);
+    fd = open(D_kCalibrationPath, O_RDONLY);
+    // If default calibration not found or display changed, deploy golen calibration.
+    if (fd < 0 || cal_status_ == PanelCalibrationStatus::GOLDEN) {
+        // Using golden white calibration as default
+        // even though bezel prooerty not found.
+        k_path = G_WHT_kCalibrationPath;
+        std::string cdt_hwid = GetProperty("ro.boot.cdt_hwid", "");
+        std::string hex_variant_str = cdt_hwid.substr(16, 2);
+        int bezel_color;
+        sscanf(hex_variant_str.c_str(), "%x", &bezel_color);
+        // 0: white, 2: black
+        if (bezel_color == 2)
+            k_path = G_BLK_kCalibrationPath;
+    }
+
+    fd = open(k_path, O_RDONLY);
     if (fd < 0) {
-        LOG(ERROR) << "Failed to open " << kCalibrationPath;
+        LOG(ERROR) << "Failed to open " << k_path;
         ret = false;
         goto ReadCalibrationTable_err;
     }
 
     bytes = read(fd, buffer.data(), buffer.size());
     if (bytes == -1) {
-        LOG(ERROR) << "Failed to read " << kCalibrationPath;
+        LOG(ERROR) << "Failed to read " << k_path;
         ret = false;
         goto ReadCalibrationTable_err;
     }
