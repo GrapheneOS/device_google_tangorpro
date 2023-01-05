@@ -27,4 +27,7 @@
     <component-override package="com.google.android.apps.photos">
         <component class="com.google.android.apps.photos.daydream.PhotosDreamService" enabled="false" />
     </component-override>
+    <component-override package="com.google.android.googlequicksearchbox">
+        <component class="com.google.android.apps.search.assistant.surfaces.settings.features.hubmode.HubmodeSettingsActivity" enabled="true" />
+    </component-override>
 </config>
