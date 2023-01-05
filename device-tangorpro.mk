@@ -52,6 +52,7 @@ DISABLE_TELEPHONY_EUICC := true
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 include device/google/gs-common/touch/gti/gti.mk
+include device/google/gs-common/touch/nvt/nvt.mk
 include device/google/gs-common/wireless_charger/wireless_charger.mk
 
 # go/lyric-soong-variables
