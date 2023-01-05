@@ -245,3 +245,7 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/tangorpro/device_fra
 
 PRODUCT_COPY_FILES += \
     device/google/tangorpro/public.libraries-google-tangorpro.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-google.txt
+
+# SKU specific RROs
+PRODUCT_PACKAGES += \
+    SettingsOverlayGTU8P
