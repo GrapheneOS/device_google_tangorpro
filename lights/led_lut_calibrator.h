@@ -20,10 +20,13 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <aidl/com/google/hardware/pixel/display/IDisplay.h>
+
+using PanelCalibrationStatus = aidl::com::google::hardware::pixel::display::PanelCalibrationStatus;
 
 class LedLutCalibrator {
   public:
-    LedLutCalibrator();
+    LedLutCalibrator(PanelCalibrationStatus status);
     LedLutCalibrator &operator=(const LedLutCalibrator &) = delete;
     ~LedLutCalibrator() = default;
     int GetByColorIntensity(const std::string &color, int intensity) const;
@@ -34,6 +37,7 @@ class LedLutCalibrator {
     std::string MakeLutKey(const std::string &color, int intensity) const;
 
     std::unordered_map<std::string, int> cal_table_;
+    PanelCalibrationStatus cal_status_;
 };
 
 #endif  // GOOGLE_TANGOTRON_LIGHTS_LED_LUT_CALIBRATOR_H_
