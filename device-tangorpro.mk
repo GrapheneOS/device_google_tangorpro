@@ -190,6 +190,11 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.tangorpro
 
+# LED Golden Config
+PRODUCT_COPY_FILES += \
+        device/google/tangorpro/lights/led_golden_calibration_LUT_white_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_white_CG.txt \
+        device/google/tangorpro/lights/led_golden_calibration_LUT_black_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_black_CG.txt
+
 # Device features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
