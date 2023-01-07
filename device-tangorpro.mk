@@ -185,6 +185,11 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.tangorpro
 
+# LED Golden Config
+PRODUCT_COPY_FILES += \
+        device/google/tangorpro/lights/led_golden_calibration_LUT_white_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_white_CG.txt \
+        device/google/tangorpro/lights/led_golden_calibration_LUT_black_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_black_CG.txt
+
 # Use GmsCorePrebuilt y2022w41
 USE_GMSCORE_PREBUILT_Y2022W41 := true
 
