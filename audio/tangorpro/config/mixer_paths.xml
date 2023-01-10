@@ -30,6 +30,9 @@
     <ctl name="PCM Stream Wait Time in MSec" value="100"/>
     <ctl name="Voice PCM Stream Wait Time in MSec" value="500"/>
 
+    <!-- Enable it when AOC is ready to trim delay and padding -->
+    <ctl name="Gapless Offload Enable" value="1"/>
+
     <!-- TDM 0 setting -->
     <ctl name="TDM_0_RX Chan" value="Four"/>
     <ctl name="TDM_0_RX Format" value="S32_LE"/>
@@ -109,13 +112,13 @@
     <ctl name="L2 DSP1 Firmware" value="Protection"/>
     <ctl name="R2 DSP1 Firmware" value="Protection"/>
     <ctl name="DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="DSP RX2 Source" value="ASPRX2"/>
     <ctl name="R DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="R DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="R DSP RX2 Source" value="ASPRX2"/>
     <ctl name="L2 DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="L2 DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="L2 DSP RX2 Source" value="ASPRX2"/>
     <ctl name="R2 DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="R2 DSP RX2 Source" value="ASPRX1"/>
+    <ctl name="R2 DSP RX2 Source" value="ASPRX2"/>
     <ctl name="Boost Peak Current Limit" value="3.50A"/>
     <ctl name="R Boost Peak Current Limit" value="3.50A"/>
     <ctl name="L2 Boost Peak Current Limit" value="3.50A"/>
@@ -759,6 +762,34 @@
         <path name="speaker"/>
     </path>
 
+    <path name="speaker-amp1">
+        <ctl name="Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="Digital PCM Volume" value="817"/>
+        <ctl name="Main AMP Enable Switch" value="1"/>
+    </path>
+
+    <path name="speaker-amp2">
+        <ctl name="L2 Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="L2 Digital PCM Volume" value="817"/>
+        <ctl name="L2 Main AMP Enable Switch" value="1"/>
+    </path>
+
+    <path name="speaker-amp3">
+        <ctl name="R2 Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="R2 Digital PCM Volume" value="817"/>
+        <ctl name="R2 Main AMP Enable Switch" value="1"/>
+    </path>
+
+    <path name="speaker-amp4">
+        <ctl name="R Boost Peak Current Limit" value="4.50A"/>
+        <!-- Set digital gain -->
+        <ctl name="R Digital PCM Volume" value="817"/>
+        <ctl name="R Main AMP Enable Switch" value="1"/>
+    </path>
+
     <!-- Tx device -->
     <path name="handset-mic">
         <ctl name="Mic Spatial Module Enable" value="1"/>
@@ -889,8 +920,8 @@
 
     <path name="ultrasound-mic">
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="0"/>
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="1"/>
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="-1"/>
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="3"/>
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="2"/>
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1"/>
     </path>
 
@@ -922,6 +953,20 @@
     <path name="usb-headset-mic-post">
         <ctl name="MIC Record Soft Gain (dB)" value="0"/>
     </path>
+
+    <!-- cs35l41 specific path for rotation start -->
+    <path name="cs35l41-rotation-0">
+    </path>
+
+    <path name="cs35l41-rotation-90">
+    </path>
+
+    <path name="cs35l41-rotation-180">
+    </path>
+
+    <path name="cs35l41-rotation-270">
+    </path>
+    <!-- cs35l41 specific path for rotation end -->
 
     <!-- cs35l41 specific path to load firmware in cs35l41.c -->
     <path name="cs35l41-load-protection-firmware-start">

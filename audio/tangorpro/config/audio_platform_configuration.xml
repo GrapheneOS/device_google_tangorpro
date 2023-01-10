@@ -203,8 +203,8 @@
         <!-- for input wit AUDIO_INPUT_FLAG_MMAP_NOIRQ 240 periods * 1ms buffer, 32-bit,2 ch, buffer size 92160 bytes -->
         <usecase id="UC_MMAP_RECORD" dev1="9" dyn_path="true" mmap="true" period="1" period_num="240"/>
         <!-- for hifi -->
-        <usecase id="UC_HIFI_PLAYBACK" dev1="25"/>
-        <usecase id="UC_HIFI_RECORD" dev1="26"/>
+        <usecase id="UC_HIFI_PLAYBACK" dev1="25" period="20" period_num="4"/>
+        <usecase id="UC_HIFI_RECORD" dev1="26" period="20" period_num="4"/>
         <usecase id="UC_ULTRASOUND_RECORD" dev1="12" period="10" period_num="3"/>
     </usecase_attr>
 
@@ -230,10 +230,12 @@
             <be_cfg be_id="IN_CAMCORDER_SELFIE_LANDSCAPE_BE_CFG" latency="160000"/>
             <be_cfg be_id="IN_CAMCORDER_SELFIE_INVERT_LANDSCAPE_BE_CFG" latency="160000"/>
             <be_cfg be_id="IN_CAMCORDER_SELFIE_PORTRAIT_BE_CFG" latency="160000"/>
-            <be_cfg be_id="IN_BTSCO_MIC_BE_CFG" latency="40000"/>
-            <be_cfg be_id="IN_BTSCO_MIC_NREC_BE_CFG" latency="40000"/>
-            <be_cfg be_id="IN_BTSCO_MIC_WB_BE_CFG" latency="40000"/>
-            <be_cfg be_id="IN_BTSCO_MIC_WB_NREC_BE_CFG" latency="40000"/>
+            <be_cfg be_id="IN_CAMCORDER_MIC_BE_CFG" latency="160000"/>
+            <be_cfg be_id="IN_CAMCORDER_TRIPLE_MIC_BE_CFG" latency="160000"/>
+            <be_cfg be_id="IN_BTSCO_MIC_BE_CFG" latency="140000"/>
+            <be_cfg be_id="IN_BTSCO_MIC_NREC_BE_CFG" latency="140000"/>
+            <be_cfg be_id="IN_BTSCO_MIC_WB_BE_CFG" latency="140000"/>
+            <be_cfg be_id="IN_BTSCO_MIC_WB_NREC_BE_CFG" latency="140000"/>
         </usecase>
     </dsp_latency>
 
@@ -292,10 +294,10 @@
 
     <external_module>
         <module libname="audio_waves_aoc.so" argu="Sink=SPK:1,USB_DOCK:4,USB_HP:4"/>
-        <module libname="audio_spk_35l41.so" argu="SpeakerNum=4"/>
-        <module libname="audio_fortemedia_aoc.so" argu="RTN_SUP=y Legacy_VoIP=y DOCK_CHARGER_MONITOR=y DL_CH=y VoIP_DLCHs=SPK:1,USB:1"/>
+        <module libname="audio_spk_35l41.so" argu="SpeakerNum=4,Rotation"/>
+        <module libname="audio_fortemedia_aoc.so" argu="RTN_SUP=y DOCK_CHARGER_MONITOR=y DL_CH=y VoIP_DLCHs=SPK:2,USB:2 VoIP_Rate=32000"/>
         <module libname="liboffloadeffect.so"/>
-        <module libname="audio_amcs_ext.so"/>
+        <module libname="audio_amcs_ext.so" argu="SpeakerNum=4" />
         <module libname="audio_bluenote_aoc.so"/>
     </external_module>
 </audio_platform_configuration>

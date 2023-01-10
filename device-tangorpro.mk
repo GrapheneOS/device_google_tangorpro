@@ -24,6 +24,8 @@ $(call inherit-product-if-exists, vendor/google_devices/tangorpro/prebuilts/devi
 $(call inherit-product-if-exists, vendor/google_devices/gs201/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/gs201/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/tangorpro/device-vendor-tangorpro.mk)
+$(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/WallpapersTangorpro.mk)
+$(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/device-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
@@ -33,16 +35,32 @@ PRODUCT_PACKAGES += WifiOverlayT6pro
 # This flag need to be set before device/google/gs201/device.mk
 DISABLE_CAMERA_FS_AF := true
 
+# Disable baro, prox, hifi sensor related xml with a disable flag.
+DISABLE_SENSOR_BARO_PROX_HIFI := true
+
+# Identify the device type.
+# This flag need to be set before device/google/gs201/device.mk
+# to have tablet COD setting
+USE_TABLET_BT_COD := true
+
+# Disable telephony euicc related xml with a disable flag.
+# This flag need to be set before device/google/gs201/device.mk
+DISABLE_TELEPHONY_EUICC := true
+
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
 
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/tangorpro/device_framework_matrix_product.xml
-$(call soong_config_set,lyric,tuning_product,cloudripper)
-$(call soong_config_set,google3a_config,target_device,cloudripper)
+# go/lyric-soong-variables
+$(call soong_config_set,lyric,camera_hardware,tangorpro)
+$(call soong_config_set,lyric,tuning_product,tangorpro)
+$(call soong_config_set,google3a_config,target_device,tangorpro)
 
 ifeq ($(filter factory_tangorpro, $(TARGET_PRODUCT)),)
 include device/google/tangorpro/uwb/uwb_calibration.mk
 endif
+
+# Preopt SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += SystemUITitan  # For tablet
 
 # Touch files
 PRODUCT_COPY_FILES += \
@@ -65,40 +83,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/google/tangorpro/media_profiles_tangorpro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
-# NFC
-PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
-	frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
-	frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
-	frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml \
-	frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml \
-	frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml \
-	device/google/tangorpro/nfc/libnfc-hal-st.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-hal-st.conf \
-    device/google/tangorpro/nfc/libnfc-nci-tangorpro.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
-
-PRODUCT_PACKAGES += \
-	NfcNci \
-	Tag \
-	android.hardware.nfc@1.2-service.st
-
-# SecureElement
-PRODUCT_PACKAGES += \
-	android.hardware.secure_element@1.2-service-gto \
-	android.hardware.secure_element@1.2-service-gto-ese2
-
-PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.ese.xml \
-	frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
-	device/google/tangorpro/nfc/libse-gto-hal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libse-gto-hal.conf \
-	device/google/tangorpro/nfc/libse-gto-hal2.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libse-gto-hal2.conf
-
-DEVICE_MANIFEST_FILE += \
-	device/google/tangorpro/nfc/manifest_nfc.xml \
-	device/google/tangorpro/nfc/manifest_se.xml
-
 # Thermal Config
 PRODUCT_COPY_FILES += \
-	device/google/tangorpro/thermal_info_config_tangorpro.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+	device/google/tangorpro/thermal_info_config_tangorpro.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
+	device/google/tangorpro/thermal_info_config_charge_tangorpro.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_charge.json \
 
 # Power HAL config
 PRODUCT_COPY_FILES += \
@@ -143,22 +131,12 @@ include device/google/tangorpro/bluetooth/syna_default.mk
 # Fingerprint
 include device/google/gs101/fingerprint/fpc1540/sw42/fpc1540.mk
 FPC_MODULE_TYPE=1542_S
+$(call soong_config_set,fp_hal_feature,pixel_product, product_b)
+# Fingerprint config
+include device/google/tangorpro/fingerprint_config.mk
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
-
-# GPS xml
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-        PRODUCT_COPY_FILES += \
-                device/google/tangorpro/gps.xml.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-else
-        PRODUCT_COPY_FILES += \
-                device/google/tangorpro/gps_user.xml.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-endif
-
-# DCK properties based on target
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.gms.dck.eligible_wcc=2
 
 # Wifi SAP Interface Name
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -166,6 +144,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
 PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
+
+# Temporary override to synchronise changes in pa/ and ag/. See b/246793311 for context.
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.primary_display_orientation=ORIENTATION_0
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.ignore_hwc_physical_display_orientation=true
+
+# Set boot animation orientation and default display rotation to be landscape since Tangor
+# natural orientation is portrait. Id at the end corresponds to the display id on the device.
+# See b/246793311 for context.
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.bootanim.set_orientation_4619827677550801152=ORIENTATION_270
+
+# Display white balance
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+        ro.surface_flinger.display_primary_red=0.5128,0.2413,0.0000 \
+        ro.surface_flinger.display_primary_green=0.2598,0.6764,0.0441 \
+        ro.surface_flinger.display_primary_blue=0.2057,0.0823,1.0832 \
+        ro.surface_flinger.display_primary_white=0.9783,1.0000,1.1273
 
 # Enable Telecom feature
 # b/227692870
@@ -183,9 +177,80 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES_DEBUG += \
         test_cast_auth
 
+# USI stylus test tool
+PRODUCT_PACKAGES_DEBUG += \
+        usi_test
+
 # Lights HAL
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.tangorpro
 
-# Use GmsCorePrebuilt y2022w28
-USE_GMSCORE_PREBUILT_Y2022W28 := true
+# LED Golden Config
+PRODUCT_COPY_FILES += \
+        device/google/tangorpro/lights/led_golden_calibration_LUT_white_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_white_CG.txt \
+        device/google/tangorpro/lights/led_golden_calibration_LUT_black_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_black_CG.txt
+
+# Use GmsCorePrebuilt y2022w41
+USE_GMSCORE_PREBUILT_Y2022W41 := true
+
+# Device features
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
+
+# Display Config
+PRODUCT_COPY_FILES += \
+        device/google/tangorpro/tangorpro/display_golden_boe-ts110f5mlg0-rt4_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_boe-ts110f5mlg0-rt4_cal0.pb \
+        device/google/tangorpro/tangorpro/display_golden_csot-ppa957db2d-rt4_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_csot-ppa957db2d-rt4_cal0.pb
+
+# Display LBE
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
+
+# Display CABC
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.cabc.supported?=1
+
+# Enable adpf cpu hint session for SurfaceFlinger
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_adpf_cpu_hint=true
+
+# Set zram size
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.zram.size=3g
+
+# Increase thread priority for nodes stop
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.increase_thread_priority_nodes_stop=true \
+    persist.vendor.camera.debug.bypass_csi_link_crc_error=true
+
+# Trusty libbinder_trusty_paidl.so and libcast_auth.so
+PRODUCT_SOONG_NAMESPACES += \
+	vendor/lib64
+
+# CastKey Drm plugin modules
+PRODUCT_PACKAGES += \
+	android.hardware.drm-service.castkey
+
+# MIPI Coex Configs
+PRODUCT_COPY_FILES += \
+    device/google/tangorpro/radio/tangor_camera_front_mipi_coex_table.csv:$(TARGET_COPY_OUT_VENDOR)/etc/modem/camera_front_mipi_coex_table.csv \
+    device/google/tangorpro/radio/tangor_camera_rear_main_mipi_coex_table.csv:$(TARGET_COPY_OUT_VENDOR)/etc/modem/camera_rear_main_mipi_coex_table.csv
+
+# Cast ssid suffix go/gna-oem-device-support
+PRODUCT_PRODUCT_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
+
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.camera.extended_launch_boost=1 \
+    persist.vendor.camera.raise_buf_allocation_priority=1
+# AudioProxy
+PRODUCT_PACKAGES += \
+    libaudio_proxy.google \
+    device.google.atv.audio_proxy@7.1-service
+
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/tangorpro/device_framework_matrix_product_tangorpro.xml
+
+PRODUCT_COPY_FILES += \
+    device/google/tangorpro/public.libraries-google-tangorpro.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-google.txt
+
+# SKU specific RROs
+PRODUCT_PACKAGES += \
+    SettingsOverlayGTU8P
