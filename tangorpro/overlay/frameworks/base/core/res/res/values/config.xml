@@ -568,6 +568,9 @@
         <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
 
+    <!-- The default volume for the notification stream -->
+    <integer name="config_audio_notif_vol_default">0</integer>
+
     <!-- This device does not allow mobile data. -->
     <bool name="config_mobile_data_capable">false</bool>
 
