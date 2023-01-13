@@ -85,7 +85,9 @@ on post-fs-data
 
 on property:ro.vendor.trusty.storage.fs_ready=1
     exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/1540.app
+
 # Permissions for hwcomposer
+on fs
     chown system system /sys/class/backlight/panel0-backlight/cabc_mode
 
 # Castauth
