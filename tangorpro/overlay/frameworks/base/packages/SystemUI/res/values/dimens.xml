@@ -17,9 +17,6 @@
 -->
 <resources>
     <!-- Location on the screen of the center of the fingerprint sensor. -->
-    <dimen name="physical_fingerprint_sensor_center_screen_location_x">2400px</dimen>
-    <dimen name="physical_fingerprint_sensor_center_screen_location_y">0px</dimen>
-
-    <item name="physical_charger_port_location_normalized_x" type="dimen" format="float">0</item>
-    <item name="physical_charger_port_location_normalized_y" type="dimen" format="float">.5</item>
+    <dimen name="physical_fingerprint_sensor_center_screen_location_x">0px</dimen>
+    <dimen name="physical_fingerprint_sensor_center_screen_location_y">160px</dimen>
 </resources>
