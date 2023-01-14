@@ -585,6 +585,10 @@
          It should not receive CB messages. -->
     <bool name="config_disable_all_cb_messages">true</bool>
 
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up. The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
+
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">580</integer>
 
