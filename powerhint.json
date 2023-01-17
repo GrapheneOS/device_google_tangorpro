@@ -723,42 +723,6 @@
       "Value": "0"
     },
     {
-      "PowerHint": "CAMERA_THERMAL_CPU_THROTTLE",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "984000"
-    },
-    {
-      "PowerHint": "CAMERA_THERMAL_CPU_THROTTLE",
-      "Node": "CPUMidClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "1024000"
-    },
-    {
-      "PowerHint": "CAMERA_THERMAL_CPU_THROTTLE",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "1098000"
-    },
-    {
-      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "1426000"
-    },
-    {
-      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
-      "Node": "CPUMidClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "1197000"
-    },
-    {
-      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "1401000"
-    },
-    {
       "PowerHint": "CAMERA_SHOT",
       "Node": "MemFreq",
       "Duration": 300,
@@ -1057,24 +1021,6 @@
       "Node": "CDPreferIdle",
       "Duration": 0,
       "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 0,
-      "Value": "1826000"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "CPUMidClusterMaxFreq",
-      "Duration": 0,
-      "Value": "1491000"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 0,
-      "Value": "1401000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
