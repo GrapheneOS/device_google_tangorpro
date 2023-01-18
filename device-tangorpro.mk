@@ -174,6 +174,9 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
         device/google/tangorpro/cast_auth/tangor_ica.crt:$(TARGET_COPY_OUT_VENDOR)/etc/cert-chain.crt
 
+PRODUCT_PACKAGES += \
+        libcast_auth
+
 PRODUCT_PACKAGES_DEBUG += \
         test_cast_auth
 

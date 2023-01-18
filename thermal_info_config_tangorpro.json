@@ -3,17 +3,17 @@
         {
             "Name":"neutral_therm",
             "Type":"UNKNOWN",
+            "HotThreshold":["NAN", "50.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
             "TempPath":"/dev/thermal/tz-by-name/neutral_therm/tz_temp",
-            "Multiplier":0.001
+            "Multiplier":0.001,
+            "PollingDelay":60000,
+            "PassiveDelay":7000
         },
         {
             "Name":"quiet_therm",
             "Type":"UNKNOWN",
-            "HotThreshold":["NAN", "35.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
             "TempPath":"/dev/thermal/tz-by-name/quiet_therm/tz_temp",
-            "Multiplier":0.001,
-            "PollingDelay":60000,
-            "PassiveDelay":7000
+            "Multiplier":0.001
         },
         {
             "Name":"charger_skin_therm",
@@ -27,8 +27,11 @@
         {
             "Name":"disp_therm",
             "Type":"UNKNOWN",
+            "HotThreshold":["NAN", "37.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
             "TempPath":"/dev/thermal/tz-by-name/disp_therm/tz_temp",
-            "Multiplier":0.001
+            "Multiplier":0.001,
+            "PollingDelay":60000,
+            "PassiveDelay":7000
         },
         {
             "Name":"battery",
@@ -106,11 +109,11 @@
             "Name":"VIRTUAL-SKIN",
             "Type":"SKIN",
             "VirtualSensor":true,
-            "TriggerSensor":"quiet_therm",
+            "TriggerSensor":["disp_therm", "neutral_therm"],
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-FRONT-SOC", "VIRTUAL-FRONT-BL", "VIRTUAL-BACK-SOC", "VIRTUAL-BACK-CHARGER"],
             "Coefficient":["1.0", "1.0", "1.0", "1.0"],
-            "HotThreshold":["NAN", "39.0", "43.0", "45.0", "47.0", "51.0", "140.0"],
+            "HotThreshold":["NAN", "39.0", "43.0", "45.0", "47.0", "51.5", "56.0"],
             "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.9, 1.9, 1.9],
             "Multiplier":0.001,
             "SendCallback":true,
@@ -122,11 +125,11 @@
             "Type":"UNKNOWN",
             "Hidden":true,
             "VirtualSensor":true,
-            "TriggerSensor":"quiet_therm",
+            "TriggerSensor":["disp_therm", "neutral_therm"],
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-FRONT-SOC", "VIRTUAL-FRONT-BL", "VIRTUAL-BACK-SOC", "VIRTUAL-BACK-CHARGER"],
             "Coefficient":["1.0", "1.0", "1.0", "1.0"],
-            "HotThreshold":["NAN", "37.0", "43.0", "45.0", "47.0", "51.0", "140.0"],
+            "HotThreshold":["NAN", "37.0", "43.0", "45.0", "47.0", "51.5", "56.0"],
             "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.9, 1.9, 1.9],
             "Multiplier":0.001,
             "SendPowerHint":true,
@@ -138,11 +141,11 @@
             "Type":"UNKNOWN",
             "Hidden":true,
             "VirtualSensor":true,
-            "TriggerSensor":"quiet_therm",
+            "TriggerSensor":["disp_therm", "neutral_therm"],
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-FRONT-SOC", "VIRTUAL-FRONT-BL", "VIRTUAL-BACK-SOC", "VIRTUAL-BACK-CHARGER"],
             "Coefficient":["1.0", "1.0", "1.0", "1.0"],
-            "HotThreshold":["NAN", "39.0", "43.0", "45.0", "47.0", "51.0", "140.0"],
+            "HotThreshold":["NAN", "39.0", "43.0", "45.0", "47.0", "51.5", "56.0"],
             "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.9, 1.9, 1.9],
             "Multiplier":0.001,
             "PollingDelay":300000,
@@ -207,7 +210,7 @@
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-FRONT-SOC", "VIRTUAL-FRONT-BL", "VIRTUAL-BACK-SOC", "VIRTUAL-BACK-CHARGER"],
             "Coefficient":["1.0", "1.0", "1.0", "1.0"],
-            "HotThreshold":["NAN", "NAN", "NAN", "NAN", "NAN", "138.0", "NAN"],
+            "HotThreshold":["NAN", "NAN", "NAN", "NAN", "NAN", "54.0", "NAN"],
             "HotHysteresis":[0.0, 0.0, 0.0, 0.0, 0.0, 1.9, 0.0],
             "Multiplier":0.001,
             "Monitor":true,
