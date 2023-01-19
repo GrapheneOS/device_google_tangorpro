@@ -96,7 +96,6 @@
          The same as config_displayWhiteBalanceAmbientColorTemperatures, but with a stronger
          visual adjustment. -->
     <array name="config_displayWhiteBalanceStrongAmbientColorTemperatures">
-        <item>2500</item>
         <item>3000</item>
         <item>3500</item>
         <item>4000</item>
@@ -114,7 +113,6 @@
          The same as config_displayWhiteBalanceDisplayColorTemperatures, but with a stronger
          visual adjustment. -->
     <array name="config_displayWhiteBalanceStrongDisplayColorTemperatures">
-        <item>3500</item>
         <item>4000</item>
         <item>4600</item>
         <item>5400</item>
@@ -243,7 +241,7 @@
          The ambient color temperature (in cct) to which we interpolates towards to when the
          ambient brightness is within the low light range, see
          config_displayWhiteBalanceLowLightAmbientBrightnesses. -->
-    <item name="config_displayWhiteBalanceLowLightAmbientColorTemperature" format="float" type="dimen">3500.0</item>
+    <item name="config_displayWhiteBalanceLowLightAmbientColorTemperature" format="float" type="dimen">4000.0</item>
 
     <!-- See DisplayWhiteBalanceController.
          A float array containing a list of ambient brightnesses, in Lux. This array,
@@ -567,6 +565,9 @@
         <item>3</item> <!-- COLOR_MODE_SATURATED -->
         <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
+
+    <!-- The default volume for the notification stream -->
+    <integer name="config_audio_notif_vol_default">0</integer>
 
     <!-- This device does not allow mobile data. -->
     <bool name="config_mobile_data_capable">false</bool>
