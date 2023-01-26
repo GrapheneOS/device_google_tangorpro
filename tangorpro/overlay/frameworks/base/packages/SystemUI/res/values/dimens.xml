@@ -19,4 +19,7 @@
     <!-- Location on the screen of the center of the fingerprint sensor. -->
     <dimen name="physical_fingerprint_sensor_center_screen_location_x">0px</dimen>
     <dimen name="physical_fingerprint_sensor_center_screen_location_y">160px</dimen>
+
+    <!-- Padding for the lock icon on the keyguard. In pixels - should not scale with display size. -->
+    <dimen name="lock_icon_padding">32px</dimen>
 </resources>
