@@ -254,8 +254,8 @@
          1) Contain at least two entries
          2) Be the same length as config_displayWhiteBalanceHighLightAmbientBiases. -->
     <array name ="config_displayWhiteBalanceHighLightAmbientBrightnesses">
-        <item>3000.0</item>
-        <item>5000.0</item>
+        <item>130000.0</item>
+        <item>150000.0</item>
     </array>
 
     <!-- See DisplayWhiteBalanceController.
@@ -272,6 +272,9 @@
          ambient brightness is within the high light range, see
          config_displayWhiteBalanceHighLightAmbientBrightnesses. -->
     <item name="config_displayWhiteBalanceHighLightAmbientColorTemperature" format="float" type="dimen">6700.0</item>
+
+    <!-- Duration, in milliseconds, of the display white balance animated transitions. -->
+    <integer name="config_displayWhiteBalanceTransitionTime">30000</integer>
 
     <!-- Enable doze mode
          ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
