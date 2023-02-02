@@ -310,21 +310,6 @@
             "PassiveDelay":7000
         },
         {
-            "Name":"cellular-emergency",
-            "Type":"POWER_AMPLIFIER",
-            "VirtualSensor":true,
-            "TriggerSensor":"quiet_therm",
-            "Formula":"MAXIMUM",
-            "Combination":["VIRTUAL-FRONT-SOC", "VIRTUAL-FRONT-BL", "VIRTUAL-BACK-SOC", "VIRTUAL-BACK-CHARGER"],
-            "Coefficient":["1.0", "1.0", "1.0", "1.0"],
-            "HotThreshold":["NAN", "NAN", "NAN", "NAN", "NAN", "54.0", "NAN"],
-            "HotHysteresis":[0.0, 0.0, 0.0, 0.0, 0.0, 1.9, 0.0],
-            "Multiplier":0.001,
-            "Monitor":true,
-            "PollingDelay":300000,
-            "PassiveDelay":7000
-        },
-        {
             "Name":"LITTLE",
             "Type":"CPU",
             "Multiplier":0.001
@@ -362,8 +347,7 @@
         {
             "Name":"battery_cycle",
             "Type":"BCL_VOLTAGE",
-            "Multiplier":1,
-            "Monitor":false
+            "Multiplier":1
         },
         {
             "Name":"critical-battery-cell",
@@ -636,28 +620,32 @@
             "Type":"BCL_CURRENT",
             "HotThreshold":["NAN", "NAN", "NAN", "NAN", 12000, "NAN", "NAN"],
             "HotHysteresis":[0.0, 0.0, 0.0, 0.0, 100, 0.0, 0.0],
-            "Multiplier":1
+            "Multiplier":1,
+            "Hidden":true
         },
         {
             "Name":"ocp_gpu",
             "Type":"BCL_CURRENT",
             "HotThreshold":["NAN", "NAN", "NAN", "NAN", 12000, "NAN", "NAN"],
             "HotHysteresis":[0.0, 0.0, 0.0, 0.0, 100, 0.0, 0.0],
-            "Multiplier":1
+            "Multiplier":1,
+            "Hidden":true
         },
         {
             "Name":"soft_ocp_cpu2",
             "Type":"BCL_CURRENT",
             "HotThreshold":["NAN", "NAN", "NAN", "NAN", 12000, "NAN", "NAN"],
             "HotHysteresis":[0.0, 0.0, 0.0, 0.0, 100, 0.0, 0.0],
-            "Multiplier":1
+            "Multiplier":1,
+            "Hidden":true
         },
         {
             "Name":"soft_ocp_cpu1",
             "Type":"BCL_CURRENT",
             "HotThreshold":["NAN", "NAN", "NAN", "NAN", 8000, "NAN", "NAN"],
             "HotHysteresis":[0.0, 0.0, 0.0, 0.0, 100, 0.0, 0.0],
-            "Multiplier":1
+            "Multiplier":1,
+            "Hidden":true
         },
         {
             "Name":"soft_ocp_tpu",
