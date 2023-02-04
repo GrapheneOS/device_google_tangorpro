@@ -205,6 +205,9 @@ PRODUCT_COPY_FILES += \
         device/google/tangorpro/tangorpro/display_golden_boe-ts110f5mlg0-rt4_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_boe-ts110f5mlg0-rt4_cal0.pb \
         device/google/tangorpro/tangorpro/display_golden_csot-ppa957db2d-rt4_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_csot-ppa957db2d-rt4_cal0.pb
 
+# Enable HWC dynamic recomposition for display with index 0
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.dynamic_recomposition=1
+
 # Display LBE
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
 
