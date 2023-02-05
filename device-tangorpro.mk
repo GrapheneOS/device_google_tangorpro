@@ -244,6 +244,11 @@ PRODUCT_PRODUCT_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.extended_launch_boost=1 \
     persist.vendor.camera.raise_buf_allocation_priority=1
+
+# Enable camera exif model/make reporting
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.exif_reveal_make_model=true
+
 # AudioProxy
 PRODUCT_PACKAGES += \
     libaudio_proxy.google \
