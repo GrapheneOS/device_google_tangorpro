@@ -490,6 +490,78 @@
       "DefaultIndex": 0
     },
     {
+      "Name": "EM_Profile",
+      "Path": "/sys/kernel/pixel_em/active_profile",
+      "Values": [
+        "default",
+        "cam1"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "PMU_LIT_LCPI_THRESHOLD",
+      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/sched_pixel/lcpi_threshold",
+      "Values": [
+        "2",
+        "0"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "PMU_LIT_SPC_THRESHOLD",
+      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/sched_pixel/spc_threshold",
+      "Values": [
+        "70",
+        "0"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "PMU_MID_LCPI_THRESHOLD",
+      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/lcpi_threshold",
+      "Values": [
+        "6",
+        "3"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "PMU_MID_SPC_THRESHOLD",
+      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/spc_threshold",
+      "Values": [
+        "65",
+        "50"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "PMU_BIG_LIMIT_FREQ",
+      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/sched_pixel/limit_frequency",
+      "Values": [
+        "2507000",
+        "1826000"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "PMU_BIG_LCPI_THRESHOLD",
+      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/sched_pixel/lcpi_threshold",
+      "Values": [
+        "5",
+        "3"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "PMU_BIG_SPC_THRESHOLD",
+      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/sched_pixel/spc_threshold",
+      "Values": [
+        "69",
+        "50"
+      ],
+      "DefaultIndex": 0
+    },
+    {
       "Name": "Dex2oatThreads",
       "Path": "vendor.powerhal.dalvik.vm.dex2oat-threads",
       "Values": [
@@ -594,6 +666,11 @@
     {
       "PowerHint": "LAUNCH",
       "Type": "DoHint",
+      "Value": "LAUNCH_PMU"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Type": "DoHint",
       "EnableProperty": "vendor.powerhal.camerarunning",
       "Value": "CDCPUSET_RESTRICTED"
     },
@@ -637,6 +714,12 @@
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 2000,
       "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH_PMU",
+      "Node": "PMU_POLL",
+      "Duration": 3000,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
@@ -694,6 +777,12 @@
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
+      "Node": "PMU_POLL",
+      "Duration": 1000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
       "Node": "CDCpuset",
       "Duration": 1000,
       "Value": "4-7"
@@ -719,6 +808,12 @@
     {
       "PowerHint": "CAMERA_LAUNCH_EXTENDED",
       "Node": "NPITaskPacking",
+      "Duration": 2000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
+      "Node": "PMU_POLL",
       "Duration": 2000,
       "Value": "0"
     },
@@ -1003,6 +1098,60 @@
       "Node": "PowerHALCameraRunning",
       "Duration": 0,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PMU_LIT_LCPI_THRESHOLD",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PMU_LIT_SPC_THRESHOLD",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PMU_MID_LCPI_THRESHOLD",
+      "Duration": 0,
+      "Value": "3"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PMU_MID_SPC_THRESHOLD",
+      "Duration": 0,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PMU_BIG_LIMIT_FREQ",
+      "Duration": 0,
+      "Value": "1826000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PMU_BIG_LCPI_THRESHOLD",
+      "Duration": 0,
+      "Value": "3"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PMU_BIG_SPC_THRESHOLD",
+      "Duration": 0,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PMU_POLL",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "EM_Profile",
+      "Duration": 0,
+      "Value": "cam1"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
