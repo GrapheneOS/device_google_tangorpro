@@ -15,7 +15,13 @@
 #
 TARGET_BOARD_INFO_FILE := device/google/tangorpro/board-info.txt
 TARGET_BOOTLOADER_BOARD_NAME := tangorpro
-TARGET_SCREEN_DENSITY := 320
+
+ifdef PHONE_CAR_BOARD_PRODUCT
+    include vendor/auto/embedded/products/$(PHONE_CAR_BOARD_PRODUCT)/BoardConfig.mk
+else
+    TARGET_SCREEN_DENSITY := 320
+endif
+
 BOARD_USES_GENERIC_AUDIO := true
 USES_DEVICE_GOOGLE_TANGORPRO := true
 BOARD_KERNEL_CMDLINE += swiotlb=noforce
