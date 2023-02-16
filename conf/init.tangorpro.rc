@@ -102,6 +102,7 @@ on post-fs-data
 # Audio
 on post-fs-data
     chmod 644 /mnt/vendor/persist/audio/speaker.cal
+    chmod 644 /mnt/vendor/persist/audio/speaker.diag
 
 # Thermal
 on property:vendor.thermal.link_ready=1
