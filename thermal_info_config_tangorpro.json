@@ -60,8 +60,8 @@
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
-            "Coefficient":["-0.484", "1.081", "0.093", "-0.003"],
-            "Offset":6435,
+            "Coefficient":["-0.50", "1.13", "0.11", "0.12"],
+            "Offset":1850,
             "Multiplier":0.001
         },
         {
@@ -71,8 +71,8 @@
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
-            "Coefficient":["0.132", "-0.195", "0.006", "0.975"],
-            "Offset":2769,
+            "Coefficient":["0.14", "-0.26", "0.01", "1.18"],
+            "Offset":-1570,
             "Multiplier":0.001
         },
         {
@@ -82,8 +82,8 @@
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
-            "Coefficient":["-0.120", "0.785", "0.153", "-0.079"],
-            "Offset":5971,
+            "Coefficient":["-0.29", "1.03", "0.11", "0.05"],
+            "Offset":1860,
             "Multiplier":0.001
         },
         {
@@ -94,10 +94,10 @@
             "TriggerSensor":"charger_skin_therm",
             "Formula":"WEIGHTED_AVG",
             "Combination":["neutral_therm", "quiet_therm", "charger_skin_therm", "disp_therm"],
-            "Coefficient":["-0.148", "0.666", "0.256", "-0.079"],
+            "Coefficient":["-0.32", "0.85", "0.26", "0.08"],
             "HotThreshold":["NAN", "39.0", "43.0", "45.0", "47.0", "51.0", "55.0"],
             "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.9, 1.9, 1.9],
-            "Offset":7137,
+            "Offset":2040,
             "Multiplier":0.001,
             "PollingDelay":300000,
             "PassiveDelay":7000,
