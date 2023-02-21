@@ -611,4 +611,9 @@
     <!-- Enable the system motion prediction model. -->
     <bool name="config_enableMotionPrediction">true</bool>
     <integer name="config_motionPredictionOffsetNanos">20000000</integer> <!-- 20 ms -->
+
+    <!-- Whether to reset Battery Stats on unplug when the battery level is high. -->
+    <bool name="config_batteryStatsResetOnUnplugHighBatteryLevel">false</bool>
+    <!-- Whether to reset Battery Stats on unplug if the battery was significantly charged -->
+    <bool name="config_batteryStatsResetOnUnplugAfterSignificantCharge">false</bool>
 </resources>
