@@ -124,4 +124,9 @@
          1: verbose logging on by default for userdebug
          2: verbose logging on by default for all builds -->
     <integer translatable="false" name="config_wifiVerboseLoggingAlwaysOnLevel">1</integer>
+
+    <!-- Boolean indicating whether the framework updates country from scan results when there is
+         no telephony country code and driver country code is 00.
+         This is applied only during the setup wizard -->
+    <bool translatable="false" name ="config_wifiUpdateCountryCodeFromScanResultSetupWizard">true</bool>
 </resources>
