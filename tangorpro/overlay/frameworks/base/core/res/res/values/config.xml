@@ -590,9 +590,4 @@
 
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">580</integer>
-
-    <!-- Whether to reset Battery Stats on unplug when the battery level is high. -->
-    <bool name="config_batteryStatsResetOnUnplugHighBatteryLevel">false</bool>
-    <!-- Whether to reset Battery Stats on unplug if the battery was significantly charged -->
-    <bool name="config_batteryStatsResetOnUnplugAfterSignificantCharge">false</bool>
 </resources>
