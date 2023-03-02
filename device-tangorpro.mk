@@ -193,8 +193,8 @@ PRODUCT_COPY_FILES += \
         device/google/tangorpro/lights/led_golden_calibration_LUT_white_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_white_CG.txt \
         device/google/tangorpro/lights/led_golden_calibration_LUT_black_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_black_CG.txt
 
-# Use GmsCorePrebuilt y2023w02
-USE_GMSCORE_PREBUILT_Y2023W02 := true
+# Use GmsCorePrebuilt y2023w06
+USE_GMSCORE_PREBUILT_Y2023W06 := true
 
 # Device features
 PRODUCT_COPY_FILES += \
