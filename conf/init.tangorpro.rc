@@ -108,6 +108,10 @@ on post-fs-data
 on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/charger_skin_therm/trip_point_0_temp
     chown system system /dev/thermal/tz-by-name/charger_skin_therm/trip_point_0_hyst
+    chown system system /dev/thermal/tz-by-name/disp_therm/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/disp_therm/trip_point_0_hyst
+    chown system system /dev/thermal/tz-by-name/neutral_therm/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/neutral_therm/trip_point_0_hyst
 
 # Override SF and RE uclamps to 0 on boot after being set elsewhere, for adpf cpu hints
 on property:sys.boot_completed=1
