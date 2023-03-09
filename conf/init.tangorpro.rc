@@ -135,6 +135,13 @@ on post-fs
     chmod 600 /sys/devices/platform/google,pogo/hall1_n
     chmod 600 /sys/devices/platform/google,pogo/hall2_s
 
+# Set/Clear force_pogo feature
+on property:persist.vendor.usb.force_pogo=1
+    write /sys/devices/platform/google,pogo/force_pogo 1
+
+on property:persist.vendor.usb.force_pogo=0
+    write /sys/devices/platform/google,pogo/force_pogo 0
+
 # Sensor
 on init && property:ro.bootmode=charger
     write /sys/devices/platform/19000000.aoc/sensor_power_enable 0
