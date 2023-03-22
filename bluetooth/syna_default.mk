@@ -14,6 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+# Bluetooth LE Audio
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio_switcher.supported=true \
+    bluetooth.profile.bap.unicast.client.enabled=true \
+    bluetooth.profile.csip.set_coordinator.enabled=true \
+    bluetooth.profile.hap.client.enabled=true \
+    bluetooth.profile.mcp.server.enabled=true \
+    bluetooth.profile.ccp.server.enabled=true \
+    bluetooth.profile.vcp.controller.enabled=true \
+
 # Bluetooth HAL and Pixel extension
 DEVICE_MANIFEST_FILE += \
        device/google/tangorpro/bluetooth/manifest_bluetooth.xml
