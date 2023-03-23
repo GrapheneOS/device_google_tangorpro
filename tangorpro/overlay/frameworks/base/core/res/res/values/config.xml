@@ -616,4 +616,7 @@
     <bool name="config_batteryStatsResetOnUnplugHighBatteryLevel">false</bool>
     <!-- Whether to reset Battery Stats on unplug if the battery was significantly charged -->
     <bool name="config_batteryStatsResetOnUnplugAfterSignificantCharge">false</bool>
+
+    <!-- Show shortcut hit string in context menu. -->
+    <bool name="config_showMenuShortcutsWhenKeyboardPresent">true</bool>
 </resources>
