@@ -569,6 +569,14 @@
         <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
 
+    <!-- Override the "touch slop" value used by ViewConfiguration.
+        This prevents misclassification of gestures as long presses, by reducing the
+        distance that the pointer can travel while still being treated as "stationary".
+        The default value is 8dp, which is roughly 1.5mm on this device. On another
+        reference device, the touch slop was estimated at ~ 1 mm. Therefore, set the
+        touch slop to 8/1.5 =~ 5 dp to make it closer to the reference device. -->
+   <dimen name="config_viewConfigurationTouchSlop">5dp</dimen>
+
     <!-- The default volume for the notification stream -->
     <integer name="config_audio_notif_vol_default">0</integer>
 
