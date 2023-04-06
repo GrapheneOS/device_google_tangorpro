@@ -54,6 +54,7 @@ include device/google/gs201/device-shipping-common.mk
 include device/google/gs-common/touch/gti/gti.mk
 include device/google/gs-common/touch/nvt/nvt.mk
 include device/google/gs-common/led/led.mk
+include device/google/gs-common/wlan/dump.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tangorpro)
