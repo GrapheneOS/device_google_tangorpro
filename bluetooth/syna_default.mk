@@ -15,6 +15,10 @@
 # limitations under the License.
 #
 
+# Bluetooth Super Wide Band
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.hfp.swb.supported=true
+
 # Bluetooth LE Audio
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.bluetooth.leaudio_switcher.supported=true \
