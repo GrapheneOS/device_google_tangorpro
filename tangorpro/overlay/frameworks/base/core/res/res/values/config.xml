@@ -153,6 +153,27 @@
         <!-- Nominal White Z --> <item>1.1273</item>
     </string-array>
 
+    <!-- The CCT closest to the white coordinates (primary) above and in SurfaceControl, as
+         calculated by ColorSpace#cctToXyz, such that the transition from DWB being "on" with
+         a computed matrix to the disabled identity matrix is as small as possible. -->
+    <integer name="config_displayWhiteBalanceDisplayNominalWhiteCct">6543</integer>
+
+    <!-- Range minimums corresponding to config_displayWhiteBalanceDisplaySteps. For example, if the
+         range minimums are [0, 3000] and the steps are [10, 20] then between 0 and 3000, exclusive,
+         the step between them will be 10 (i.e. 0, 10, 20, etc.) and the step between 3000 and the
+         maximum value is 20 (i.e. 3000, 3020, 3040, etc.). -->
+    <integer-array name="config_displayWhiteBalanceDisplayRangeMinimums">
+        <item>0</item>
+    </integer-array>
+
+    <!-- Steps corresponding to config_displayWhiteBalanceDisplayRangeMinimums. For example, if the
+         range minimums are [0, 3000] and the steps are [10, 20] then between 0 and 3000, exclusive,
+         the step between them will be 10 (i.e. 0, 10, 20, etc.) and the step between 3000 and the
+         maximum value is 20 (i.e. 3000, 3020, 3040, etc.). -->
+    <integer-array name="config_displayWhiteBalanceDisplaySteps">
+        <item>40</item>
+    </integer-array>
+
     <!-- See DisplayWhiteBalanceThrottler.
          The debounce time (in milliseconds) for increasing the screen color temperature, throttled
          if time > lastTime + debounce. Must be non-negative. -->
