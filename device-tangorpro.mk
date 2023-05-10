@@ -244,6 +244,7 @@ PRODUCT_PRODUCT_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.camera.adjust_backend_min_freq_for_1p_front_video_1080p_30fps=1 \
     persist.vendor.camera.bypass_sensor_binning_resolution_condition=1 \
     persist.vendor.camera.extended_launch_boost=1 \
     persist.vendor.camera.raise_buf_allocation_priority=1
