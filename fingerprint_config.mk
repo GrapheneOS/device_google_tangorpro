@@ -6,4 +6,5 @@ else
 # Non factory build, use fingerprint AIDL version
 GOOGLE_CONFIG_POWER_NODE=/dev/input/event1
 GOOGLE_CONFIG_FP_STATUS=1
+GOOGLE_CONFIG_TOUCH_TO_UNLOCK_ANYTIME=1
 endif
