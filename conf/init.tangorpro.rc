@@ -80,9 +80,6 @@ on post-fs-data
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/irq
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/wakeup_enable
 
-on property:ro.vendor.trusty.storage.fs_ready=1
-    exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/1540.app
-
 # Permissions for hwcomposer
 on fs
     chown system system /sys/class/backlight/panel0-backlight/cabc_mode
