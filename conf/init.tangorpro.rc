@@ -110,14 +110,6 @@ on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/neutral_therm/trip_point_0_temp
     chown system system /dev/thermal/tz-by-name/neutral_therm/trip_point_0_hyst
 
-# Override SF and RE uclamps to 0 on boot after being set elsewhere, for adpf cpu hints
-on property:sys.boot_completed=1
-    trigger override-sf-uclamp
-
-on override-sf-uclamp
-    write /proc/vendor_sched/rt_uclamp_min 0
-    write /proc/vendor_sched/sf_uclamp_min 0
-
 # Pogo
 on post-fs
     chown root system /sys/devices/platform/google,pogo/move_data_to_usb
