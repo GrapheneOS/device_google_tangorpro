@@ -80,9 +80,6 @@ on post-fs-data
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/irq
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/wakeup_enable
 
-on property:ro.vendor.trusty.storage.fs_ready=1
-    exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/1540.app
-
 # Permissions for hwcomposer
 on fs
     chown system system /sys/class/backlight/panel0-backlight/cabc_mode
@@ -112,14 +109,6 @@ on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/disp_therm/trip_point_0_hyst
     chown system system /dev/thermal/tz-by-name/neutral_therm/trip_point_0_temp
     chown system system /dev/thermal/tz-by-name/neutral_therm/trip_point_0_hyst
-
-# Override SF and RE uclamps to 0 on boot after being set elsewhere, for adpf cpu hints
-on property:sys.boot_completed=1
-    trigger override-sf-uclamp
-
-on override-sf-uclamp
-    write /proc/vendor_sched/rt_uclamp_min 0
-    write /proc/vendor_sched/sf_uclamp_min 0
 
 # Pogo
 on post-fs
