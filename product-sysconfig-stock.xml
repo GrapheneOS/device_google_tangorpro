@@ -30,4 +30,6 @@
     <feature name="com.google.android.feature.PIXEL_2022_EXPERIENCE" />
     <!-- tangorpro/proprietary/product/etc/sysconfig/pixel_experience_2022_midyear.xml -->
     <feature name="com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE" />
+    <!-- tangorpro/proprietary/product/etc/sysconfig/pixel_tablet_experience_2023.xml -->
+    <feature name="com.google.android.feature.PIXEL_TABLET_2023_EXPERIENCE" />
 </config>
