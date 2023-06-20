@@ -286,6 +286,7 @@
     <xlate_id>
         <item component="TUNING_COMPONENT_WAVES" id="2"/>
         <item component="TUNING_COMPONENT_FORTEMEDIA" id="3"/>
+        <item component="TUNING_COMPONENT_APMG3" id="24"/>
         <item component="TUNING_COMPONENT_CAMCORDER" id="6"/>
     </xlate_id>
 

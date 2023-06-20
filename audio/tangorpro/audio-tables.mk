@@ -61,7 +61,13 @@ PRODUCT_COPY_FILES += \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/HEADSET.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/HEADSET.dat \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/mcps.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/mcps.dat \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/waves_config.ini:$(TARGET_COPY_OUT_VENDOR)/etc/waves_config.ini \
-    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/waves_preset.mps:$(TARGET_COPY_OUT_VENDOR)/etc/waves_preset.mps
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/waves_preset.mps:$(TARGET_COPY_OUT_VENDOR)/etc/waves_preset.mps \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_headset_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_headset_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_dock_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_dock_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_tablet_stereo_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_tablet_stereo_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_headset_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_headset_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_dock_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_dock_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_tablet_stereo_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_tablet_stereo_config.pb
 
 # userdebug specific
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))

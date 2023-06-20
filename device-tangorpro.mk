@@ -274,6 +274,10 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.multi_usb_mode=true
 
+# Audio package
+PRODUCT_PACKAGES += \
+    audio_apmg3_aoc
+
 # AudioProxy
 PRODUCT_PACKAGES += \
     libaudio_proxy.google \
