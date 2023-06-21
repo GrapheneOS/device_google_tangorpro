@@ -69,7 +69,7 @@ include device/google/tangorpro/uwb/uwb_calibration.mk
 endif
 
 # Preopt SystemUI
-PRODUCT_DEXPREOPT_SPEED_APPS += SystemUITitan  # For tablet
+PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI  # For tablet
 
 # Recovery files
 PRODUCT_COPY_FILES += \
