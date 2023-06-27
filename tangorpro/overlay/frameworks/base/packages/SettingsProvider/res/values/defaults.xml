@@ -1,0 +1,4 @@
+<resources>
+    <!-- set default screen rotation to 270 degrees, 3 refers to value of android.view.Surface.ROTATION_270 -->
+    <integer name="def_user_rotation">3</integer>
+</resources>
