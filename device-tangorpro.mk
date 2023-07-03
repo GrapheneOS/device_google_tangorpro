@@ -148,9 +148,6 @@ PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.wifi.sap.interface=wlan1
 
-# Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
-PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
-
 # Assistant minimum volume
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.assistant_vol_min=1
