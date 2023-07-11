@@ -348,8 +348,8 @@
     <!-- Indicates whether device has a power button fingerprint sensor. -->
     <bool name="config_is_powerbutton_fps">true</bool>
 
-    <dimen name="status_bar_height_default">104px</dimen>
-    <dimen name="status_bar_height_portrait">104px</dimen>
+    <dimen name="status_bar_height_default">36dp</dimen>
+    <dimen name="status_bar_height_portrait">36dp</dimen>
 
     <!-- Control whether the pickup gesture is enabled by default. This value will be used
      during initialization when the setting is still null. -->
