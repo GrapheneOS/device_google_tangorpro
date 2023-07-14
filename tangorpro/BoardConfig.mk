@@ -23,7 +23,7 @@ BOARD_BOOTCONFIG += androidboot.load_modules_parallel=true
 BOARD_KERNEL_CMDLINE += exynos_drm.load_sequential=1
 
 ifdef PHONE_CAR_BOARD_PRODUCT
-    include vendor/auto/embedded/products/$(PHONE_CAR_BOARD_PRODUCT)/BoardConfig.mk
+    include device/google_car/$(PHONE_CAR_BOARD_PRODUCT)/BoardConfig.mk 
 else
     TARGET_SCREEN_DENSITY := 320
 endif
