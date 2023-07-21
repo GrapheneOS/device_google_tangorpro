@@ -270,6 +270,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.exif_reveal_make_model=true
 
+# Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.multi_usb_mode=true
+
 # AudioProxy
 PRODUCT_PACKAGES += \
     libaudio_proxy.google \

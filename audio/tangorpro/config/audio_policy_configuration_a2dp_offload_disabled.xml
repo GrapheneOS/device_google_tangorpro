@@ -186,7 +186,7 @@
                 <route type="mix" sink="USB Headset Out"
                        sources="primary output,deep buffer,raw,compressed_offload,mmap_no_irq_out,voip_rx,hifi_playback,immersive_out"/>
                 <route type="mix" sink="USB Dock"
-                       sources="primary output,deep buffer,compressed_offload,mmap_no_irq_out,voip_rx,hifi_playback"/>
+                       sources="primary output,deep buffer,compressed_offload,mmap_no_irq_out,voip_rx"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary output,deep buffer,compressed_offload,voip_rx,raw,mmap_no_irq_out"/>
                 <route type="mix" sink="BT SCO Headset"
