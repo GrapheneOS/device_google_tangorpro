@@ -2,7 +2,7 @@
     <!-- AudioProxy -->
     <hal format="aidl" optional="true">
         <name>device.google.atv.audio_proxy</name>
-        <version>1</version>
+        <version>3</version>
         <interface>
             <name>IAudioProxy</name>
             <instance>mediashell</instance>

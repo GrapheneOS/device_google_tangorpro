@@ -14,11 +14,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+# Bluetooth Super Wide Band
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.hfp.swb.supported=true
+
+# Bluetooth LE Audio
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio_switcher.supported=true \
+    bluetooth.profile.bap.unicast.client.enabled?=true \
+    bluetooth.profile.csip.set_coordinator.enabled?=true \
+    bluetooth.profile.hap.client.enabled?=true \
+    bluetooth.profile.mcp.server.enabled?=true \
+    bluetooth.profile.ccp.server.enabled?=true \
+    bluetooth.profile.vcp.controller.enabled?=true \
+
 # Bluetooth HAL and Pixel extension
 DEVICE_MANIFEST_FILE += \
        device/google/tangorpro/bluetooth/manifest_bluetooth.xml
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/tangorpro/bluetooth/device_framework_matrix_product.xml
 BOARD_SEPOLICY_DIRS += device/google/tangorpro-sepolicy/bluetooth
-PRODUCT_PACKAGES += android.hardware.bluetooth@1.1-service.synabtlinux
+PRODUCT_PACKAGES += android.hardware.bluetooth@1.1-service.synabtlinux \
+        android.hardware.bluetooth.prebuilt.xml \
+        android.hardware.bluetooth_le.prebuilt.xml
+
 # Bluetooth SAR test tools
 PRODUCT_PACKAGES_DEBUG += bt_sar_test
 

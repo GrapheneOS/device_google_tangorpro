@@ -16,6 +16,12 @@
 TARGET_BOARD_INFO_FILE := device/google/tangorpro/board-info.txt
 TARGET_BOOTLOADER_BOARD_NAME := tangorpro
 
+# Enable load module in parallel
+BOARD_BOOTCONFIG += androidboot.load_modules_parallel=true
+
+# The modules which need to be loaded in sequential
+BOARD_KERNEL_CMDLINE += exynos_drm.load_sequential=1
+
 ifdef PHONE_CAR_BOARD_PRODUCT
     include vendor/auto/embedded/products/$(PHONE_CAR_BOARD_PRODUCT)/BoardConfig.mk
 else

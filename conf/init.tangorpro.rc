@@ -17,7 +17,7 @@ on early-boot
     wait_for_prop vendor.common.modules.ready 1
     start insmod_sh_tangorpro
 
-service insmod_sh_tangorpro /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.tangorpro.cfg
+service insmod_sh_tangorpro /vendor/bin/insmod.sh /vendor/etc/init.insmod.tangorpro.cfg
     class main
     user root
     group root system
@@ -44,11 +44,8 @@ on property:vendor.device.modules.ready=1
     chown system system /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_dttw_mode
     chown system system /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_fw_history
     chown system system /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_high_sensi_mode
-    chown system system /sys/devices/virtual/goog_touch_interface/gti.0/force_active
-    chown system system /sys/devices/virtual/goog_touch_interface/gti.0/fw_ver
     chown system system /sys/devices/virtual/goog_touch_interface/gti.0/v4l2_enabled
     chown system system /sys/devices/virtual/goog_touch_interface/gti.0/offload_enabled
-    chown system system /sys/devices/virtual/goog_touch_interface/gti.0/ms_diff
     chown system system /proc/nvt_baseline
     chown system system /proc/nvt_diff
     chown system system /proc/nvt_heatmap
@@ -83,9 +80,6 @@ on post-fs-data
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/irq
     chown system system /sys/devices/platform/odm/odm:fp_fpc1020/wakeup_enable
 
-on property:ro.vendor.trusty.storage.fs_ready=1
-    exec_background - system shell -- /vendor/bin/trusty_apploader /vendor/firmware/1540.app
-
 # Permissions for hwcomposer
 on fs
     chown system system /sys/class/backlight/panel0-backlight/cabc_mode
@@ -104,6 +98,9 @@ on post-fs-data
     chmod 644 /mnt/vendor/persist/audio/speaker.cal
     chmod 644 /mnt/vendor/persist/audio/speaker.diag
 
+on init && property:ro.bootmode=charger
+    write /sys/devices/platform/19000000.aoc/dmic_power_enable 0
+
 # Thermal
 on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/charger_skin_therm/trip_point_0_temp
@@ -112,14 +109,6 @@ on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/disp_therm/trip_point_0_hyst
     chown system system /dev/thermal/tz-by-name/neutral_therm/trip_point_0_temp
     chown system system /dev/thermal/tz-by-name/neutral_therm/trip_point_0_hyst
-
-# Override SF and RE uclamps to 0 on boot after being set elsewhere, for adpf cpu hints
-on property:sys.boot_completed=1
-    trigger override-sf-uclamp
-
-on override-sf-uclamp
-    write /proc/vendor_sched/rt_uclamp_min 0
-    write /proc/vendor_sched/sf_uclamp_min 0
 
 # Pogo
 on post-fs
@@ -131,6 +120,13 @@ on post-fs
     chmod 600 /sys/devices/platform/google,pogo/hall1_s
     chmod 600 /sys/devices/platform/google,pogo/hall1_n
     chmod 600 /sys/devices/platform/google,pogo/hall2_s
+
+# Set/Clear force_pogo feature
+on property:persist.vendor.usb.force_pogo=1
+    write /sys/devices/platform/google,pogo/force_pogo 1
+
+on property:persist.vendor.usb.force_pogo=0
+    write /sys/devices/platform/google,pogo/force_pogo 0
 
 # Sensor
 on init && property:ro.bootmode=charger
