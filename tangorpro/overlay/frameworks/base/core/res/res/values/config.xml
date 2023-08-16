@@ -250,6 +250,21 @@
     </array>
 
     <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient brightnesses, in Lux. This array,
+         together with config_displayWhiteBalanceLowLightAmbientBiasesStrong, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient brightness readings to a bias, where the bias is used to linearly interpolate
+         between ambient color temperature and
+         config_displayWhiteBalanceLowLightAmbientColorTemperatureStrong.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceLowLightAmbientBiasesStrong. -->
+    <array name ="config_displayWhiteBalanceLowLightAmbientBrightnessesStrong">
+        <item>3.0</item>
+        <item>10.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
          An array containing a list of biases. See
          config_displayWhiteBalanceLowLightAmbientBrightnesses for additional details.
          This array must be in the range of [0.0, 1.0]. -->
@@ -257,6 +272,16 @@
         <item>0.0</item>
         <item>1.0</item>
     </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         An array containing a list of biases. See
+         config_displayWhiteBalanceLowLightAmbientBrightnessesStrong for additional details.
+         This array must be in the range of [0.0, 1.0]. -->
+    <array name ="config_displayWhiteBalanceLowLightAmbientBiasesStrong">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+
 
     <!-- See DisplayWhiteBalanceController.
          The ambient color temperature (in cct) to which we interpolates towards to when the
@@ -280,10 +305,34 @@
     </array>
 
     <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient brightnesses, in Lux. This array,
+         together with config_displayWhiteBalanceHighLightAmbientBiasesStrong, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient brightness readings to a bias, where the bias is used to linearly interpolate
+         between ambient color temperature and
+         config_displayWhiteBalanceHighLightAmbientColorTemperatureStrong.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceHighLightAmbientBiasesStrong. -->
+    <array name ="config_displayWhiteBalanceHighLightAmbientBrightnessesStrong">
+        <item>130000.0</item>
+        <item>150000.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
          An array containing a list of biases. See
          config_displayWhiteBalanceHighLightAmbientBrightnesses for additional details.
          This array must be in the range of [0.0, 1.0]. -->
     <array name ="config_displayWhiteBalanceHighLightAmbientBiases">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         An array containing a list of biases. See
+         config_displayWhiteBalanceHighLightAmbientBrightnessesStrong for additional details.
+         This array must be in the range of [0.0, 1.0]. -->
+    <array name ="config_displayWhiteBalanceHighLightAmbientBiasesStrong">
         <item>0.0</item>
         <item>1.0</item>
     </array>
