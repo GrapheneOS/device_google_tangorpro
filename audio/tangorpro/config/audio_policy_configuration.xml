@@ -193,7 +193,7 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,deep buffer,raw,compressed_offload,mmap_no_irq_out,voip_rx,ultrasound output"/>
+                       sources="primary output,deep buffer,raw,compressed_offload,mmap_no_irq_out,voip_rx,ultrasound output,immersive_out"/>
                 <route type="mix" sink="Speaker Safe"
                        sources="primary output,deep buffer,raw,compressed_offload,mmap_no_irq_out,voip_rx,ultrasound output"/>
                 <route type="mix" sink="BT A2DP Out"
