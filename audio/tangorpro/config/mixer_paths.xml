@@ -610,14 +610,17 @@
     </path>
 
     <path name="voip-recordC">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer INTERNAL_MIC_TX" value="1"/>
     </path>
 
     <path name="voip-recordC usb-headset-mic">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer USB_TX" value="1"/>
     </path>
 
     <path name="voip-recordC bt-mic">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer BT_TX" value="1"/>
     </path>
 
