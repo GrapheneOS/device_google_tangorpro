@@ -15,6 +15,15 @@
 # limitations under the License.
 #
 
+# Override BQR mask to enable LE Audio Choppy report
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=262238
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=94
+endif
+
 # Bluetooth Super Wide Band
 PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.hfp.swb.supported=true
