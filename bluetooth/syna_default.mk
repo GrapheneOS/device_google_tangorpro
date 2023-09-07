@@ -24,6 +24,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.bqr.event_mask=94
 endif
 
+# Not support LE Audio dual mic SWB call based on the current launch strategy
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.leaudio.dual_bidirection_swb.supported=false
+
 # Bluetooth Super Wide Band
 PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.hfp.swb.supported=true
