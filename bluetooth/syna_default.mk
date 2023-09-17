@@ -42,6 +42,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.profile.ccp.server.enabled?=true \
     bluetooth.profile.vcp.controller.enabled?=true \
 
+# LE Audio Lunch Config for Phase 1 (LE audio toggle hidden by default)
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.leaudio.toggle_visible=false
+
 # Bluetooth HAL and Pixel extension
 DEVICE_MANIFEST_FILE += \
        device/google/tangorpro/bluetooth/manifest_bluetooth.xml
