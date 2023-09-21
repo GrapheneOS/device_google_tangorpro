@@ -114,7 +114,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # declare use of spatial audio
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.audio.spatializer_enabled=true
+	ro.audio.spatializer_enabled=true \
+	persist.vendor.audio.spatializer.speaker_enabled=true
 
 # Bluetooth OPUS codec
 PRODUCT_PRODUCT_PROPERTIES += \

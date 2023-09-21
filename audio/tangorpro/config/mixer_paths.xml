@@ -519,15 +519,15 @@
     </path>
 
     <path name="immersive-playbackP">
-        <ctl name="TDM_0_RX Mixer IMSV" value="1"/>
+        <ctl name="TDM_0_RX Mixer EP4" value="1"/>
     </path>
 
     <path name="immersive-playbackP bt">
-        <ctl name="BT_RX Mixer IMSV" value="1"/>
+        <ctl name="BT_RX Mixer EP4" value="1"/>
     </path>
 
     <path name="immersive-playbackP usb-headphone">
-        <ctl name="USB_RX Mixer IMSV" value="1"/>
+        <ctl name="USB_RX Mixer EP4" value="1"/>
     </path>
 
     <path name="voip-playbackP">
@@ -610,14 +610,17 @@
     </path>
 
     <path name="voip-recordC">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer INTERNAL_MIC_TX" value="1"/>
     </path>
 
     <path name="voip-recordC usb-headset-mic">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer USB_TX" value="1"/>
     </path>
 
     <path name="voip-recordC bt-mic">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer BT_TX" value="1"/>
     </path>
 
