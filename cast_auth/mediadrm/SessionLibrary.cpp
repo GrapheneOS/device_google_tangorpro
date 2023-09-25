@@ -29,10 +29,11 @@ std::vector<uint8_t> SessionLibrary::createSession() {
 
 void SessionLibrary::closeSession(const std::vector<uint8_t>& session) {
     std::lock_guard<std::mutex> guard(session_lock_);
-    std::remove_if(sessions_.begin(), sessions_.end(),
-                   [&session](const std::vector<uint8_t>& e) {
-                     return std::equal(e.begin(), e.end(), session.begin());
-                   });
+    sessions_.erase(std::remove_if(sessions_.begin(), sessions_.end(),
+                                   [&session](const std::vector<uint8_t>& e) {
+                                     return std::equal(e.begin(), e.end(), session.begin());
+                                   }),
+                    sessions_.end());
 }
 
 } // namespace castkeydrm
