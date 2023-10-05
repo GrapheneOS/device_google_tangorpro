@@ -29,7 +29,9 @@ $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/de
 
 DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
-PRODUCT_PACKAGES += WifiOverlayT6pro
+PRODUCT_PACKAGES += \
+        UwbOverlayT6pro \
+        WifiOverlayT6pro
 
 # Disable camera flash and autofocus related xml with a disable flag.
 # This flag need to be set before device/google/gs201/device.mk
@@ -49,6 +51,10 @@ DISABLE_TELEPHONY_EUICC := true
 
 include device/google/tangorpro/audio/tangorpro/audio-tables.mk
 include device/google/gs201/device-shipping-common.mk
+include device/google/gs-common/touch/gti/gti.mk
+include device/google/gs-common/touch/nvt/nvt.mk
+include device/google/gs-common/led/led.mk
+include device/google/gs-common/wlan/dump.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tangorpro)
@@ -145,6 +151,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
 PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
 
+# Assistant minimum volume
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.assistant_vol_min=1
+
 # Temporary override to synchronise changes in pa/ and ag/. See b/246793311 for context.
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.ignore_hwc_physical_display_orientation=true
@@ -193,9 +203,6 @@ PRODUCT_COPY_FILES += \
         device/google/tangorpro/lights/led_golden_calibration_LUT_white_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_white_CG.txt \
         device/google/tangorpro/lights/led_golden_calibration_LUT_black_CG.txt:$(TARGET_COPY_OUT_VENDOR)/etc/led_golden_calibration_LUT_black_CG.txt
 
-# Use GmsCorePrebuilt y2023w06
-USE_GMSCORE_PREBUILT_Y2023W06 := true
-
 # Device features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
@@ -213,10 +220,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
 
 # Display CABC
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.cabc.supported?=1
-
-# Enable adpf cpu hint session for SurfaceFlinger
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    debug.sf.enable_adpf_cpu_hint=true
 
 # Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
@@ -245,6 +248,7 @@ PRODUCT_PRODUCT_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.camera.adjust_backend_min_freq_for_1p_front_video_1080p_30fps=1 \
     persist.vendor.camera.bypass_sensor_binning_resolution_condition=1 \
     persist.vendor.camera.extended_launch_boost=1 \
     persist.vendor.camera.raise_buf_allocation_priority=1
