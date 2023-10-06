@@ -27,6 +27,8 @@ $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/ta
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/WallpapersTangorpro.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/device-vendor.mk)
 
+$(call inherit-product, device/google/tangorpro/uwb/uwb_calibration_country.mk)
+
 DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
 PRODUCT_PACKAGES += \
