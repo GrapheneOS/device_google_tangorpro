@@ -65,6 +65,9 @@ PRODUCT_COPY_FILES += \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_headset_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_headset_config.pb \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_dock_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_dock_config.pb \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_tablet_stereo_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_tablet_stereo_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_headset_aec_off_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_headset_aec_off_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_dock_aec_off_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_dock_aec_off_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_tablet_stereo_aec_off_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_tablet_stereo_aec_off_config.pb \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_headset_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_headset_config.pb \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_dock_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_dock_config.pb \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_tablet_stereo_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_tablet_stereo_config.pb
