@@ -106,6 +106,23 @@ PRODUCT_SOONG_NAMESPACES += device/google/tangorpro/powerstats
 # Bluetooth HAL and Pixel extension
 include device/google/tangorpro/bluetooth/syna_default.mk
 
+# Spatial Audio
+PRODUCT_PACKAGES += \
+	libspatialaudio
+
+# optimize spatializer effect
+PRODUCT_PROPERTY_OVERRIDES += \
+	audio.spatializer.effect.util_clamp_min=300
+
+# declare use of spatial audio
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.audio.spatializer_enabled=true \
+	persist.vendor.audio.spatializer.speaker_enabled=true
+
+# Bluetooth OPUS codec
+PRODUCT_PRODUCT_PROPERTIES += \
+	persist.bluetooth.opus.enabled=true
+
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
 
@@ -149,9 +166,6 @@ PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
 # Wifi SAP Interface Name
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.wifi.sap.interface=wlan1
-
-# Set ro.crypto.metadata_init_delete_all_keys.enabled to false to unblock boot
-PRODUCT_PROPERTY_OVERRIDES += ro.crypto.metadata_init_delete_all_keys.enabled=false
 
 # Assistant minimum volume
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -259,12 +273,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.exif_reveal_make_model=true
 
+# Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.multi_usb_mode=true
+
+# Audio package
+PRODUCT_PACKAGES += \
+    audio_apmg3_aoc
+
 # AudioProxy
 PRODUCT_PACKAGES += \
     libaudio_proxy.google \
     device.google.atv.audio_proxy@7.1-service
 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/tangorpro/device_framework_matrix_product_tangorpro.xml
+
+#Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.audio.speech_enhancement.enable=1
+
+PRODUCT_PACKAGES += \
+    libspeechenhancer \
+    audio_speech_enhancer_aoc
 
 PRODUCT_COPY_FILES += \
     device/google/tangorpro/public.libraries-google-tangorpro.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-google.txt

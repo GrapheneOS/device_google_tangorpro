@@ -15,9 +15,22 @@
 # limitations under the License.
 #
 
+# Override BQR mask to enable LE Audio Choppy report
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=262238
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=94
+endif
+
+# Not support LE Audio dual mic SWB call based on the current launch strategy
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.leaudio.dual_bidirection_swb.supported=false
+
 # Bluetooth Super Wide Band
 PRODUCT_PRODUCT_PROPERTIES += \
-    bluetooth.hfp.swb.supported=true
+    bluetooth.hfp.swb.supported=false
 
 # Bluetooth LE Audio
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -28,6 +41,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.profile.mcp.server.enabled?=true \
     bluetooth.profile.ccp.server.enabled?=true \
     bluetooth.profile.vcp.controller.enabled?=true \
+
+# LE Audio Lunch Config for Phase 1 (LE audio toggle hidden by default)
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.leaudio.toggle_visible=false
 
 # Bluetooth HAL and Pixel extension
 DEVICE_MANIFEST_FILE += \
@@ -55,7 +72,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
-    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac-opus
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.firmware.selection="BTFW.hcd"
 

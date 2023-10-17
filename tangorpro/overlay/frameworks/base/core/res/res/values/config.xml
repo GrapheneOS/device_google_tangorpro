@@ -348,8 +348,8 @@
     <!-- Indicates whether device has a power button fingerprint sensor. -->
     <bool name="config_is_powerbutton_fps">true</bool>
 
-    <dimen name="status_bar_height_default">104px</dimen>
-    <dimen name="status_bar_height_portrait">104px</dimen>
+    <dimen name="status_bar_height_default">36dp</dimen>
+    <dimen name="status_bar_height_portrait">36dp</dimen>
 
     <!-- Control whether the pickup gesture is enabled by default. This value will be used
      during initialization when the setting is still null. -->
@@ -636,7 +636,7 @@
 
     <!-- Enable the system motion prediction model. -->
     <bool name="config_enableMotionPrediction">true</bool>
-    <integer name="config_motionPredictionOffsetNanos">20000000</integer> <!-- 20 ms -->
+    <integer name="config_motionPredictionOffsetNanos">-4000000</integer> <!-- -4 ms -->
 
     <!-- Whether to reset Battery Stats on unplug when the battery level is high. -->
     <bool name="config_batteryStatsResetOnUnplugHighBatteryLevel">false</bool>

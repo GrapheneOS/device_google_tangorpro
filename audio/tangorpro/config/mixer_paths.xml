@@ -155,6 +155,7 @@
     <ctl name="TDM_0_RX Mixer VOIP" value="0"/>
     <ctl name="TDM_0_RX Mixer RAW" value="0"/>
     <ctl name="TDM_0_RX Mixer US" value="0"/>
+    <ctl name="TDM_0_RX Mixer IMSV" value="0"/>
 
     <ctl name="TDM_1_RX Mixer EP1" value="0"/>
     <ctl name="TDM_1_RX Mixer EP2" value="0"/>
@@ -177,6 +178,7 @@
     <ctl name="USB_RX Mixer VOIP" value="0"/>
     <ctl name="USB_RX Mixer HIFI" value="0"/>
     <ctl name="USB_RX Mixer RAW" value="0"/>
+    <ctl name="USB_RX Mixer IMSV" value="0"/>
 
     <ctl name="BT_RX Mixer EP1" value="0"/>
     <ctl name="BT_RX Mixer EP2" value="0"/>
@@ -188,6 +190,7 @@
     <ctl name="BT_RX Mixer NoHost1" value="0"/>
     <ctl name="BT_RX Mixer VOIP" value="0"/>
     <ctl name="BT_RX Mixer RAW" value="0"/>
+    <ctl name="BT_RX Mixer IMSV" value="0"/>
 
     <ctl name="INCALL_RX Mixer EP1" value="0"/>
     <ctl name="INCALL_RX Mixer EP2" value="0"/>
@@ -607,14 +610,17 @@
     </path>
 
     <path name="voip-recordC">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer INTERNAL_MIC_TX" value="1"/>
     </path>
 
     <path name="voip-recordC usb-headset-mic">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer USB_TX" value="1"/>
     </path>
 
     <path name="voip-recordC bt-mic">
+        <ctl name="Incall Capture Stream0" value="3MIC"/>
         <ctl name="VOIP TX Mixer BT_TX" value="1"/>
     </path>
 
