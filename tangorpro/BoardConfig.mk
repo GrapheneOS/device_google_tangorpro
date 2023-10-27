@@ -15,6 +15,11 @@
 #
 TARGET_BOARD_INFO_FILE := device/google/tangorpro/board-info.txt
 TARGET_BOOTLOADER_BOARD_NAME := tangorpro
+ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
+RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/24Q1
+else
+RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/trunk
+endif
 
 # Enable load module in parallel
 BOARD_BOOTCONFIG += androidboot.load_modules_parallel=true
