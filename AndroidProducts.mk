@@ -20,4 +20,4 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/factory_tangorpro.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_tangorpro-userdebug
+    aosp_tangorpro-trunk_staging-userdebug
