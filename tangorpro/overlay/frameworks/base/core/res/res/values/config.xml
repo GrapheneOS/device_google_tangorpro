@@ -462,17 +462,24 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevelsIdle">
+        <item>1</item>
+        <item>2</item>
         <item>3</item>
-        <item>6</item>
-        <item>11</item>
-        <item>31</item>
-        <item>64</item>
-        <item>113</item>
-        <item>180</item>
-        <item>264</item>
-        <item>364</item>
-        <item>451</item>
-        <item>885</item>
+        <item>4</item>
+        <item>8</item>
+        <item>12</item>
+        <item>20</item>
+        <item>33</item>
+        <item>55</item>
+        <item>90</item>
+        <item>148</item>
+        <item>245</item>
+        <item>403</item>
+        <item>665</item>
+        <item>1097</item>
+        <item>1808</item>
+        <item>2981</item>
+        <item>4915</item>
     </integer-array>
 
     <!-- Array of desired screen brightness in nits corresponding to the lux values
@@ -515,18 +522,25 @@
          This array also corresponds to the lux values given in config_autoBrightnessLevelsIdle.
          In order to activate this mode, config_enableIdleScreenBrightnessMode must be true. -->
     <array name="config_autoBrightnessDisplayValuesNitsIdle">
-      <item>0.400000001</item>    <!--  0 - 3 -->
-      <item>2.424401926</item>    <!--  3 - 6 -->
-      <item>4.016322573</item>    <!--  6 - 11 -->
-      <item>6.924331831</item>    <!--  11 - 31 -->
-      <item>18.21836204</item>    <!--  31 - 64 -->
-      <item>36.9199795</item>     <!--  64 - 113 -->
-      <item>65.40219962</item>    <!--  113 - 180 -->
-      <item>104.0902078</item>    <!--  180 - 264 -->
-      <item>152.5833029</item>    <!--  264 - 364 -->
-      <item>210.1432982</item>    <!--  364 - 451 -->
-      <item>260.2204941</item>    <!--  451 - 885 -->
-      <item>500.2693058</item>    <!--  885 + -->
+      <item>5.139055</item>       <!--  0 - 1 -->
+      <item>9.962018965</item>    <!--  1 - 2 -->
+      <item>18.34822964</item>    <!--  2 - 3 -->
+      <item>21.55068128</item>    <!--  3 - 4 -->
+      <item>24.0167788</item>     <!--  4 - 8 -->
+      <item>30.62162162</item>    <!--  8 - 12 -->
+      <item>35.09486396</item>    <!--  12 - 20 -->
+      <item>45.38057825</item>    <!--  20 - 33 -->
+      <item>62.187656</item>      <!--  33 - 55 -->
+      <item>88.01503</item>       <!--  55 - 90 -->
+      <item>118.924484</item>     <!--  90 - 148 -->
+      <item>147.89162</item>      <!--  148 - 245 -->
+      <item>175.12471</item>      <!--  245 - 403 -->
+      <item>191.33968</item>      <!--  403 - 665 -->
+      <item>226.19489</item>      <!--  665 - 1097 -->
+      <item>295.24768</item>      <!--  1097 - 1808 -->
+      <item>396.007</item>        <!--  1808 - 2981 -->
+      <item>440.62778</item>      <!--  2981 - 4915 -->
+      <item>600.0</item>          <!--  4915+ -->
     </array>
 
     <!-- Enables idle screen brightness mode on this device.
@@ -655,7 +669,10 @@
     <integer name="config_audio_notif_vol_default">0</integer>
 
     <!-- Volume policy -->
+    <!-- Strongly consider keeping these 2 values in sync - otherwise vol up/vol down have confusing
+    asymmetric behavior, as in b/279645379 -->
     <bool name="config_volume_down_to_enter_silent">true</bool>
+    <bool name="config_volume_up_to_exit_silent">true</bool>
 
     <!-- This device does not allow mobile data. -->
     <bool name="config_mobile_data_capable">false</bool>
