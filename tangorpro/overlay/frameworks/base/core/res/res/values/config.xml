@@ -522,7 +522,7 @@
          This array also corresponds to the lux values given in config_autoBrightnessLevelsIdle.
          In order to activate this mode, config_enableIdleScreenBrightnessMode must be true. -->
     <array name="config_autoBrightnessDisplayValuesNitsIdle">
-      <item>5.139055</item>       <!--  0 - 1 -->
+      <item>2.0</item>       <!--  0 - 1 -->
       <item>9.962018965</item>    <!--  1 - 2 -->
       <item>18.34822964</item>    <!--  2 - 3 -->
       <item>21.55068128</item>    <!--  3 - 4 -->
