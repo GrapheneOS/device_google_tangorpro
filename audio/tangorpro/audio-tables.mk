@@ -16,6 +16,15 @@
 
 AUDIO_TABLE_FOLDER := tangorpro
 
+# Enable this to build AIDL
+BUILD_AUDIO_AIDL_VERSION := false
+
+ifeq ($(BUILD_AUDIO_AIDL_VERSION),true)
+PRODUCT_COPY_FILES += \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/aidl_config/audio_platform_configuration_aidl.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_configuration_aidl.xml \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/aidl_config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/aidl_config/mixer_paths_aidl.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_aidl.xml
+else
 # Platform Configuration for AudioHAL / SoundTriggerHAL
 PRODUCT_COPY_FILES += \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/config/audio_policy_configuration_bluetooth_legacy_hal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_bluetooth_legacy_hal.xml \
@@ -34,6 +43,7 @@ PRODUCT_COPY_FILES += \
 # Mixer Path Configuration for AudioHAL
 PRODUCT_COPY_FILES += \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/config/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+endif
 
 # Speaker firmware files
 SPK_FIRMWARE_PATH := $(AUDIO_TABLE_FOLDER)/cs35l41/fw
@@ -51,7 +61,16 @@ PRODUCT_COPY_FILES += \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/HEADSET.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/HEADSET.dat \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/mcps.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/mcps.dat \
     device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/waves_config.ini:$(TARGET_COPY_OUT_VENDOR)/etc/waves_config.ini \
-    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/waves_preset.mps:$(TARGET_COPY_OUT_VENDOR)/etc/waves_preset.mps
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/waves_preset.mps:$(TARGET_COPY_OUT_VENDOR)/etc/waves_preset.mps \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_headset_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_headset_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_dock_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_dock_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_tablet_stereo_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_tablet_stereo_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_headset_aec_off_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_headset_aec_off_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_dock_aec_off_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_dock_aec_off_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/uplink_tablet_stereo_aec_off_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/uplink_tablet_stereo_aec_off_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_headset_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_headset_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_dock_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_dock_config.pb \
+    device/google/tangorpro/audio/$(AUDIO_TABLE_FOLDER)/tuning/apmg3/downlink_tablet_stereo_config.pb:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/downlink_tablet_stereo_config.pb
 
 # userdebug specific
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
