@@ -234,8 +234,6 @@
         </module>
         <!-- Remote Submix Audio HAL -->
         <xi:include href="r_submix_audio_policy_configuration.xml"/>
-        <!-- Audio Proxy Audio HAL -->
-        <xi:include href="audio_proxy_policy_configuration.xml"/>
     </modules>
     <!-- End of Modules section -->
     <!-- Volume section -->

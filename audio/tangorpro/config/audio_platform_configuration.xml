@@ -254,6 +254,7 @@
         <feature name="SoundTriggerDockTuning"/>
         <feature name="BatteryThrottle=Type:BCL_VOLTAGE,Name:BCL_AUDIO_BAACL,Strategy:WholeSpeaker"/>
         <feature name="Apmg3"/>
+        <!--feature name="Pokebowl"/-->
     </features>
 
     <cfg_attr>
@@ -292,6 +293,7 @@
         <item component="TUNING_COMPONENT_WAVES" id="2"/>
         <item component="TUNING_COMPONENT_FORTEMEDIA" id="3"/>
         <item component="TUNING_COMPONENT_APMG3" id="24"/>
+        <!--item component="TUNING_COMPONENT_POKEBOWL" id="25"/-->
         <item component="TUNING_COMPONENT_CAMCORDER" id="6"/>
         <item component="TUNING_COMPONENT_STEREO_SPATIALIZER" id="26"/>
     </xlate_id>
@@ -312,6 +314,7 @@
         <module libname="audio_amcs_ext.so" argu="SpeakerNum=4" />
         <module libname="audio_bluenote_aoc.so"/>
         <module libname="audio_apmg3_aoc.so"/>
+        <!--module libname="audio_pokebowl_aoc.so"/-->
     </external_module>
 
     <hal_effect>

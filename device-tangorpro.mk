@@ -303,13 +303,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro/audio/tangorpro/prebuilt/libspeechenhancer
 
-# AudioProxy
-PRODUCT_PACKAGES += \
-    libaudio_proxy.google \
-    device.google.atv.audio_proxy@7.1-service
-
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/tangorpro/device_framework_matrix_product_tangorpro.xml
-
 #Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.speech_enhancement.enable=1
@@ -317,9 +310,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libspeechenhancer \
     audio_speech_enhancer_aoc
-
-PRODUCT_COPY_FILES += \
-    device/google/tangorpro/public.libraries-google-tangorpro.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-google.txt
 
 # SKU specific RROs
 PRODUCT_PACKAGES += \
