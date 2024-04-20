@@ -165,15 +165,6 @@ include device/google/tangorpro/fingerprint_config.mk
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
-ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts/trusty/24Q1
-else ifneq (,$(filter AP2%,$(RELEASE_PLATFORM_VERSION)))
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts/trusty/24Q2
-else ifneq (,$(filter AP3%,$(RELEASE_PLATFORM_VERSION)))
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts/trusty/24Q3
-else
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts/trusty/trunk
-endif
 
 # Wifi SAP Interface Name
 PRODUCT_PROPERTY_OVERRIDES += \
