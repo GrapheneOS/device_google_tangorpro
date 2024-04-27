@@ -126,6 +126,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PRODUCT_PROPERTIES += \
 	persist.bluetooth.opus.enabled=true
 
+# Enable Bluetooth AutoOn feature
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.server.automatic_turn_on=true
+
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
 
