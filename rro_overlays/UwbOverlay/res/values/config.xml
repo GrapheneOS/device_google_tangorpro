@@ -63,4 +63,10 @@
     This works best with an FOV primer setting below 90 degrees to ensure that predictions are being
     used across the 90-degree threshold. -->
     <bool name="enable_azimuth_mirroring">false</bool>
+
+    <!-- Whether to use a persistent cache in the algorithm to determine country code or not.
+    If enabled, will fallback to the cache to determine device location for
+    UWB regulatory purposes when  other sources (telephony, wifi, location, etc) is not available.
+    -->
+    <bool name = "persistent_cache_use_for_country_code_enabled">true</bool>
 </resources>
