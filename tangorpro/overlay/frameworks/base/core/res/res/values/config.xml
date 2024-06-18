@@ -718,4 +718,6 @@
 
     <!-- Show shortcut hit string in context menu. -->
     <bool name="config_showMenuShortcutsWhenKeyboardPresent">true</bool>
+
+    <bool name="config_usb_port_security_applies_to_pogo_pins">true</bool>
 </resources>
