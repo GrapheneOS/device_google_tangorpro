@@ -116,10 +116,12 @@ on property:vendor.thermal.link_ready=1
 # Pogo
 on post-fs
     chown root system /sys/devices/platform/google,pogo/move_data_to_usb
+    chown root system /sys/devices/platform/google,pogo/charging_only
     chown system system /sys/devices/platform/google,pogo/hall1_s
     chown system system /sys/devices/platform/google,pogo/hall1_n
     chown system system /sys/devices/platform/google,pogo/hall2_s
     chmod 664 /sys/devices/platform/google,pogo/move_data_to_usb
+    chmod 664 /sys/devices/platform/google,pogo/charging_only
     chmod 600 /sys/devices/platform/google,pogo/hall1_s
     chmod 600 /sys/devices/platform/google,pogo/hall1_n
     chmod 600 /sys/devices/platform/google,pogo/hall2_s
