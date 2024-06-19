@@ -13,3 +13,6 @@ on property:sys.port_security_mode=charging-only
 
 on property:sys.port_security_mode=ports_enabled
     write /sys/devices/platform/google,pogo/charging_only 0
+
+on property:persist.sys.alt_touch_mode=1 && property:sys.state_of_default_display=on
+    write /sys/devices/platform/10d10000.spi/spi_master/spi0/spi0.0/input/nvt_touch/nvt_freq_hopping 1
