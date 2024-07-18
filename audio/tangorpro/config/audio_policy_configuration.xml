@@ -187,7 +187,7 @@
                 <route type="mix" sink="Speaker"
                        sources="primary output,deep buffer,raw,compressed_offload,mmap_no_irq_out,voip_rx,ultrasound output,immersive_out"/>
                 <route type="mix" sink="Speaker Safe"
-                       sources="primary output,deep buffer,raw,compressed_offload,mmap_no_irq_out,voip_rx,ultrasound output"/>
+                       sources="primary output,deep buffer,raw,compressed_offload,mmap_no_irq_out,voip_rx,ultrasound output,immersive_out"/>
                 <route type="mix" sink="BT A2DP Out"
                        sources="primary output,deep buffer,compressed_offload,voip_rx,raw,mmap_no_irq_out,immersive_out"/>
                 <route type="mix" sink="BT A2DP Headphones"
