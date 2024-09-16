@@ -1,7 +1,11 @@
-
 // ----------------------------------------------------------------------------
 // Builds android.hardware.drm-service.castkey
 //
+// TODO(b/366426322): Merge these targets into `device/google/gs-common`.
+
+soong_namespace {
+}
+
 package {
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
@@ -32,7 +36,10 @@ cc_defaults {
 
     relative_install_path: "hw",
 
-    cflags: ["-Wall", "-Werror"],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
 
     include_dirs: [
         "device/google/tangorpro/cast_auth/mediadrm/include",
