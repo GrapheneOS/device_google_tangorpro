@@ -258,6 +258,13 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_SOONG_NAMESPACES += \
 	vendor/lib64
 
+# TODO(b/366426322): Merge CastKey Drm plugin into `device/google/gs-common`.
+# CastKey Drm plugin modules
+PRODUCT_SOONG_NAMESPACES += \
+	device/google/tangorpro/cast_auth/mediadrm
+PRODUCT_PACKAGES += \
+	android.hardware.drm-service.castkey
+
 # MIPI Coex Configs
 PRODUCT_COPY_FILES += \
     device/google/tangorpro/radio/tangor_camera_front_mipi_coex_table.csv:$(TARGET_COPY_OUT_VENDOR)/etc/modem/camera_front_mipi_coex_table.csv \
