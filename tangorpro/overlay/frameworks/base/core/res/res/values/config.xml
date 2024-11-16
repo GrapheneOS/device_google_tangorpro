@@ -722,4 +722,6 @@
     <bool name="config_usb_port_security_applies_to_pogo_pins">true</bool>
 
     <bool name="config_has_alternative_touchscreen_mode">true</bool>
+
+    <integer name="config_multiuserMaxRunningUsers">6</integer>
 </resources>
