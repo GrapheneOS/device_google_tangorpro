@@ -11,15 +11,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/google_devices/tangorpro/proprietary \
-
-# AOSP packages required by the blobs
-PRODUCT_PACKAGES := \
-    UwbVendorService \
-
-#  blob(s) necessary for tangorpro hardware
-PRODUCT_COPY_FILES := \
-    vendor/google_devices/tangorpro/proprietary/privapp-permissions-qorvo.xml:system_ext/etc/permissions/privapp-permissions-qorvo.xml:qorvo \
-

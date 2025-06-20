@@ -11,27 +11,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-BOARD_PREBUILT_VENDORIMAGE := vendor/google_devices/tangorpro/proprietary/vendor.img
-
-BOARD_PREBUILT_VENDOR_DLKMIMAGE := vendor/google_devices/tangorpro/proprietary/vendor_dlkm.img
-
-TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
-
-BOARD_AVB_VBMETA_VENDOR := vendor
-BOARD_AVB_VBMETA_VENDOR_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
-BOARD_AVB_VBMETA_VENDOR_ALGORITHM := SHA256_RSA2048
-BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
-
-AB_OTA_PARTITIONS += \
-    vbmeta_vendor \
-    vendor \
-    vendor_dlkm \
-
--include vendor/google/tools/android-info.mk
-ifdef USE_ANDROID_INFO
-  TARGET_BOARD_INFO_FILE := vendor/google_devices/tangorpro/android-info.txt
-endif
-
-VENDOR_BLOBS_LICENSE := vendor/google_devices/tangorpro/LICENSE
