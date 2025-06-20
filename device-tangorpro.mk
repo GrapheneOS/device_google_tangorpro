@@ -208,10 +208,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
         vendor/google/trusty/common
 
-# Cast auth
-PRODUCT_COPY_FILES += \
-        device/google/tangorpro/cast_auth/tangor_ica.crt:$(TARGET_COPY_OUT_VENDOR)/etc/cert-chain.crt
-
 PRODUCT_PACKAGES += \
         libcast_auth
 
