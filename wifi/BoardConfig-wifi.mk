@@ -29,9 +29,5 @@ WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 WIFI_FEATURE_HOSTAPD_11AX := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
-PRODUCT_COPY_FILES += \
-    device/google/tangorpro/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    device/google/tangorpro/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
-
 # Add WIFI_FEATURE_IMU_DETECTION to soong_config
 $(call soong_config_set,wifi,feature_imu_detection,$(WIFI_FEATURE_IMU_DETECTION))
