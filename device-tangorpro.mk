@@ -309,8 +309,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     audio_apmg3_aoc
 
-PRODUCT_SOONG_NAMESPACES += device/google/tangorpro/audio/tangorpro/prebuilt/libspeechenhancer
-
 #Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.speech_enhancement.enable=1
