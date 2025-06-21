@@ -50,6 +50,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.bluetooth.leaudio.le_audio_connection_by_default=false
 
+# TODO: check if manifest is fetched via adevtool, strip/comment out
+# manifest file declaration if so.
 # Bluetooth HAL and Pixel extension
 DEVICE_MANIFEST_FILE += \
        device/google/tangorpro/bluetooth/manifest_bluetooth.xml
@@ -61,14 +63,6 @@ PRODUCT_PACKAGES += android.hardware.bluetooth@1.1-service.synabtlinux \
 
 # Bluetooth SAR test tools
 PRODUCT_PACKAGES_DEBUG += bt_sar_test
-
-# Bluetooth Tx power caps
-PRODUCT_COPY_FILES += \
-    device/google/tangorpro/bluetooth/bluetooth_power_limits_tangorpro.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
-    device/google/tangorpro/bluetooth/bluetooth_power_limits_tangorpro_GTU8P_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GTU8P_CA.csv \
-    device/google/tangorpro/bluetooth/bluetooth_power_limits_tangorpro_GTU8P_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GTU8P_EU.csv \
-    device/google/tangorpro/bluetooth/bluetooth_power_limits_tangorpro_GTU8P_JP.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GTU8P_JP.csv \
-    device/google/tangorpro/bluetooth/bluetooth_power_limits_tangorpro_GTU8P_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GTU8P_US.csv \
 
 # default BDADDR for EVB only
 PRODUCT_PROPERTY_OVERRIDES += \
