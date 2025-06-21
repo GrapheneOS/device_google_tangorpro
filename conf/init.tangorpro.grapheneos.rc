@@ -1,0 +1,15 @@
+on post-fs
+    chown root system /sys/devices/platform/google,pogo/charging_only
+    chmod 664 /sys/devices/platform/google,pogo/charging_only
+
+on property:sys.port_security_mode=ports_disabled
+    write /sys/devices/platform/google,pogo/charging_only 2
+
+on property:sys.port_security_mode=charging-only_immediate
+    write /sys/devices/platform/google,pogo/charging_only 2
+
+on property:sys.port_security_mode=charging-only
+    write /sys/devices/platform/google,pogo/charging_only 1
+
+on property:sys.port_security_mode=ports_enabled
+    write /sys/devices/platform/google,pogo/charging_only 0
