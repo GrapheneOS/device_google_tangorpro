@@ -139,3 +139,15 @@ on property:persist.vendor.usb.force_pogo=0
 # Sensor
 on init && property:ro.bootmode=charger
     write /sys/devices/platform/19000000.aoc/sensor_power_enable 0
+
+on property:sys.port_security_mode=ports_disabled
+    write /sys/devices/platform/google,pogo/charging_only 2
+
+on property:sys.port_security_mode=charging-only_immediate
+    write /sys/devices/platform/google,pogo/charging_only 2
+
+on property:sys.port_security_mode=charging-only
+    write /sys/devices/platform/google,pogo/charging_only 1
+
+on property:sys.port_security_mode=ports_enabled
+    write /sys/devices/platform/google,pogo/charging_only 0
