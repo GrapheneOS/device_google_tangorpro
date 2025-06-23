@@ -99,15 +99,6 @@ include device/google/tangorpro/bluetooth/syna_default.mk
 PRODUCT_PACKAGES += \
 	libspatialaudio
 
-# optimize spatializer effect
-PRODUCT_PROPERTY_OVERRIDES += \
-	audio.spatializer.effect.util_clamp_min=300
-
-# declare use of spatial audio
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.audio.spatializer_enabled=true \
-	persist.vendor.audio.spatializer.speaker_enabled=true
-
 # Bluetooth OPUS codec
 PRODUCT_PRODUCT_PROPERTIES += \
 	persist.bluetooth.opus.enabled=true
