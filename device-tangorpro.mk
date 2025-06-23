@@ -136,9 +136,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
 	vendor/lib64
 
-# Cast ssid suffix go/gna-oem-device-support
-PRODUCT_PRODUCT_PROPERTIES += ro.odm.cast.ssid_suffix=ynn
-
 # Set device family property for SMR
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.device_family=T6P
