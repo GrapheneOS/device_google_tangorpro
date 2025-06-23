@@ -109,10 +109,6 @@ include device/google/tangorpro/fingerprint_config.mk
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
 
-# Wifi SAP Interface Name
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.wifi.sap.interface=wlan1
-
 # Assistant minimum volume
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.assistant_vol_min=1
