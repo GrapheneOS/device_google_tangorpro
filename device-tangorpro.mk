@@ -109,10 +109,6 @@ include device/google/tangorpro/fingerprint_config.mk
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
 
-# Assistant minimum volume
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.assistant_vol_min=1
-
 # Temporary override to synchronise changes in pa/ and ag/. See b/246793311 for context.
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.ignore_hwc_physical_display_orientation=true
