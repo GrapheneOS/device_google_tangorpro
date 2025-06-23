@@ -89,10 +89,6 @@ PRODUCT_COPY_FILES += \
 	device/google/tangorpro/init.insmod.tangorpro.cfg:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/init.insmod.tangorpro.cfg
 endif
 
-# Camera
-PRODUCT_COPY_FILES += \
-	device/google/tangorpro/media_profiles_tangorpro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
-
 # Thermal Config
 PRODUCT_COPY_FILES += \
 	device/google/tangorpro/thermal_info_config_tangorpro.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
