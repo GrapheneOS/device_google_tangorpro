@@ -132,11 +132,6 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
 
-# Increase thread priority for nodes stop
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.increase_thread_priority_nodes_stop=true \
-    persist.vendor.camera.debug.bypass_csi_link_crc_error=true
-
 # Trusty libbinder_trusty_paidl.so and libcast_auth.so
 PRODUCT_SOONG_NAMESPACES += \
 	vendor/lib64
