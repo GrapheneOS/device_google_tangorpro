@@ -73,12 +73,6 @@ endif
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUITitan  # For tablet
 
-# Touch files
-PRODUCT_COPY_FILES += \
-        device/google/tangorpro/NVTCapacitiveTouchScreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/NVTCapacitiveTouchScreen.idc \
-        device/google/tangorpro/NVTCapacitivePen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/NVTCapacitivePen.idc \
-        device/google/tangorpro/USI_Stylus.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/USI_Stylus.idc
-
 # Init files
 PRODUCT_COPY_FILES += \
 	device/google/tangorpro/conf/init.tangorpro.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tangorpro.rc
