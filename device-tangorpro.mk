@@ -132,15 +132,6 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
 
-# Enable HWC dynamic recomposition for display with index 0
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.dynamic_recomposition=1
-
-# Display LBE
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
-
-# Display CABC
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.cabc.supported?=1
-
 # Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
     vendor.zram.size=3g
