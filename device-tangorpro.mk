@@ -155,18 +155,6 @@ ifeq ($(RELEASE_IS_EMR), true)
     endif
 endif
 
-# Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.audio.multi_usb_mode=true
-
-# Audio package
-PRODUCT_PACKAGES += \
-    audio_apmg3_aoc
-
-#Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.audio.speech_enhancement.enable=1
-
 PRODUCT_PACKAGES += \
     libspeechenhancer \
     audio_speech_enhancer_aoc
