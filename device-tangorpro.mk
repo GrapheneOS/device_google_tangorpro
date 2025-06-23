@@ -89,10 +89,6 @@ PRODUCT_COPY_FILES += \
 	device/google/tangorpro/init.insmod.tangorpro.cfg:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/init.insmod.tangorpro.cfg
 endif
 
-# Power HAL config
-PRODUCT_COPY_FILES += \
-	device/google/tangorpro/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
 # PowerStats HAL
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro/powerstats
 
