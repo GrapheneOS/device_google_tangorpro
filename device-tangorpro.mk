@@ -109,8 +109,6 @@ include device/google/tangorpro/fingerprint_config.mk
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.ignore_hwc_physical_display_orientation=true
-
 # Set boot animation orientation and default display rotation to be landscape since Tangor
 # natural orientation is portrait. Id at the end corresponds to the display id on the device.
 # See b/246793311 for context.
