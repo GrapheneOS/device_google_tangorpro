@@ -89,11 +89,6 @@ PRODUCT_COPY_FILES += \
 	device/google/tangorpro/init.insmod.tangorpro.cfg:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/init.insmod.tangorpro.cfg
 endif
 
-# Thermal Config
-PRODUCT_COPY_FILES += \
-	device/google/tangorpro/thermal_info_config_tangorpro.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
-	device/google/tangorpro/thermal_info_config_charge_tangorpro.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_charge.json \
-
 # Power HAL config
 PRODUCT_COPY_FILES += \
 	device/google/tangorpro/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
