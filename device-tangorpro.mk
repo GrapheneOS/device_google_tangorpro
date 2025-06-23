@@ -109,13 +109,6 @@ include device/google/tangorpro/fingerprint_config.mk
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tangorpro/prebuilts
 
-# Display white balance
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-        ro.surface_flinger.display_primary_red=0.5128,0.2413,0.0000 \
-        ro.surface_flinger.display_primary_green=0.2598,0.6764,0.0441 \
-        ro.surface_flinger.display_primary_blue=0.2057,0.0823,1.0832 \
-        ro.surface_flinger.display_primary_white=0.9783,1.0000,1.1273
-
 # Enable Telecom feature
 # b/227692870
 PRODUCT_COPY_FILES += \
