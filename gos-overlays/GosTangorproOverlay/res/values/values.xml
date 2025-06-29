@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="config_usb_port_security_applies_to_pogo_pins">true</bool>
+
+    <bool name="config_has_alternative_touchscreen_mode">true</bool>
 </resources>
