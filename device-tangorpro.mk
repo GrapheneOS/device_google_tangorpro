@@ -32,11 +32,7 @@ $(call inherit-product-if-exists, vendor/google_devices/tangorpro/proprietary/de
 
 $(call inherit-product, device/google/tangorpro/uwb/uwb_calibration_country.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/google/tangorpro/tangorpro/overlay
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
-PRODUCT_PACKAGES += \
-        UwbOverlayT6pro \
-        WifiOverlayT6pro
 
 # Disable camera flash and autofocus related xml with a disable flag.
 # This flag need to be set before device/google/gs201/device.mk
@@ -154,10 +150,6 @@ endif
 PRODUCT_PACKAGES += \
     libspeechenhancer \
     audio_speech_enhancer_aoc
-
-# SKU specific RROs
-PRODUCT_PACKAGES += \
-    SettingsOverlayGTU8P
 
 # PlayVideos
 PLAYVIDEOS_VERSION_DIR := 4.38.72.77
