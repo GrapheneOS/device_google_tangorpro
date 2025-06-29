@@ -34,6 +34,8 @@ $(call inherit-product, device/google/tangorpro/uwb/uwb_calibration_country.mk)
 
 PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
 
+PRODUCT_PACKAGES += GosTangorproOverlay
+
 # Disable camera flash and autofocus related xml with a disable flag.
 # This flag need to be set before device/google/gs201/device.mk
 DISABLE_CAMERA_FS_AF := true
