@@ -73,10 +73,6 @@ endif
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUITitan  # For tablet
 
-# Init files
-PRODUCT_COPY_FILES += \
-	device/google/tangorpro/conf/init.tangorpro.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tangorpro.rc
-
 # Recovery files
 PRODUCT_COPY_FILES += \
         device/google/tangorpro/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.tangorpro.rc
