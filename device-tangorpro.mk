@@ -36,6 +36,8 @@ PRODUCT_SOONG_NAMESPACES += device/google/tangorpro
 
 PRODUCT_PACKAGES += GosTangorproOverlay
 
+PRODUCT_PACKAGES += init.tangorpro.grapheneos.rc
+
 # Disable camera flash and autofocus related xml with a disable flag.
 # This flag need to be set before device/google/gs201/device.mk
 DISABLE_CAMERA_FS_AF := true

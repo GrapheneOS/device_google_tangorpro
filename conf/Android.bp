@@ -1,0 +1,8 @@
+prebuilt_etc {
+    name: "init.tangorpro.grapheneos.rc",
+    // note that file name is important here, it should be greater than "init.gs201.grapheneos.rc"
+    // to maintain the right order of init triggers
+    src: "init.tangorpro.grapheneos.rc",
+    sub_dir: "init",
+    vendor: true,
+}
